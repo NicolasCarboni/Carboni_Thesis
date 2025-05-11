@@ -1,12 +1,19 @@
-import hashlib
+import os
 import json
+import hashlib
 import logging
 from web3 import Web3
 
 logging.basicConfig(level=logging.INFO)
 
-# File di configurazione per indirizzi e ABI dei contratti
-CONTRACT_ADDRESS = "0x2f482a6e9bC0fF6b38dD919bb8fE6179917f1a21"
+# Load contract addresses from configuration file
+CONFIG_PATH = os.path.join(os.path.dirname(__file__), 'config', 'contract_addresses.json')
+with open(CONFIG_PATH, 'r') as f:
+    contract_addresses = json.load(f)
+
+CONTRACT_ADDRESS = contract_addresses.get("HashStorage")
+DATA_FACT_MODEL_ADDRESS = contract_addresses.get("DataFactModel")
+
 CONTRACT_ABI_SET_HASH = json.loads('''
 [
     {
