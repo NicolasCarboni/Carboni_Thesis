@@ -1,0 +1,7 @@
+In 3 different terminals:
+1) geth --dev --http --http.addr 127.0.0.1 --http.port 8545 --http.api eth,web3,personal,net
+2) truffle migrate
+    CHANGE ADDRESSES !!!
+    - main.py           data_fact_model_address l.47
+    - hash_utils.py     CONTRACT_ADDRESS l.9
+3) python main.py
