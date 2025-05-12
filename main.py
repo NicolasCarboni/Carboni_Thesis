@@ -1,8 +1,8 @@
 import os
+import json
 import pandas as pd
 import torch
 import onnx
-import json
 import time
 import psutil
 from models.olap_cube import OLAPCube
@@ -10,9 +10,19 @@ from operations.slicing_model import SlicingModel
 from operations.dicing_model import DicingModel
 from operations.roll_up_model import RollUpModel
 import asyncio
-import ezkl
 from ezkl_workflow.generate_proof import generate_proof
 from hash_utils import verify_dataset_hash, verify_query_allowed, publish_hash
+
+
+output_dir = './output'
+os.makedirs(output_dir, exist_ok=True)
+
+def load_contract_address(contract_name):
+    """Load the contract address from the configuration file."""
+    config_path = os.path.join(os.path.dirname(__file__), 'config', 'contract_addresses.json')
+    with open(config_path, 'r') as f:
+        contract_addresses = json.load(f)
+    return contract_addresses.get(contract_name)
 
 def apply_olap_operations(cube, tensor_data, operations):
     result_tensor = tensor_data
@@ -20,90 +30,24 @@ def apply_olap_operations(cube, tensor_data, operations):
         result_tensor = cube.execute_model(operation, result_tensor)
     return result_tensor
 
-async def main():
-    output_dir = './output'
-    os.makedirs(output_dir, exist_ok=True)
-
-    file_path = "completed_sales_dataset.csv"
-    
-    publish_hash(file_path)  # Publish the hash of the dataset
-
-    
-    try:
-        # Verifica l'hash del dataset prima di procedere
-        verify_dataset_hash(file_path)
-    except ValueError as e:
-        print(e)
-        print("Process terminated due to hash verification failure.")
-        return  # Arresta l'esecuzione se la verifica fallisce
-
-
-    """
-    
-    # Misurazione iniziale del tempo e della memoria
-    start_time = time.time()
-    process = psutil.Process(os.getpid())
-    start_memory = process.memory_info().rss
-
-    output_dir = './output'
-    os.makedirs(output_dir, exist_ok=True)
-
-    file_path = "completed_sales_dataset.csv"
-    
-    try:
-        # Verifica l'hash del dataset prima di procedere
-        verify_dataset_hash(file_path)
-    except ValueError as e:
-        print(e)
-        print("Process terminated due to hash verification failure.")
-        return  # Arresta l'esecuzione se la verifica fallisce
-    
-    # Misura il tempo e la memoria dopo la verifica dell'hash
-    hash_verification_time = time.time()
-    hash_verification_memory = process.memory_info().rss
-
-    # Indirizzo del contratto DataFactModel
-    data_fact_model_address = "0x870fc72A4BA55CeBD84a5D0517463FFbAb47a891"  # Aggiorna con l'indirizzo corretto
-
-    # Dimensioni della query da verificare
-    query_dimensions = ["Category", "Production Cost", "City", "Product Name"]
-
-    try:
-        # Verifica se la query è ammessa
-        is_query_allowed = verify_query_allowed(query_dimensions, data_fact_model_address)
-        if not is_query_allowed:
-            print("Query contains disallowed dimensions")
-            return  # Arresta l'esecuzione se la verifica fallisce
-    except Exception as e:
-        print(e)
-        print("Failed to verify query dimensions")
-        return  # Arresta l'esecuzione in caso di errore
-    
-    # Misura il tempo e la memoria dopo la verifica delle query
-    query_verification_time = time.time()
-    query_verification_memory = process.memory_info().rss
-
+def perform_query(file_path):
     df = pd.read_csv(file_path)
     df = df.dropna()
-    # Inizializza il cubo OLAP e trasforma i dati in un tensor
+    # Initialize the OLAP cube and transform the data into a tensor
     cube = OLAPCube(df)
     tensor_data = cube.to_tensor()
 
-    # Definisci una lista di operazioni OLAP da applicare
+    # Define the list of OLAP operations to apply
     operations = [
         SlicingModel({14: 1, 21: 12, 27: 0}),  # Slicing operation
         DicingModel({2: 2, 21: [3, 4], 27: 4})  # Dicing operation
     ]
 
-    # Applica le operazioni al tensor dei dati
+    # Apply the operations to the tensor data
     final_tensor = apply_olap_operations(cube, tensor_data, operations)
 
-    # Misura il tempo e la memoria dopo le operazioni OLAP
-    olap_operations_time = time.time()
-    olap_operations_memory = process.memory_info().rss
-
-    # Esportazione del modello in formato ONNX
-    final_operation = operations[-1]  # Prendi l'ultima operazione applicata
+    # Export the model in ONNX format
+    final_operation = operations[-1]  # Last applied operation
     final_operation.to(torch.device("cpu"))
     final_operation.eval()
 
@@ -125,32 +69,86 @@ async def main():
     with open(input_json_path, 'w') as f:
         json.dump(data, f)
 
-    await generate_proof(output_dir, model_onnx_path, input_json_path, logrows=17)
 
-    # Misura il tempo e la memoria dopo la generazione della prova
-    end_time = time.time()
-    end_memory = process.memory_info().rss
+async def main():
 
-    # Calcola l'overhead
-    total_time = end_time - start_time
-    total_memory = end_memory - start_memory
-    hash_verification_duration = hash_verification_time - start_time
-    hash_verification_memory_usage = hash_verification_memory - start_memory
-    query_verification_duration = query_verification_time - hash_verification_time
-    query_verification_memory_usage = query_verification_memory - hash_verification_memory
-    olap_operations_duration = olap_operations_time - query_verification_time
-    olap_operations_memory_usage = olap_operations_memory - query_verification_memory
+    file_path = "completed_sales_dataset.csv"
 
-    # Stampa i risultati
-    print(f"Total Time: {total_time:.2f} seconds")
-    print(f"Total Memory Usage: {total_memory / 1024 / 1024:.2f} MB")
-    print(f"Hash Verification Time: {hash_verification_duration:.2f} seconds")
-    print(f"Hash Verification Memory Usage: {hash_verification_memory_usage / 1024 / 1024:.2f} MB")
-    print(f"Query Verification Time: {query_verification_duration:.2f} seconds")
-    print(f"Query Verification Memory Usage: {query_verification_memory_usage / 1024 / 1024:.2f} MB")
-    print(f"OLAP Operations Time: {olap_operations_duration:.2f} seconds")
-    print(f"OLAP Operations Memory Usage: {olap_operations_memory_usage / 1024 / 1024:.2f} MB")
-    """
+        # Load the DataFactModel contract address dynamically
+    data_fact_model_address = load_contract_address("DataFactModel")
+    if not data_fact_model_address:
+        print("DataFactModel address not found in configuration.")
+        return  # Exit if the address is not found
+
+    # _______________________________________________________________________________________
+
+    while True:
+        print("\nSelect an option:")
+        print("1. Login as Data Owner")
+        print("2. Login as Customer")
+        print("3. Exit")
+        choice = input("Enter your choice (1, 2, or 3): ")
+
+        if choice == "1":  # --------------------------------------DATA OWNER
+            print("You selected: Login as DATA OWNER")
+            print("\nSelect an option:")
+            print("1. Publish Hash")
+            print("2. Verify Hash")
+            sub_choice = input("Enter your choice (1 or 2): ")
+
+            if sub_choice == "1":  # PUBLISH HASH
+                try:
+                    publish_hash(file_path)
+                    print("Hash published successfully.")
+                except Exception as e:
+                    print(f"Failed to publish hash: {e}")
+
+            elif sub_choice == "2":  # VERIFY HASH
+                try:
+                    verify_dataset_hash(file_path)
+                    print("Hash verified successfully.")
+                except ValueError as e:
+                    print(f"Hash verification failed: {e}")
+            else:
+                print("Invalid choice. Returning to main menu.")
+
+        elif choice == "2":  # -------------------------------------CUSTOMER
+            print("You selected: Login as CUSTOMER")
+            print("\nSelect an option:")
+            print("1. Verify Hash")
+            print("2. Perform Query")
+            sub_choice = input("Enter your choice (1 or 2): ")
+
+            if sub_choice == "1":  # VERIFY HASH
+                try:
+                    verify_dataset_hash(file_path)
+                    print("Hash verified successfully.")
+                except ValueError as e:
+                    print(f"Hash verification failed: {e}")
+
+            elif sub_choice == "2":  # PERFORM QUERY
+                try:
+                    # Perform query logic
+                    query_dimensions = ["Category", "Production Cost", "City", "Product Name"]
+                    is_query_allowed = verify_query_allowed(query_dimensions, data_fact_model_address)
+                    if not is_query_allowed:
+                        print("Query contains disallowed dimensions.")
+                        continue
+                    print("Query is allowed. Proceeding with query execution...")
+                    perform_query(file_path)
+                    # await generate_proof(output_dir, model_onnx_path, input_json_path, logrows=16)
+                    print("Query executed successfully.")
+                except Exception as e:
+                    print(f"Failed to perform query: {e}")
+            else:
+                print("Invalid choice. Returning to main menu.")
+
+        elif choice == "3":  # -------------------------------------EXIT
+            print("Exiting the program.")
+            break
+
+        else:
+            print("Invalid choice. Please select a valid option.")
 
 if __name__ == "__main__":
     asyncio.run(main())

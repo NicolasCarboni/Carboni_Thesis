@@ -13458,12 +13458,12 @@
     "1337": {
       "events": {},
       "links": {},
-      "address": "0xe7Ef31B35DC68f9C5ea19FD27FE2F55c7948366D",
-      "transactionHash": "0x3fb8bb4fa0edab6626039e6455a20533b2451952aad424b4f315eae65c5b981f"
+      "address": "0x8cCF13898B050b5183df0f07fD8ed2652B23695C",
+      "transactionHash": "0xf19b2e79ab16bed5e43510d251dc38f105be0cba2c0d3d353da10e686161fddb"
     }
   },
   "schemaVersion": "3.4.16",
-  "updatedAt": "2025-05-11T15:45:21.780Z",
+  "updatedAt": "2025-05-12T10:04:40.133Z",
   "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",

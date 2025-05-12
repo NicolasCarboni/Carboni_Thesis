@@ -10,8 +10,14 @@ async def generate_proof(output_dir, model_onnx_path, input_json_path, logrows):
     res = ezkl.gen_settings(model_onnx_path, settings_filename)
     assert res == True
 
-    srs_path = await ezkl.get_srs(settings_filename, logrows=logrows)
-    assert srs_path == True
+    try:
+        print(f"Attempting to get SRS with logrows={logrows}")
+        srs_path = await ezkl.get_srs(settings_filename, logrows=logrows)
+        print(f"SRS path: {srs_path}")
+        assert srs_path == True
+    except Exception as e:
+        print(f"Error during SRS generation: {e}")
+        raise
 
     res = await ezkl.calibrate_settings(input_json_path, model_onnx_path, settings_filename, "resources")
     assert res == True
