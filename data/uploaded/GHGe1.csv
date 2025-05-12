@@ -1,0 +1,1001 @@
+Date,Product Name,Category,Material,Quantity,GHG per Unit (kgCO₂e),Total Emissions (kgCO₂e)
+2020-10-02,Slip-On Sneakers,Shoes,Canvas,98,5.7,558.6
+2020-05-09,Running Shoes,Shoes,Synthetic,16,9.5,152.0
+2022-10-11,Tank Top,T-shirt,Cotton,61,1.8,109.8
+2023-08-27,Knitted Sweater,Sweater,Wool,27,6.0,162.0
+2020-07-11,Formal Shirt,Shirt,Cotton,4,3.9,15.6
+2024-09-07,Knitted Sweater,Sweater,Wool,56,6.0,336.0
+2023-05-29,Basic T-shirt,T-shirt,Cotton,90,2.1,189.0
+2022-07-01,Running Shoes,Shoes,Synthetic,93,9.5,883.5
+2024-06-30,Chino Pants,Pants,Cotton,76,4.7,357.2
+2020-07-28,Summer Dress,Dress,Linen,4,3.3,13.2
+2020-02-15,Basic T-shirt,T-shirt,Cotton,84,2.1,176.4
+2023-01-13,Basic T-shirt,T-shirt,Cotton,49,2.1,102.9
+2023-11-06,Printed T-shirt,T-shirt,Organic Cotton,55,1.9,104.5
+2024-01-26,Basic T-shirt,T-shirt,Cotton,68,2.1,142.8
+2021-03-30,Tank Top,T-shirt,Cotton,64,1.8,115.2
+2023-02-06,Chino Pants,Pants,Cotton,45,4.7,211.5
+2021-04-17,Chino Pants,Pants,Cotton,98,4.7,460.6
+2022-07-30,Leather Boots,Shoes,Leather,3,11.0,33.0
+2022-05-02,Zip Hoodie,Sweatshirt,Cotton,83,4.5,373.5
+2020-07-23,Denim Jacket,Jacket,Denim,81,7.8,631.8
+2024-01-22,Leather Boots,Shoes,Leather,16,11.0,176.0
+2024-03-01,Summer Dress,Dress,Linen,93,3.3,306.9
+2023-12-27,Tracksuit Pants,Pants,Polyester,55,6.3,346.5
+2022-11-05,Printed T-shirt,T-shirt,Organic Cotton,39,1.9,74.1
+2021-08-04,Slip-On Sneakers,Shoes,Canvas,64,5.7,364.8
+2024-09-29,Tracksuit Pants,Pants,Polyester,51,6.3,321.3
+2023-04-21,Slim Fit Jeans,Jeans,Denim,62,6.5,403.0
+2021-05-12,Knitted Sweater,Sweater,Wool,54,6.0,324.0
+2023-09-23,Denim Jacket,Jacket,Denim,47,7.8,366.6
+2023-01-28,Winter Coat,Jacket,Wool,12,10.2,122.4
+2022-06-17,Tracksuit Pants,Pants,Polyester,14,6.3,88.2
+2024-05-13,Denim Jacket,Jacket,Denim,67,7.8,522.6
+2024-09-16,Knitted Sweater,Sweater,Wool,48,6.0,288.0
+2022-09-29,Basic T-shirt,T-shirt,Cotton,61,2.1,128.1
+2020-03-30,Leather Boots,Shoes,Leather,91,11.0,1001.0
+2024-10-03,Shorts,Shorts,Denim,76,3.5,266.0
+2023-03-30,Knitted Sweater,Sweater,Wool,83,6.0,498.0
+2020-12-14,Denim Jacket,Jacket,Denim,65,7.8,507.0
+2021-04-09,Basic T-shirt,T-shirt,Cotton,99,2.1,207.9
+2021-02-12,Zip Hoodie,Sweatshirt,Cotton,71,4.5,319.5
+2021-04-20,Knitted Sweater,Sweater,Wool,66,6.0,396.0
+2021-12-05,Slip-On Sneakers,Shoes,Canvas,46,5.7,262.2
+2022-07-29,Running Shoes,Shoes,Synthetic,85,9.5,807.5
+2023-01-27,Shorts,Shorts,Denim,94,3.5,329.0
+2020-01-12,Knitted Sweater,Sweater,Wool,95,6.0,570.0
+2022-11-15,Cargo Pants,Pants,Cotton,67,5.1,341.7
+2024-05-11,Zip Hoodie,Sweatshirt,Cotton,27,4.5,121.5
+2022-05-22,Slim Fit Jeans,Jeans,Denim,62,6.5,403.0
+2024-11-16,Winter Coat,Jacket,Wool,73,10.2,744.6
+2023-02-09,Printed T-shirt,T-shirt,Organic Cotton,65,1.9,123.5
+2022-04-26,Formal Shirt,Shirt,Cotton,46,3.9,179.4
+2022-04-28,Winter Coat,Jacket,Wool,1,10.2,10.2
+2023-01-07,Zip Hoodie,Sweatshirt,Cotton,80,4.5,360.0
+2024-05-29,Shorts,Shorts,Denim,43,3.5,150.5
+2022-07-27,Shorts,Shorts,Denim,4,3.5,14.0
+2024-07-05,Chino Pants,Pants,Cotton,82,4.7,385.4
+2020-12-28,Zip Hoodie,Sweatshirt,Cotton,75,4.5,337.5
+2021-01-05,Oversized Hoodie,Sweatshirt,Cotton,71,4.2,298.2
+2024-06-20,Running Shoes,Shoes,Synthetic,5,9.5,47.5
+2024-09-19,Oversized Hoodie,Sweatshirt,Cotton,11,4.2,46.2
+2024-11-12,Basic T-shirt,T-shirt,Cotton,58,2.1,121.8
+2020-01-30,Running Shoes,Shoes,Synthetic,32,9.5,304.0
+2021-07-04,Light Jacket,Jacket,Polyester,80,8.9,712.0
+2021-01-13,Winter Coat,Jacket,Wool,38,10.2,387.6
+2020-05-22,Denim Jacket,Jacket,Denim,21,7.8,163.8
+2021-06-06,Tracksuit Pants,Pants,Polyester,22,6.3,138.6
+2023-09-06,Running Shoes,Shoes,Synthetic,83,9.5,788.5
+2023-12-28,Leather Boots,Shoes,Leather,59,11.0,649.0
+2023-12-09,Summer Dress,Dress,Linen,64,3.3,211.2
+2022-08-28,Light Jacket,Jacket,Polyester,4,8.9,35.6
+2021-09-30,Knitted Sweater,Sweater,Wool,44,6.0,264.0
+2022-05-12,Printed T-shirt,T-shirt,Organic Cotton,34,1.9,64.6
+2020-08-10,Running Shoes,Shoes,Synthetic,94,9.5,893.0
+2022-11-10,Printed T-shirt,T-shirt,Organic Cotton,78,1.9,148.2
+2022-06-03,Basic T-shirt,T-shirt,Cotton,29,2.1,60.9
+2020-02-06,Knitted Sweater,Sweater,Wool,19,6.0,114.0
+2020-03-13,Denim Jacket,Jacket,Denim,58,7.8,452.4
+2023-12-14,Tracksuit Pants,Pants,Polyester,87,6.3,548.1
+2022-05-23,Zip Hoodie,Sweatshirt,Cotton,29,4.5,130.5
+2023-07-15,Tracksuit Pants,Pants,Polyester,58,6.3,365.4
+2021-04-02,Tracksuit Pants,Pants,Polyester,84,6.3,529.2
+2020-03-03,Knitted Sweater,Sweater,Wool,87,6.0,522.0
+2023-03-25,Summer Dress,Dress,Linen,85,3.3,280.5
+2023-07-16,Raincoat,Jacket,Polyester,8,7.4,59.2
+2024-02-19,Leather Boots,Shoes,Leather,17,11.0,187.0
+2021-03-10,Slim Fit Jeans,Jeans,Denim,40,6.5,260.0
+2020-05-24,Oversized Hoodie,Sweatshirt,Cotton,40,4.2,168.0
+2021-09-02,Denim Jacket,Jacket,Denim,54,7.8,421.2
+2023-03-02,Running Shoes,Shoes,Synthetic,17,9.5,161.5
+2020-01-18,Zip Hoodie,Sweatshirt,Cotton,5,4.5,22.5
+2023-04-24,Printed T-shirt,T-shirt,Organic Cotton,73,1.9,138.7
+2022-08-01,Denim Jacket,Jacket,Denim,100,7.8,780.0
+2023-12-12,Shorts,Shorts,Denim,66,3.5,231.0
+2020-03-17,Knitted Sweater,Sweater,Wool,26,6.0,156.0
+2021-12-11,Light Jacket,Jacket,Polyester,27,8.9,240.3
+2023-03-20,Raincoat,Jacket,Polyester,76,7.4,562.4
+2021-02-01,Formal Shirt,Shirt,Cotton,14,3.9,54.6
+2023-09-25,Knitted Sweater,Sweater,Wool,38,6.0,228.0
+2022-10-29,Formal Shirt,Shirt,Cotton,3,3.9,11.7
+2021-10-28,Shorts,Shorts,Denim,52,3.5,182.0
+2021-07-30,Basic T-shirt,T-shirt,Cotton,21,2.1,44.1
+2021-02-15,Summer Dress,Dress,Linen,73,3.3,240.9
+2024-05-21,Cargo Pants,Pants,Cotton,44,5.1,224.4
+2022-05-29,Printed T-shirt,T-shirt,Organic Cotton,35,1.9,66.5
+2023-10-13,Light Jacket,Jacket,Polyester,49,8.9,436.1
+2023-01-26,Winter Coat,Jacket,Wool,88,10.2,897.6
+2022-12-30,Formal Shirt,Shirt,Cotton,99,3.9,386.1
+2022-12-26,Chino Pants,Pants,Cotton,9,4.7,42.3
+2024-01-25,Slim Fit Jeans,Jeans,Denim,11,6.5,71.5
+2020-09-29,Denim Jacket,Jacket,Denim,22,7.8,171.6
+2023-01-07,Printed T-shirt,T-shirt,Organic Cotton,35,1.9,66.5
+2024-04-03,Summer Dress,Dress,Linen,77,3.3,254.1
+2022-11-02,Running Shoes,Shoes,Synthetic,48,9.5,456.0
+2021-11-24,Summer Dress,Dress,Linen,15,3.3,49.5
+2021-08-19,Chino Pants,Pants,Cotton,78,4.7,366.6
+2024-05-15,Formal Shirt,Shirt,Cotton,18,3.9,70.2
+2023-04-02,Zip Hoodie,Sweatshirt,Cotton,99,4.5,445.5
+2020-08-01,Summer Dress,Dress,Linen,6,3.3,19.8
+2022-04-12,Oversized Hoodie,Sweatshirt,Cotton,49,4.2,205.8
+2024-11-08,Cargo Pants,Pants,Cotton,17,5.1,86.7
+2021-11-29,Light Jacket,Jacket,Polyester,79,8.9,703.1
+2023-04-18,Knitted Sweater,Sweater,Wool,10,6.0,60.0
+2023-03-14,Zip Hoodie,Sweatshirt,Cotton,29,4.5,130.5
+2023-03-05,Oversized Hoodie,Sweatshirt,Cotton,35,4.2,147.0
+2022-01-17,Leather Boots,Shoes,Leather,73,11.0,803.0
+2022-12-30,Light Jacket,Jacket,Polyester,59,8.9,525.1
+2021-07-21,Light Jacket,Jacket,Polyester,6,8.9,53.4
+2024-08-22,Leather Boots,Shoes,Leather,2,11.0,22.0
+2023-06-10,Basic T-shirt,T-shirt,Cotton,12,2.1,25.2
+2022-04-26,Light Jacket,Jacket,Polyester,6,8.9,53.4
+2021-01-19,Chino Pants,Pants,Cotton,76,4.7,357.2
+2022-05-12,Denim Jacket,Jacket,Denim,15,7.8,117.0
+2022-07-12,Denim Jacket,Jacket,Denim,88,7.8,686.4
+2021-05-09,Denim Jacket,Jacket,Denim,96,7.8,748.8
+2024-09-26,Light Jacket,Jacket,Polyester,56,8.9,498.4
+2022-02-13,Zip Hoodie,Sweatshirt,Cotton,38,4.5,171.0
+2023-01-31,Running Shoes,Shoes,Synthetic,92,9.5,874.0
+2022-09-03,Summer Dress,Dress,Linen,13,3.3,42.9
+2021-03-01,Summer Dress,Dress,Linen,6,3.3,19.8
+2020-02-25,Basic T-shirt,T-shirt,Cotton,38,2.1,79.8
+2024-01-27,Shorts,Shorts,Denim,41,3.5,143.5
+2022-07-10,Knitted Sweater,Sweater,Wool,41,6.0,246.0
+2022-03-27,Oversized Hoodie,Sweatshirt,Cotton,9,4.2,37.8
+2021-10-11,Shorts,Shorts,Denim,59,3.5,206.5
+2020-08-16,Running Shoes,Shoes,Synthetic,28,9.5,266.0
+2024-05-26,Shorts,Shorts,Denim,100,3.5,350.0
+2024-12-30,Zip Hoodie,Sweatshirt,Cotton,89,4.5,400.5
+2022-08-18,Winter Coat,Jacket,Wool,34,10.2,346.8
+2021-01-10,Zip Hoodie,Sweatshirt,Cotton,27,4.5,121.5
+2021-09-21,Printed T-shirt,T-shirt,Organic Cotton,32,1.9,60.8
+2022-01-08,Oversized Hoodie,Sweatshirt,Cotton,36,4.2,151.2
+2020-07-02,Tank Top,T-shirt,Cotton,12,1.8,21.6
+2023-08-28,Slip-On Sneakers,Shoes,Canvas,83,5.7,473.1
+2021-11-25,Chino Pants,Pants,Cotton,50,4.7,235.0
+2021-09-20,Slim Fit Jeans,Jeans,Denim,42,6.5,273.0
+2021-01-17,Summer Dress,Dress,Linen,75,3.3,247.5
+2021-09-12,Chino Pants,Pants,Cotton,43,4.7,202.1
+2020-07-25,Zip Hoodie,Sweatshirt,Cotton,79,4.5,355.5
+2023-03-31,Shorts,Shorts,Denim,12,3.5,42.0
+2021-05-16,Chino Pants,Pants,Cotton,3,4.7,14.1
+2024-07-13,Chino Pants,Pants,Cotton,52,4.7,244.4
+2020-05-28,Running Shoes,Shoes,Synthetic,71,9.5,674.5
+2024-11-11,Oversized Hoodie,Sweatshirt,Cotton,94,4.2,394.8
+2020-06-02,Basic T-shirt,T-shirt,Cotton,82,2.1,172.2
+2020-01-21,Leather Boots,Shoes,Leather,97,11.0,1067.0
+2024-06-10,Winter Coat,Jacket,Wool,64,10.2,652.8
+2022-08-18,Cargo Pants,Pants,Cotton,13,5.1,66.3
+2022-10-23,Summer Dress,Dress,Linen,10,3.3,33.0
+2022-11-08,Denim Jacket,Jacket,Denim,23,7.8,179.4
+2024-05-08,Cargo Pants,Pants,Cotton,19,5.1,96.9
+2024-08-09,Summer Dress,Dress,Linen,40,3.3,132.0
+2020-08-06,Tracksuit Pants,Pants,Polyester,78,6.3,491.4
+2021-08-24,Cargo Pants,Pants,Cotton,27,5.1,137.7
+2020-10-17,Zip Hoodie,Sweatshirt,Cotton,93,4.5,418.5
+2020-03-06,Summer Dress,Dress,Linen,80,3.3,264.0
+2024-07-04,Zip Hoodie,Sweatshirt,Cotton,96,4.5,432.0
+2023-11-13,Printed T-shirt,T-shirt,Organic Cotton,23,1.9,43.7
+2021-09-04,Raincoat,Jacket,Polyester,69,7.4,510.6
+2020-11-19,Slim Fit Jeans,Jeans,Denim,92,6.5,598.0
+2024-10-31,Chino Pants,Pants,Cotton,33,4.7,155.1
+2024-05-11,Oversized Hoodie,Sweatshirt,Cotton,88,4.2,369.6
+2022-07-03,Raincoat,Jacket,Polyester,71,7.4,525.4
+2021-05-27,Zip Hoodie,Sweatshirt,Cotton,57,4.5,256.5
+2024-10-09,Zip Hoodie,Sweatshirt,Cotton,59,4.5,265.5
+2020-01-23,Knitted Sweater,Sweater,Wool,44,6.0,264.0
+2020-12-17,Running Shoes,Shoes,Synthetic,63,9.5,598.5
+2020-02-19,Raincoat,Jacket,Polyester,74,7.4,547.6
+2020-02-08,Slim Fit Jeans,Jeans,Denim,89,6.5,578.5
+2021-12-27,Slip-On Sneakers,Shoes,Canvas,18,5.7,102.6
+2023-04-30,Cargo Pants,Pants,Cotton,18,5.1,91.8
+2021-06-14,Running Shoes,Shoes,Synthetic,51,9.5,484.5
+2023-03-01,Knitted Sweater,Sweater,Wool,23,6.0,138.0
+2023-06-08,Oversized Hoodie,Sweatshirt,Cotton,30,4.2,126.0
+2022-09-22,Basic T-shirt,T-shirt,Cotton,23,2.1,48.3
+2022-12-18,Summer Dress,Dress,Linen,65,3.3,214.5
+2023-08-21,Tank Top,T-shirt,Cotton,88,1.8,158.4
+2023-08-01,Chino Pants,Pants,Cotton,31,4.7,145.7
+2021-10-02,Formal Shirt,Shirt,Cotton,88,3.9,343.2
+2022-09-07,Chino Pants,Pants,Cotton,92,4.7,432.4
+2022-04-24,Summer Dress,Dress,Linen,72,3.3,237.6
+2023-06-05,Running Shoes,Shoes,Synthetic,83,9.5,788.5
+2021-03-25,Slim Fit Jeans,Jeans,Denim,10,6.5,65.0
+2024-04-12,Tracksuit Pants,Pants,Polyester,83,6.3,522.9
+2024-12-01,Winter Coat,Jacket,Wool,21,10.2,214.2
+2022-11-13,Printed T-shirt,T-shirt,Organic Cotton,40,1.9,76.0
+2021-09-03,Leather Boots,Shoes,Leather,71,11.0,781.0
+2022-01-31,Denim Jacket,Jacket,Denim,90,7.8,702.0
+2023-12-07,Tank Top,T-shirt,Cotton,77,1.8,138.6
+2020-06-23,Light Jacket,Jacket,Polyester,78,8.9,694.2
+2022-11-18,Slip-On Sneakers,Shoes,Canvas,49,5.7,279.3
+2020-12-27,Cargo Pants,Pants,Cotton,33,5.1,168.3
+2022-05-23,Printed T-shirt,T-shirt,Organic Cotton,73,1.9,138.7
+2024-01-13,Slim Fit Jeans,Jeans,Denim,64,6.5,416.0
+2023-10-27,Knitted Sweater,Sweater,Wool,92,6.0,552.0
+2023-07-28,Winter Coat,Jacket,Wool,50,10.2,510.0
+2022-11-20,Denim Jacket,Jacket,Denim,70,7.8,546.0
+2024-02-03,Slim Fit Jeans,Jeans,Denim,68,6.5,442.0
+2020-07-04,Running Shoes,Shoes,Synthetic,81,9.5,769.5
+2020-07-25,Running Shoes,Shoes,Synthetic,95,9.5,902.5
+2020-06-20,Cargo Pants,Pants,Cotton,100,5.1,510.0
+2023-06-17,Oversized Hoodie,Sweatshirt,Cotton,57,4.2,239.4
+2024-10-08,Chino Pants,Pants,Cotton,49,4.7,230.3
+2024-07-01,Raincoat,Jacket,Polyester,51,7.4,377.4
+2020-12-03,Summer Dress,Dress,Linen,57,3.3,188.1
+2020-09-15,Shorts,Shorts,Denim,63,3.5,220.5
+2021-03-10,Light Jacket,Jacket,Polyester,56,8.9,498.4
+2023-05-15,Zip Hoodie,Sweatshirt,Cotton,53,4.5,238.5
+2020-08-29,Leather Boots,Shoes,Leather,36,11.0,396.0
+2021-05-23,Knitted Sweater,Sweater,Wool,96,6.0,576.0
+2023-02-19,Basic T-shirt,T-shirt,Cotton,25,2.1,52.5
+2022-12-18,Tank Top,T-shirt,Cotton,75,1.8,135.0
+2020-02-13,Basic T-shirt,T-shirt,Cotton,81,2.1,170.1
+2023-05-25,Chino Pants,Pants,Cotton,34,4.7,159.8
+2021-02-27,Denim Jacket,Jacket,Denim,37,7.8,288.6
+2020-10-30,Zip Hoodie,Sweatshirt,Cotton,26,4.5,117.0
+2021-07-13,Leather Boots,Shoes,Leather,75,11.0,825.0
+2024-03-31,Running Shoes,Shoes,Synthetic,88,9.5,836.0
+2022-07-03,Denim Jacket,Jacket,Denim,70,7.8,546.0
+2022-01-01,Formal Shirt,Shirt,Cotton,54,3.9,210.6
+2024-10-18,Light Jacket,Jacket,Polyester,99,8.9,881.1
+2021-03-03,Slip-On Sneakers,Shoes,Canvas,50,5.7,285.0
+2021-02-23,Leather Boots,Shoes,Leather,14,11.0,154.0
+2024-07-11,Basic T-shirt,T-shirt,Cotton,16,2.1,33.6
+2023-03-11,Basic T-shirt,T-shirt,Cotton,70,2.1,147.0
+2021-08-30,Cargo Pants,Pants,Cotton,10,5.1,51.0
+2022-10-21,Winter Coat,Jacket,Wool,74,10.2,754.8
+2024-07-07,Leather Boots,Shoes,Leather,56,11.0,616.0
+2022-10-27,Winter Coat,Jacket,Wool,98,10.2,999.6
+2022-12-18,Summer Dress,Dress,Linen,1,3.3,3.3
+2020-09-10,Tank Top,T-shirt,Cotton,92,1.8,165.6
+2022-07-09,Winter Coat,Jacket,Wool,40,10.2,408.0
+2023-01-09,Knitted Sweater,Sweater,Wool,44,6.0,264.0
+2024-05-22,Slip-On Sneakers,Shoes,Canvas,64,5.7,364.8
+2020-08-19,Knitted Sweater,Sweater,Wool,49,6.0,294.0
+2021-02-21,Zip Hoodie,Sweatshirt,Cotton,1,4.5,4.5
+2021-07-22,Shorts,Shorts,Denim,93,3.5,325.5
+2024-12-10,Tracksuit Pants,Pants,Polyester,26,6.3,163.8
+2022-08-03,Shorts,Shorts,Denim,67,3.5,234.5
+2022-04-17,Leather Boots,Shoes,Leather,90,11.0,990.0
+2020-12-14,Tank Top,T-shirt,Cotton,80,1.8,144.0
+2023-10-01,Tracksuit Pants,Pants,Polyester,26,6.3,163.8
+2022-01-06,Tracksuit Pants,Pants,Polyester,1,6.3,6.3
+2023-10-21,Knitted Sweater,Sweater,Wool,75,6.0,450.0
+2022-05-22,Knitted Sweater,Sweater,Wool,44,6.0,264.0
+2024-10-29,Shorts,Shorts,Denim,75,3.5,262.5
+2024-02-11,Oversized Hoodie,Sweatshirt,Cotton,64,4.2,268.8
+2024-03-07,Chino Pants,Pants,Cotton,82,4.7,385.4
+2023-08-21,Leather Boots,Shoes,Leather,81,11.0,891.0
+2020-02-12,Raincoat,Jacket,Polyester,93,7.4,688.2
+2023-07-12,Cargo Pants,Pants,Cotton,82,5.1,418.2
+2024-05-14,Knitted Sweater,Sweater,Wool,35,6.0,210.0
+2024-09-29,Denim Jacket,Jacket,Denim,99,7.8,772.2
+2020-05-30,Shorts,Shorts,Denim,2,3.5,7.0
+2021-12-16,Running Shoes,Shoes,Synthetic,91,9.5,864.5
+2022-04-22,Zip Hoodie,Sweatshirt,Cotton,39,4.5,175.5
+2020-11-07,Tank Top,T-shirt,Cotton,34,1.8,61.2
+2022-09-19,Denim Jacket,Jacket,Denim,60,7.8,468.0
+2022-11-11,Slim Fit Jeans,Jeans,Denim,35,6.5,227.5
+2022-11-11,Light Jacket,Jacket,Polyester,96,8.9,854.4
+2023-04-24,Raincoat,Jacket,Polyester,9,7.4,66.6
+2021-12-28,Oversized Hoodie,Sweatshirt,Cotton,85,4.2,357.0
+2022-06-25,Basic T-shirt,T-shirt,Cotton,22,2.1,46.2
+2022-11-04,Denim Jacket,Jacket,Denim,89,7.8,694.2
+2020-07-09,Knitted Sweater,Sweater,Wool,82,6.0,492.0
+2023-11-11,Running Shoes,Shoes,Synthetic,78,9.5,741.0
+2021-09-15,Printed T-shirt,T-shirt,Organic Cotton,68,1.9,129.2
+2021-03-01,Chino Pants,Pants,Cotton,43,4.7,202.1
+2021-07-05,Oversized Hoodie,Sweatshirt,Cotton,10,4.2,42.0
+2023-12-02,Tracksuit Pants,Pants,Polyester,85,6.3,535.5
+2022-01-24,Tank Top,T-shirt,Cotton,66,1.8,118.8
+2023-02-16,Slim Fit Jeans,Jeans,Denim,22,6.5,143.0
+2021-08-31,Zip Hoodie,Sweatshirt,Cotton,35,4.5,157.5
+2021-12-29,Shorts,Shorts,Denim,95,3.5,332.5
+2021-04-20,Knitted Sweater,Sweater,Wool,72,6.0,432.0
+2022-03-29,Denim Jacket,Jacket,Denim,62,7.8,483.6
+2024-06-05,Running Shoes,Shoes,Synthetic,79,9.5,750.5
+2021-11-06,Chino Pants,Pants,Cotton,34,4.7,159.8
+2023-06-03,Chino Pants,Pants,Cotton,85,4.7,399.5
+2020-03-03,Shorts,Shorts,Denim,52,3.5,182.0
+2021-10-10,Raincoat,Jacket,Polyester,98,7.4,725.2
+2021-05-23,Running Shoes,Shoes,Synthetic,25,9.5,237.5
+2020-05-28,Denim Jacket,Jacket,Denim,75,7.8,585.0
+2022-06-27,Slip-On Sneakers,Shoes,Canvas,94,5.7,535.8
+2020-10-30,Shorts,Shorts,Denim,34,3.5,119.0
+2022-07-29,Tracksuit Pants,Pants,Polyester,21,6.3,132.3
+2020-10-10,Cargo Pants,Pants,Cotton,92,5.1,469.2
+2022-06-21,Winter Coat,Jacket,Wool,40,10.2,408.0
+2024-03-18,Knitted Sweater,Sweater,Wool,31,6.0,186.0
+2020-08-25,Printed T-shirt,T-shirt,Organic Cotton,92,1.9,174.8
+2023-10-27,Leather Boots,Shoes,Leather,9,11.0,99.0
+2020-08-05,Chino Pants,Pants,Cotton,51,4.7,239.7
+2021-10-20,Formal Shirt,Shirt,Cotton,13,3.9,50.7
+2021-01-17,Slim Fit Jeans,Jeans,Denim,8,6.5,52.0
+2024-07-15,Shorts,Shorts,Denim,3,3.5,10.5
+2024-12-25,Printed T-shirt,T-shirt,Organic Cotton,88,1.9,167.2
+2020-03-12,Formal Shirt,Shirt,Cotton,91,3.9,354.9
+2022-12-18,Shorts,Shorts,Denim,57,3.5,199.5
+2021-12-02,Running Shoes,Shoes,Synthetic,16,9.5,152.0
+2023-06-09,Denim Jacket,Jacket,Denim,13,7.8,101.4
+2021-03-30,Knitted Sweater,Sweater,Wool,30,6.0,180.0
+2022-10-10,Tank Top,T-shirt,Cotton,49,1.8,88.2
+2024-03-17,Denim Jacket,Jacket,Denim,30,7.8,234.0
+2021-04-27,Leather Boots,Shoes,Leather,60,11.0,660.0
+2023-01-25,Slip-On Sneakers,Shoes,Canvas,50,5.7,285.0
+2021-03-09,Tank Top,T-shirt,Cotton,92,1.8,165.6
+2021-06-12,Summer Dress,Dress,Linen,64,3.3,211.2
+2023-04-30,Light Jacket,Jacket,Polyester,28,8.9,249.2
+2020-06-10,Slim Fit Jeans,Jeans,Denim,2,6.5,13.0
+2024-06-21,Basic T-shirt,T-shirt,Cotton,62,2.1,130.2
+2021-10-16,Knitted Sweater,Sweater,Wool,75,6.0,450.0
+2021-08-11,Printed T-shirt,T-shirt,Organic Cotton,52,1.9,98.8
+2020-11-23,Cargo Pants,Pants,Cotton,4,5.1,20.4
+2020-02-01,Knitted Sweater,Sweater,Wool,19,6.0,114.0
+2024-11-29,Zip Hoodie,Sweatshirt,Cotton,8,4.5,36.0
+2023-03-02,Knitted Sweater,Sweater,Wool,33,6.0,198.0
+2020-09-23,Oversized Hoodie,Sweatshirt,Cotton,60,4.2,252.0
+2023-08-28,Leather Boots,Shoes,Leather,2,11.0,22.0
+2020-03-13,Zip Hoodie,Sweatshirt,Cotton,8,4.5,36.0
+2022-12-11,Cargo Pants,Pants,Cotton,6,5.1,30.6
+2021-07-14,Light Jacket,Jacket,Polyester,56,8.9,498.4
+2020-07-05,Printed T-shirt,T-shirt,Organic Cotton,4,1.9,7.6
+2022-10-20,Cargo Pants,Pants,Cotton,96,5.1,489.6
+2021-07-25,Printed T-shirt,T-shirt,Organic Cotton,85,1.9,161.5
+2022-07-05,Knitted Sweater,Sweater,Wool,43,6.0,258.0
+2023-07-16,Running Shoes,Shoes,Synthetic,34,9.5,323.0
+2023-08-07,Chino Pants,Pants,Cotton,32,4.7,150.4
+2020-05-03,Slip-On Sneakers,Shoes,Canvas,76,5.7,433.2
+2020-12-24,Winter Coat,Jacket,Wool,55,10.2,561.0
+2023-05-24,Zip Hoodie,Sweatshirt,Cotton,82,4.5,369.0
+2022-12-05,Slim Fit Jeans,Jeans,Denim,46,6.5,299.0
+2023-01-25,Raincoat,Jacket,Polyester,69,7.4,510.6
+2021-02-12,Zip Hoodie,Sweatshirt,Cotton,55,4.5,247.5
+2023-09-18,Oversized Hoodie,Sweatshirt,Cotton,92,4.2,386.4
+2021-07-01,Shorts,Shorts,Denim,93,3.5,325.5
+2024-03-20,Oversized Hoodie,Sweatshirt,Cotton,33,4.2,138.6
+2020-12-29,Light Jacket,Jacket,Polyester,20,8.9,178.0
+2020-04-30,Printed T-shirt,T-shirt,Organic Cotton,55,1.9,104.5
+2024-10-11,Slim Fit Jeans,Jeans,Denim,7,6.5,45.5
+2023-07-28,Oversized Hoodie,Sweatshirt,Cotton,66,4.2,277.2
+2022-08-18,Tracksuit Pants,Pants,Polyester,48,6.3,302.4
+2020-07-22,Summer Dress,Dress,Linen,6,3.3,19.8
+2020-09-16,Zip Hoodie,Sweatshirt,Cotton,5,4.5,22.5
+2022-06-26,Cargo Pants,Pants,Cotton,51,5.1,260.1
+2024-04-12,Tank Top,T-shirt,Cotton,4,1.8,7.2
+2024-02-17,Tracksuit Pants,Pants,Polyester,35,6.3,220.5
+2020-07-04,Running Shoes,Shoes,Synthetic,42,9.5,399.0
+2020-06-24,Leather Boots,Shoes,Leather,5,11.0,55.0
+2024-10-26,Knitted Sweater,Sweater,Wool,8,6.0,48.0
+2024-02-09,Running Shoes,Shoes,Synthetic,41,9.5,389.5
+2024-02-14,Cargo Pants,Pants,Cotton,34,5.1,173.4
+2024-06-15,Knitted Sweater,Sweater,Wool,15,6.0,90.0
+2024-10-18,Leather Boots,Shoes,Leather,13,11.0,143.0
+2022-05-20,Chino Pants,Pants,Cotton,65,4.7,305.5
+2023-02-15,Printed T-shirt,T-shirt,Organic Cotton,43,1.9,81.7
+2021-11-24,Tracksuit Pants,Pants,Polyester,51,6.3,321.3
+2023-04-11,Formal Shirt,Shirt,Cotton,14,3.9,54.6
+2020-09-22,Tank Top,T-shirt,Cotton,68,1.8,122.4
+2023-02-18,Slip-On Sneakers,Shoes,Canvas,90,5.7,513.0
+2022-12-01,Zip Hoodie,Sweatshirt,Cotton,4,4.5,18.0
+2024-08-30,Leather Boots,Shoes,Leather,96,11.0,1056.0
+2020-11-17,Printed T-shirt,T-shirt,Organic Cotton,48,1.9,91.2
+2022-03-08,Tracksuit Pants,Pants,Polyester,42,6.3,264.6
+2020-07-18,Raincoat,Jacket,Polyester,45,7.4,333.0
+2020-09-15,Slip-On Sneakers,Shoes,Canvas,9,5.7,51.3
+2020-03-30,Leather Boots,Shoes,Leather,84,11.0,924.0
+2022-12-28,Summer Dress,Dress,Linen,54,3.3,178.2
+2021-09-02,Summer Dress,Dress,Linen,46,3.3,151.8
+2021-07-12,Summer Dress,Dress,Linen,96,3.3,316.8
+2024-03-12,Tracksuit Pants,Pants,Polyester,65,6.3,409.5
+2020-01-18,Tracksuit Pants,Pants,Polyester,16,6.3,100.8
+2020-10-31,Summer Dress,Dress,Linen,94,3.3,310.2
+2021-10-28,Summer Dress,Dress,Linen,74,3.3,244.2
+2020-05-20,Tank Top,T-shirt,Cotton,36,1.8,64.8
+2022-09-09,Tank Top,T-shirt,Cotton,47,1.8,84.6
+2024-02-27,Knitted Sweater,Sweater,Wool,11,6.0,66.0
+2023-03-31,Slim Fit Jeans,Jeans,Denim,18,6.5,117.0
+2020-04-09,Tracksuit Pants,Pants,Polyester,63,6.3,396.9
+2023-03-24,Running Shoes,Shoes,Synthetic,32,9.5,304.0
+2023-12-10,Slip-On Sneakers,Shoes,Canvas,96,5.7,547.2
+2021-11-24,Winter Coat,Jacket,Wool,83,10.2,846.6
+2022-01-28,Knitted Sweater,Sweater,Wool,40,6.0,240.0
+2022-08-09,Shorts,Shorts,Denim,44,3.5,154.0
+2022-12-25,Tracksuit Pants,Pants,Polyester,22,6.3,138.6
+2020-02-29,Cargo Pants,Pants,Cotton,33,5.1,168.3
+2023-11-08,Chino Pants,Pants,Cotton,73,4.7,343.1
+2020-09-30,Light Jacket,Jacket,Polyester,24,8.9,213.6
+2024-04-18,Raincoat,Jacket,Polyester,94,7.4,695.6
+2023-06-23,Slim Fit Jeans,Jeans,Denim,13,6.5,84.5
+2023-01-22,Running Shoes,Shoes,Synthetic,92,9.5,874.0
+2020-08-07,Printed T-shirt,T-shirt,Organic Cotton,34,1.9,64.6
+2020-05-16,Slip-On Sneakers,Shoes,Canvas,68,5.7,387.6
+2023-08-05,Oversized Hoodie,Sweatshirt,Cotton,10,4.2,42.0
+2024-06-14,Printed T-shirt,T-shirt,Organic Cotton,83,1.9,157.7
+2024-09-12,Denim Jacket,Jacket,Denim,66,7.8,514.8
+2024-10-31,Raincoat,Jacket,Polyester,3,7.4,22.2
+2023-04-24,Winter Coat,Jacket,Wool,63,10.2,642.6
+2023-12-25,Leather Boots,Shoes,Leather,29,11.0,319.0
+2024-12-30,Printed T-shirt,T-shirt,Organic Cotton,77,1.9,146.3
+2022-10-07,Chino Pants,Pants,Cotton,55,4.7,258.5
+2022-07-15,Winter Coat,Jacket,Wool,70,10.2,714.0
+2021-01-21,Formal Shirt,Shirt,Cotton,93,3.9,362.7
+2020-05-28,Running Shoes,Shoes,Synthetic,53,9.5,503.5
+2021-02-16,Basic T-shirt,T-shirt,Cotton,96,2.1,201.6
+2022-12-25,Knitted Sweater,Sweater,Wool,66,6.0,396.0
+2024-11-29,Formal Shirt,Shirt,Cotton,10,3.9,39.0
+2022-04-06,Shorts,Shorts,Denim,66,3.5,231.0
+2024-06-18,Slip-On Sneakers,Shoes,Canvas,75,5.7,427.5
+2022-05-21,Slim Fit Jeans,Jeans,Denim,46,6.5,299.0
+2024-10-09,Tank Top,T-shirt,Cotton,1,1.8,1.8
+2021-01-23,Leather Boots,Shoes,Leather,90,11.0,990.0
+2023-11-16,Basic T-shirt,T-shirt,Cotton,70,2.1,147.0
+2020-09-02,Leather Boots,Shoes,Leather,66,11.0,726.0
+2024-12-21,Summer Dress,Dress,Linen,100,3.3,330.0
+2023-01-17,Slip-On Sneakers,Shoes,Canvas,71,5.7,404.7
+2021-08-01,Tracksuit Pants,Pants,Polyester,53,6.3,333.9
+2023-01-15,Tracksuit Pants,Pants,Polyester,53,6.3,333.9
+2023-05-19,Slip-On Sneakers,Shoes,Canvas,40,5.7,228.0
+2022-07-15,Leather Boots,Shoes,Leather,17,11.0,187.0
+2022-11-02,Tank Top,T-shirt,Cotton,76,1.8,136.8
+2020-10-14,Zip Hoodie,Sweatshirt,Cotton,99,4.5,445.5
+2020-11-29,Running Shoes,Shoes,Synthetic,82,9.5,779.0
+2020-01-20,Raincoat,Jacket,Polyester,95,7.4,703.0
+2023-09-16,Slip-On Sneakers,Shoes,Canvas,5,5.7,28.5
+2022-01-24,Raincoat,Jacket,Polyester,52,7.4,384.8
+2021-07-30,Basic T-shirt,T-shirt,Cotton,12,2.1,25.2
+2020-07-03,Basic T-shirt,T-shirt,Cotton,50,2.1,105.0
+2021-07-04,Tank Top,T-shirt,Cotton,35,1.8,63.0
+2024-06-18,Winter Coat,Jacket,Wool,82,10.2,836.4
+2024-03-14,Formal Shirt,Shirt,Cotton,99,3.9,386.1
+2021-11-20,Knitted Sweater,Sweater,Wool,59,6.0,354.0
+2024-07-03,Light Jacket,Jacket,Polyester,62,8.9,551.8
+2021-12-27,Cargo Pants,Pants,Cotton,54,5.1,275.4
+2020-10-30,Basic T-shirt,T-shirt,Cotton,23,2.1,48.3
+2024-07-25,Running Shoes,Shoes,Synthetic,48,9.5,456.0
+2024-10-22,Cargo Pants,Pants,Cotton,76,5.1,387.6
+2024-05-29,Leather Boots,Shoes,Leather,53,11.0,583.0
+2021-06-12,Tracksuit Pants,Pants,Polyester,37,6.3,233.1
+2024-02-23,Raincoat,Jacket,Polyester,89,7.4,658.6
+2021-07-14,Raincoat,Jacket,Polyester,43,7.4,318.2
+2024-05-10,Formal Shirt,Shirt,Cotton,28,3.9,109.2
+2024-01-05,Formal Shirt,Shirt,Cotton,52,3.9,202.8
+2024-01-06,Raincoat,Jacket,Polyester,12,7.4,88.8
+2020-05-11,Cargo Pants,Pants,Cotton,27,5.1,137.7
+2020-11-02,Chino Pants,Pants,Cotton,94,4.7,441.8
+2020-02-23,Light Jacket,Jacket,Polyester,33,8.9,293.7
+2020-11-14,Formal Shirt,Shirt,Cotton,100,3.9,390.0
+2020-07-21,Knitted Sweater,Sweater,Wool,84,6.0,504.0
+2024-01-21,Denim Jacket,Jacket,Denim,1,7.8,7.8
+2020-07-01,Raincoat,Jacket,Polyester,79,7.4,584.6
+2020-04-14,Zip Hoodie,Sweatshirt,Cotton,28,4.5,126.0
+2022-12-30,Raincoat,Jacket,Polyester,45,7.4,333.0
+2020-04-06,Light Jacket,Jacket,Polyester,95,8.9,845.5
+2023-02-06,Raincoat,Jacket,Polyester,86,7.4,636.4
+2024-02-26,Light Jacket,Jacket,Polyester,34,8.9,302.6
+2023-11-02,Running Shoes,Shoes,Synthetic,23,9.5,218.5
+2022-09-09,Slim Fit Jeans,Jeans,Denim,28,6.5,182.0
+2023-10-18,Oversized Hoodie,Sweatshirt,Cotton,50,4.2,210.0
+2020-09-10,Tank Top,T-shirt,Cotton,38,1.8,68.4
+2023-10-28,Tracksuit Pants,Pants,Polyester,64,6.3,403.2
+2022-03-16,Light Jacket,Jacket,Polyester,78,8.9,694.2
+2024-10-14,Formal Shirt,Shirt,Cotton,14,3.9,54.6
+2020-11-01,Knitted Sweater,Sweater,Wool,79,6.0,474.0
+2023-12-09,Printed T-shirt,T-shirt,Organic Cotton,22,1.9,41.8
+2022-12-02,Running Shoes,Shoes,Synthetic,54,9.5,513.0
+2024-03-02,Zip Hoodie,Sweatshirt,Cotton,37,4.5,166.5
+2024-11-14,Formal Shirt,Shirt,Cotton,82,3.9,319.8
+2024-07-17,Zip Hoodie,Sweatshirt,Cotton,28,4.5,126.0
+2024-06-03,Shorts,Shorts,Denim,44,3.5,154.0
+2024-10-29,Formal Shirt,Shirt,Cotton,14,3.9,54.6
+2020-01-18,Winter Coat,Jacket,Wool,91,10.2,928.2
+2021-07-01,Slim Fit Jeans,Jeans,Denim,70,6.5,455.0
+2023-07-04,Tank Top,T-shirt,Cotton,39,1.8,70.2
+2024-04-05,Light Jacket,Jacket,Polyester,30,8.9,267.0
+2022-11-06,Running Shoes,Shoes,Synthetic,35,9.5,332.5
+2023-12-17,Chino Pants,Pants,Cotton,53,4.7,249.1
+2020-10-30,Cargo Pants,Pants,Cotton,33,5.1,168.3
+2021-02-03,Raincoat,Jacket,Polyester,72,7.4,532.8
+2023-07-14,Shorts,Shorts,Denim,8,3.5,28.0
+2022-12-27,Shorts,Shorts,Denim,66,3.5,231.0
+2020-10-31,Raincoat,Jacket,Polyester,35,7.4,259.0
+2021-07-27,Formal Shirt,Shirt,Cotton,90,3.9,351.0
+2021-09-18,Running Shoes,Shoes,Synthetic,63,9.5,598.5
+2021-03-15,Formal Shirt,Shirt,Cotton,48,3.9,187.2
+2023-05-11,Formal Shirt,Shirt,Cotton,31,3.9,120.9
+2021-11-24,Denim Jacket,Jacket,Denim,78,7.8,608.4
+2024-04-03,Denim Jacket,Jacket,Denim,95,7.8,741.0
+2024-12-07,Slip-On Sneakers,Shoes,Canvas,89,5.7,507.3
+2022-07-12,Zip Hoodie,Sweatshirt,Cotton,20,4.5,90.0
+2020-04-29,Tracksuit Pants,Pants,Polyester,42,6.3,264.6
+2022-12-18,Cargo Pants,Pants,Cotton,83,5.1,423.3
+2024-04-08,Printed T-shirt,T-shirt,Organic Cotton,41,1.9,77.9
+2023-06-28,Formal Shirt,Shirt,Cotton,62,3.9,241.8
+2021-11-06,Light Jacket,Jacket,Polyester,17,8.9,151.3
+2024-12-22,Cargo Pants,Pants,Cotton,90,5.1,459.0
+2021-06-09,Chino Pants,Pants,Cotton,12,4.7,56.4
+2023-07-25,Zip Hoodie,Sweatshirt,Cotton,90,4.5,405.0
+2020-04-12,Slip-On Sneakers,Shoes,Canvas,23,5.7,131.1
+2023-11-03,Light Jacket,Jacket,Polyester,29,8.9,258.1
+2023-02-27,Printed T-shirt,T-shirt,Organic Cotton,65,1.9,123.5
+2023-03-08,Leather Boots,Shoes,Leather,55,11.0,605.0
+2021-11-02,Basic T-shirt,T-shirt,Cotton,100,2.1,210.0
+2020-02-11,Leather Boots,Shoes,Leather,79,11.0,869.0
+2021-03-27,Oversized Hoodie,Sweatshirt,Cotton,96,4.2,403.2
+2021-04-04,Running Shoes,Shoes,Synthetic,88,9.5,836.0
+2023-07-05,Summer Dress,Dress,Linen,35,3.3,115.5
+2023-05-16,Tracksuit Pants,Pants,Polyester,49,6.3,308.7
+2020-02-17,Light Jacket,Jacket,Polyester,43,8.9,382.7
+2021-12-11,Cargo Pants,Pants,Cotton,15,5.1,76.5
+2021-05-28,Cargo Pants,Pants,Cotton,88,5.1,448.8
+2023-03-21,Slim Fit Jeans,Jeans,Denim,45,6.5,292.5
+2020-06-07,Oversized Hoodie,Sweatshirt,Cotton,93,4.2,390.6
+2020-07-30,Leather Boots,Shoes,Leather,41,11.0,451.0
+2021-05-24,Running Shoes,Shoes,Synthetic,68,9.5,646.0
+2020-04-11,Winter Coat,Jacket,Wool,4,10.2,40.8
+2020-06-09,Cargo Pants,Pants,Cotton,52,5.1,265.2
+2022-01-31,Chino Pants,Pants,Cotton,13,4.7,61.1
+2023-10-23,Summer Dress,Dress,Linen,36,3.3,118.8
+2020-01-17,Tracksuit Pants,Pants,Polyester,42,6.3,264.6
+2020-08-17,Winter Coat,Jacket,Wool,83,10.2,846.6
+2024-01-23,Cargo Pants,Pants,Cotton,78,5.1,397.8
+2024-11-17,Running Shoes,Shoes,Synthetic,52,9.5,494.0
+2020-07-05,Slip-On Sneakers,Shoes,Canvas,80,5.7,456.0
+2024-01-25,Tracksuit Pants,Pants,Polyester,61,6.3,384.3
+2023-03-01,Raincoat,Jacket,Polyester,69,7.4,510.6
+2022-03-17,Leather Boots,Shoes,Leather,29,11.0,319.0
+2023-07-19,Leather Boots,Shoes,Leather,71,11.0,781.0
+2020-09-29,Slim Fit Jeans,Jeans,Denim,77,6.5,500.5
+2022-11-07,Light Jacket,Jacket,Polyester,23,8.9,204.7
+2021-05-07,Printed T-shirt,T-shirt,Organic Cotton,56,1.9,106.4
+2021-07-16,Zip Hoodie,Sweatshirt,Cotton,3,4.5,13.5
+2021-05-27,Zip Hoodie,Sweatshirt,Cotton,35,4.5,157.5
+2022-12-21,Running Shoes,Shoes,Synthetic,61,9.5,579.5
+2020-09-15,Knitted Sweater,Sweater,Wool,91,6.0,546.0
+2020-07-31,Winter Coat,Jacket,Wool,9,10.2,91.8
+2023-09-02,Zip Hoodie,Sweatshirt,Cotton,47,4.5,211.5
+2023-01-20,Zip Hoodie,Sweatshirt,Cotton,93,4.5,418.5
+2022-11-05,Slip-On Sneakers,Shoes,Canvas,4,5.7,22.8
+2023-06-21,Leather Boots,Shoes,Leather,58,11.0,638.0
+2023-10-29,Cargo Pants,Pants,Cotton,20,5.1,102.0
+2020-06-01,Slip-On Sneakers,Shoes,Canvas,19,5.7,108.3
+2023-10-17,Printed T-shirt,T-shirt,Organic Cotton,62,1.9,117.8
+2024-09-19,Summer Dress,Dress,Linen,47,3.3,155.1
+2024-12-24,Leather Boots,Shoes,Leather,21,11.0,231.0
+2020-11-14,Knitted Sweater,Sweater,Wool,57,6.0,342.0
+2022-04-10,Light Jacket,Jacket,Polyester,77,8.9,685.3
+2020-10-24,Running Shoes,Shoes,Synthetic,38,9.5,361.0
+2023-09-27,Shorts,Shorts,Denim,2,3.5,7.0
+2023-01-05,Basic T-shirt,T-shirt,Cotton,83,2.1,174.3
+2020-09-28,Knitted Sweater,Sweater,Wool,96,6.0,576.0
+2023-02-24,Light Jacket,Jacket,Polyester,59,8.9,525.1
+2020-03-03,Raincoat,Jacket,Polyester,77,7.4,569.8
+2023-10-23,Raincoat,Jacket,Polyester,36,7.4,266.4
+2022-01-28,Raincoat,Jacket,Polyester,52,7.4,384.8
+2023-05-25,Tank Top,T-shirt,Cotton,7,1.8,12.6
+2020-07-22,Formal Shirt,Shirt,Cotton,100,3.9,390.0
+2020-03-17,Basic T-shirt,T-shirt,Cotton,6,2.1,12.6
+2024-08-30,Light Jacket,Jacket,Polyester,76,8.9,676.4
+2020-10-12,Tracksuit Pants,Pants,Polyester,66,6.3,415.8
+2024-04-12,Winter Coat,Jacket,Wool,71,10.2,724.2
+2021-07-08,Slip-On Sneakers,Shoes,Canvas,84,5.7,478.8
+2021-12-30,Formal Shirt,Shirt,Cotton,90,3.9,351.0
+2021-05-17,Shorts,Shorts,Denim,31,3.5,108.5
+2020-08-04,Zip Hoodie,Sweatshirt,Cotton,46,4.5,207.0
+2024-11-20,Denim Jacket,Jacket,Denim,15,7.8,117.0
+2024-05-09,Slim Fit Jeans,Jeans,Denim,91,6.5,591.5
+2021-10-04,Raincoat,Jacket,Polyester,94,7.4,695.6
+2021-12-10,Running Shoes,Shoes,Synthetic,85,9.5,807.5
+2023-07-05,Slim Fit Jeans,Jeans,Denim,79,6.5,513.5
+2022-06-09,Raincoat,Jacket,Polyester,49,7.4,362.6
+2022-01-04,Leather Boots,Shoes,Leather,97,11.0,1067.0
+2024-07-29,Summer Dress,Dress,Linen,57,3.3,188.1
+2024-06-22,Chino Pants,Pants,Cotton,82,4.7,385.4
+2023-06-02,Tracksuit Pants,Pants,Polyester,19,6.3,119.7
+2020-04-24,Summer Dress,Dress,Linen,87,3.3,287.1
+2020-08-20,Tracksuit Pants,Pants,Polyester,23,6.3,144.9
+2023-01-17,Formal Shirt,Shirt,Cotton,44,3.9,171.6
+2024-03-31,Light Jacket,Jacket,Polyester,75,8.9,667.5
+2020-02-14,Formal Shirt,Shirt,Cotton,27,3.9,105.3
+2022-02-23,Denim Jacket,Jacket,Denim,51,7.8,397.8
+2024-01-07,Chino Pants,Pants,Cotton,13,4.7,61.1
+2021-05-23,Summer Dress,Dress,Linen,43,3.3,141.9
+2023-09-06,Chino Pants,Pants,Cotton,87,4.7,408.9
+2022-08-02,Formal Shirt,Shirt,Cotton,48,3.9,187.2
+2022-10-05,Printed T-shirt,T-shirt,Organic Cotton,56,1.9,106.4
+2022-06-21,Knitted Sweater,Sweater,Wool,70,6.0,420.0
+2020-09-03,Slip-On Sneakers,Shoes,Canvas,63,5.7,359.1
+2021-06-29,Cargo Pants,Pants,Cotton,20,5.1,102.0
+2020-01-25,Knitted Sweater,Sweater,Wool,54,6.0,324.0
+2020-08-11,Basic T-shirt,T-shirt,Cotton,84,2.1,176.4
+2020-06-01,Denim Jacket,Jacket,Denim,59,7.8,460.2
+2024-04-17,Knitted Sweater,Sweater,Wool,86,6.0,516.0
+2022-10-25,Leather Boots,Shoes,Leather,20,11.0,220.0
+2020-11-11,Tracksuit Pants,Pants,Polyester,14,6.3,88.2
+2021-06-05,Basic T-shirt,T-shirt,Cotton,60,2.1,126.0
+2022-03-23,Chino Pants,Pants,Cotton,69,4.7,324.3
+2023-11-25,Knitted Sweater,Sweater,Wool,1,6.0,6.0
+2023-01-19,Chino Pants,Pants,Cotton,55,4.7,258.5
+2020-11-21,Denim Jacket,Jacket,Denim,44,7.8,343.2
+2023-09-18,Chino Pants,Pants,Cotton,10,4.7,47.0
+2024-05-06,Zip Hoodie,Sweatshirt,Cotton,72,4.5,324.0
+2020-11-25,Denim Jacket,Jacket,Denim,49,7.8,382.2
+2023-04-13,Basic T-shirt,T-shirt,Cotton,66,2.1,138.6
+2021-03-20,Raincoat,Jacket,Polyester,31,7.4,229.4
+2024-06-14,Slim Fit Jeans,Jeans,Denim,67,6.5,435.5
+2024-01-24,Printed T-shirt,T-shirt,Organic Cotton,90,1.9,171.0
+2022-10-29,Shorts,Shorts,Denim,84,3.5,294.0
+2023-01-04,Oversized Hoodie,Sweatshirt,Cotton,32,4.2,134.4
+2022-03-26,Tank Top,T-shirt,Cotton,16,1.8,28.8
+2023-03-07,Slim Fit Jeans,Jeans,Denim,50,6.5,325.0
+2020-07-02,Zip Hoodie,Sweatshirt,Cotton,13,4.5,58.5
+2023-08-06,Formal Shirt,Shirt,Cotton,6,3.9,23.4
+2022-11-27,Chino Pants,Pants,Cotton,100,4.7,470.0
+2020-01-25,Basic T-shirt,T-shirt,Cotton,40,2.1,84.0
+2022-08-13,Running Shoes,Shoes,Synthetic,93,9.5,883.5
+2022-05-01,Denim Jacket,Jacket,Denim,77,7.8,600.6
+2020-09-29,Zip Hoodie,Sweatshirt,Cotton,91,4.5,409.5
+2024-08-20,Summer Dress,Dress,Linen,99,3.3,326.7
+2022-12-31,Tank Top,T-shirt,Cotton,65,1.8,117.0
+2024-07-02,Raincoat,Jacket,Polyester,71,7.4,525.4
+2020-12-09,Knitted Sweater,Sweater,Wool,90,6.0,540.0
+2022-03-07,Printed T-shirt,T-shirt,Organic Cotton,64,1.9,121.6
+2024-07-31,Running Shoes,Shoes,Synthetic,47,9.5,446.5
+2020-11-06,Running Shoes,Shoes,Synthetic,73,9.5,693.5
+2021-07-26,Denim Jacket,Jacket,Denim,100,7.8,780.0
+2024-01-16,Shorts,Shorts,Denim,11,3.5,38.5
+2024-02-06,Winter Coat,Jacket,Wool,44,10.2,448.8
+2020-10-19,Running Shoes,Shoes,Synthetic,33,9.5,313.5
+2021-05-31,Winter Coat,Jacket,Wool,50,10.2,510.0
+2021-07-25,Slip-On Sneakers,Shoes,Canvas,60,5.7,342.0
+2020-01-28,Cargo Pants,Pants,Cotton,17,5.1,86.7
+2021-06-01,Chino Pants,Pants,Cotton,26,4.7,122.2
+2020-05-24,Slip-On Sneakers,Shoes,Canvas,69,5.7,393.3
+2023-06-20,Printed T-shirt,T-shirt,Organic Cotton,70,1.9,133.0
+2022-05-29,Chino Pants,Pants,Cotton,74,4.7,347.8
+2020-10-12,Zip Hoodie,Sweatshirt,Cotton,59,4.5,265.5
+2022-03-12,Printed T-shirt,T-shirt,Organic Cotton,11,1.9,20.9
+2023-07-04,Oversized Hoodie,Sweatshirt,Cotton,20,4.2,84.0
+2024-05-29,Slim Fit Jeans,Jeans,Denim,4,6.5,26.0
+2024-03-08,Knitted Sweater,Sweater,Wool,49,6.0,294.0
+2022-05-04,Cargo Pants,Pants,Cotton,76,5.1,387.6
+2023-05-07,Cargo Pants,Pants,Cotton,87,5.1,443.7
+2023-01-07,Zip Hoodie,Sweatshirt,Cotton,10,4.5,45.0
+2021-05-09,Knitted Sweater,Sweater,Wool,18,6.0,108.0
+2021-08-08,Printed T-shirt,T-shirt,Organic Cotton,85,1.9,161.5
+2024-01-12,Knitted Sweater,Sweater,Wool,46,6.0,276.0
+2024-03-14,Denim Jacket,Jacket,Denim,29,7.8,226.2
+2021-09-01,Cargo Pants,Pants,Cotton,45,5.1,229.5
+2022-10-04,Zip Hoodie,Sweatshirt,Cotton,38,4.5,171.0
+2020-06-30,Tracksuit Pants,Pants,Polyester,39,6.3,245.7
+2021-03-03,Tank Top,T-shirt,Cotton,3,1.8,5.4
+2021-08-17,Shorts,Shorts,Denim,76,3.5,266.0
+2020-07-30,Shorts,Shorts,Denim,48,3.5,168.0
+2024-03-25,Tank Top,T-shirt,Cotton,33,1.8,59.4
+2023-06-20,Slim Fit Jeans,Jeans,Denim,7,6.5,45.5
+2024-08-23,Summer Dress,Dress,Linen,21,3.3,69.3
+2024-07-21,Cargo Pants,Pants,Cotton,81,5.1,413.1
+2024-08-10,Light Jacket,Jacket,Polyester,15,8.9,133.5
+2024-10-14,Raincoat,Jacket,Polyester,82,7.4,606.8
+2023-04-16,Chino Pants,Pants,Cotton,96,4.7,451.2
+2021-03-01,Tracksuit Pants,Pants,Polyester,65,6.3,409.5
+2022-03-23,Light Jacket,Jacket,Polyester,91,8.9,809.9
+2021-03-10,Knitted Sweater,Sweater,Wool,85,6.0,510.0
+2022-11-25,Cargo Pants,Pants,Cotton,92,5.1,469.2
+2023-03-30,Running Shoes,Shoes,Synthetic,93,9.5,883.5
+2020-01-08,Light Jacket,Jacket,Polyester,26,8.9,231.4
+2024-04-12,Slip-On Sneakers,Shoes,Canvas,49,5.7,279.3
+2023-09-19,Formal Shirt,Shirt,Cotton,70,3.9,273.0
+2023-06-10,Chino Pants,Pants,Cotton,35,4.7,164.5
+2020-03-18,Denim Jacket,Jacket,Denim,86,7.8,670.8
+2023-10-05,Zip Hoodie,Sweatshirt,Cotton,65,4.5,292.5
+2021-04-22,Raincoat,Jacket,Polyester,36,7.4,266.4
+2024-04-23,Raincoat,Jacket,Polyester,52,7.4,384.8
+2021-07-11,Formal Shirt,Shirt,Cotton,13,3.9,50.7
+2023-10-02,Cargo Pants,Pants,Cotton,24,5.1,122.4
+2023-02-19,Basic T-shirt,T-shirt,Cotton,59,2.1,123.9
+2024-03-23,Slim Fit Jeans,Jeans,Denim,63,6.5,409.5
+2021-03-14,Knitted Sweater,Sweater,Wool,94,6.0,564.0
+2023-01-08,Summer Dress,Dress,Linen,32,3.3,105.6
+2020-07-11,Oversized Hoodie,Sweatshirt,Cotton,87,4.2,365.4
+2024-03-08,Slim Fit Jeans,Jeans,Denim,55,6.5,357.5
+2024-09-03,Tank Top,T-shirt,Cotton,25,1.8,45.0
+2020-12-20,Shorts,Shorts,Denim,65,3.5,227.5
+2021-01-24,Tracksuit Pants,Pants,Polyester,50,6.3,315.0
+2022-12-04,Winter Coat,Jacket,Wool,26,10.2,265.2
+2021-04-21,Winter Coat,Jacket,Wool,85,10.2,867.0
+2024-12-02,Slip-On Sneakers,Shoes,Canvas,97,5.7,552.9
+2024-05-10,Oversized Hoodie,Sweatshirt,Cotton,44,4.2,184.8
+2020-04-16,Tank Top,T-shirt,Cotton,6,1.8,10.8
+2024-09-04,Shorts,Shorts,Denim,23,3.5,80.5
+2024-12-30,Cargo Pants,Pants,Cotton,37,5.1,188.7
+2022-08-18,Slim Fit Jeans,Jeans,Denim,75,6.5,487.5
+2022-10-23,Oversized Hoodie,Sweatshirt,Cotton,73,4.2,306.6
+2022-03-22,Oversized Hoodie,Sweatshirt,Cotton,52,4.2,218.4
+2024-06-19,Tracksuit Pants,Pants,Polyester,74,6.3,466.2
+2023-08-16,Leather Boots,Shoes,Leather,51,11.0,561.0
+2021-07-02,Winter Coat,Jacket,Wool,61,10.2,622.2
+2020-04-10,Zip Hoodie,Sweatshirt,Cotton,62,4.5,279.0
+2020-02-05,Raincoat,Jacket,Polyester,39,7.4,288.6
+2023-04-20,Summer Dress,Dress,Linen,20,3.3,66.0
+2023-05-05,Slip-On Sneakers,Shoes,Canvas,72,5.7,410.4
+2024-10-08,Running Shoes,Shoes,Synthetic,9,9.5,85.5
+2024-11-06,Shorts,Shorts,Denim,100,3.5,350.0
+2022-01-09,Raincoat,Jacket,Polyester,51,7.4,377.4
+2022-11-30,Basic T-shirt,T-shirt,Cotton,74,2.1,155.4
+2023-04-06,Light Jacket,Jacket,Polyester,5,8.9,44.5
+2023-03-21,Tracksuit Pants,Pants,Polyester,2,6.3,12.6
+2020-07-25,Summer Dress,Dress,Linen,44,3.3,145.2
+2022-01-24,Zip Hoodie,Sweatshirt,Cotton,5,4.5,22.5
+2023-07-29,Winter Coat,Jacket,Wool,75,10.2,765.0
+2020-05-31,Formal Shirt,Shirt,Cotton,82,3.9,319.8
+2020-06-20,Zip Hoodie,Sweatshirt,Cotton,58,4.5,261.0
+2021-11-16,Tracksuit Pants,Pants,Polyester,70,6.3,441.0
+2020-01-07,Denim Jacket,Jacket,Denim,42,7.8,327.6
+2022-01-09,Printed T-shirt,T-shirt,Organic Cotton,19,1.9,36.1
+2023-04-03,Cargo Pants,Pants,Cotton,76,5.1,387.6
+2020-08-08,Knitted Sweater,Sweater,Wool,41,6.0,246.0
+2024-11-10,Tracksuit Pants,Pants,Polyester,54,6.3,340.2
+2024-08-09,Winter Coat,Jacket,Wool,44,10.2,448.8
+2024-10-10,Running Shoes,Shoes,Synthetic,78,9.5,741.0
+2022-01-24,Slim Fit Jeans,Jeans,Denim,92,6.5,598.0
+2020-05-09,Chino Pants,Pants,Cotton,34,4.7,159.8
+2024-03-25,Knitted Sweater,Sweater,Wool,71,6.0,426.0
+2021-08-04,Slip-On Sneakers,Shoes,Canvas,80,5.7,456.0
+2020-06-19,Oversized Hoodie,Sweatshirt,Cotton,91,4.2,382.2
+2020-12-14,Running Shoes,Shoes,Synthetic,53,9.5,503.5
+2020-06-19,Cargo Pants,Pants,Cotton,37,5.1,188.7
+2023-02-02,Running Shoes,Shoes,Synthetic,31,9.5,294.5
+2021-03-07,Light Jacket,Jacket,Polyester,36,8.9,320.4
+2024-01-18,Formal Shirt,Shirt,Cotton,7,3.9,27.3
+2024-02-19,Tracksuit Pants,Pants,Polyester,39,6.3,245.7
+2024-05-31,Printed T-shirt,T-shirt,Organic Cotton,70,1.9,133.0
+2020-06-02,Zip Hoodie,Sweatshirt,Cotton,41,4.5,184.5
+2021-11-26,Leather Boots,Shoes,Leather,67,11.0,737.0
+2020-09-29,Slim Fit Jeans,Jeans,Denim,57,6.5,370.5
+2024-07-25,Winter Coat,Jacket,Wool,96,10.2,979.2
+2020-03-17,Basic T-shirt,T-shirt,Cotton,41,2.1,86.1
+2022-05-05,Denim Jacket,Jacket,Denim,72,7.8,561.6
+2020-03-24,Slip-On Sneakers,Shoes,Canvas,90,5.7,513.0
+2023-09-21,Tracksuit Pants,Pants,Polyester,55,6.3,346.5
+2021-01-12,Printed T-shirt,T-shirt,Organic Cotton,30,1.9,57.0
+2020-08-23,Slip-On Sneakers,Shoes,Canvas,17,5.7,96.9
+2023-04-16,Tracksuit Pants,Pants,Polyester,16,6.3,100.8
+2024-01-17,Running Shoes,Shoes,Synthetic,59,9.5,560.5
+2021-02-06,Slim Fit Jeans,Jeans,Denim,47,6.5,305.5
+2022-07-23,Summer Dress,Dress,Linen,79,3.3,260.7
+2024-01-21,Winter Coat,Jacket,Wool,29,10.2,295.8
+2023-07-25,Basic T-shirt,T-shirt,Cotton,2,2.1,4.2
+2022-09-27,Slim Fit Jeans,Jeans,Denim,22,6.5,143.0
+2021-06-02,Zip Hoodie,Sweatshirt,Cotton,6,4.5,27.0
+2020-01-19,Chino Pants,Pants,Cotton,98,4.7,460.6
+2024-12-22,Oversized Hoodie,Sweatshirt,Cotton,68,4.2,285.6
+2024-07-31,Denim Jacket,Jacket,Denim,5,7.8,39.0
+2022-12-17,Printed T-shirt,T-shirt,Organic Cotton,27,1.9,51.3
+2022-06-26,Leather Boots,Shoes,Leather,32,11.0,352.0
+2022-10-01,Tracksuit Pants,Pants,Polyester,48,6.3,302.4
+2021-10-27,Knitted Sweater,Sweater,Wool,84,6.0,504.0
+2020-05-30,Printed T-shirt,T-shirt,Organic Cotton,77,1.9,146.3
+2021-01-06,Printed T-shirt,T-shirt,Organic Cotton,88,1.9,167.2
+2023-06-30,Leather Boots,Shoes,Leather,75,11.0,825.0
+2022-05-22,Shorts,Shorts,Denim,61,3.5,213.5
+2022-01-14,Basic T-shirt,T-shirt,Cotton,63,2.1,132.3
+2020-02-12,Light Jacket,Jacket,Polyester,85,8.9,756.5
+2023-07-05,Slip-On Sneakers,Shoes,Canvas,86,5.7,490.2
+2023-06-23,Raincoat,Jacket,Polyester,91,7.4,673.4
+2023-04-07,Summer Dress,Dress,Linen,44,3.3,145.2
+2020-05-31,Raincoat,Jacket,Polyester,25,7.4,185.0
+2023-12-07,Tracksuit Pants,Pants,Polyester,64,6.3,403.2
+2024-09-20,Shorts,Shorts,Denim,73,3.5,255.5
+2023-09-14,Zip Hoodie,Sweatshirt,Cotton,65,4.5,292.5
+2024-10-17,Formal Shirt,Shirt,Cotton,77,3.9,300.3
+2023-10-25,Slip-On Sneakers,Shoes,Canvas,99,5.7,564.3
+2022-07-10,Shorts,Shorts,Denim,61,3.5,213.5
+2020-12-04,Running Shoes,Shoes,Synthetic,87,9.5,826.5
+2024-08-05,Tracksuit Pants,Pants,Polyester,39,6.3,245.7
+2023-02-27,Knitted Sweater,Sweater,Wool,78,6.0,468.0
+2023-01-10,Running Shoes,Shoes,Synthetic,33,9.5,313.5
+2021-09-27,Basic T-shirt,T-shirt,Cotton,78,2.1,163.8
+2024-03-31,Slim Fit Jeans,Jeans,Denim,59,6.5,383.5
+2022-07-26,Winter Coat,Jacket,Wool,30,10.2,306.0
+2022-11-06,Tank Top,T-shirt,Cotton,27,1.8,48.6
+2023-12-03,Formal Shirt,Shirt,Cotton,43,3.9,167.7
+2023-11-26,Cargo Pants,Pants,Cotton,50,5.1,255.0
+2024-11-01,Raincoat,Jacket,Polyester,7,7.4,51.8
+2023-08-07,Light Jacket,Jacket,Polyester,46,8.9,409.4
+2024-11-19,Basic T-shirt,T-shirt,Cotton,33,2.1,69.3
+2024-03-18,Zip Hoodie,Sweatshirt,Cotton,95,4.5,427.5
+2020-04-20,Leather Boots,Shoes,Leather,49,11.0,539.0
+2020-01-31,Summer Dress,Dress,Linen,44,3.3,145.2
+2021-09-24,Slip-On Sneakers,Shoes,Canvas,7,5.7,39.9
+2021-03-03,Oversized Hoodie,Sweatshirt,Cotton,43,4.2,180.6
+2020-09-02,Oversized Hoodie,Sweatshirt,Cotton,17,4.2,71.4
+2024-05-18,Leather Boots,Shoes,Leather,53,11.0,583.0
+2023-05-29,Summer Dress,Dress,Linen,30,3.3,99.0
+2020-02-25,Denim Jacket,Jacket,Denim,97,7.8,756.6
+2024-04-18,Tracksuit Pants,Pants,Polyester,96,6.3,604.8
+2023-03-21,Winter Coat,Jacket,Wool,39,10.2,397.8
+2021-08-24,Knitted Sweater,Sweater,Wool,54,6.0,324.0
+2022-12-14,Tank Top,T-shirt,Cotton,10,1.8,18.0
+2021-02-11,Raincoat,Jacket,Polyester,30,7.4,222.0
+2023-05-29,Slim Fit Jeans,Jeans,Denim,80,6.5,520.0
+2021-05-08,Chino Pants,Pants,Cotton,32,4.7,150.4
+2023-12-31,Knitted Sweater,Sweater,Wool,49,6.0,294.0
+2021-03-06,Shorts,Shorts,Denim,20,3.5,70.0
+2024-01-14,Leather Boots,Shoes,Leather,96,11.0,1056.0
+2024-01-12,Winter Coat,Jacket,Wool,1,10.2,10.2
+2023-12-30,Leather Boots,Shoes,Leather,57,11.0,627.0
+2022-10-16,Denim Jacket,Jacket,Denim,87,7.8,678.6
+2020-10-26,Basic T-shirt,T-shirt,Cotton,48,2.1,100.8
+2022-06-13,Zip Hoodie,Sweatshirt,Cotton,44,4.5,198.0
+2024-11-25,Tracksuit Pants,Pants,Polyester,63,6.3,396.9
+2021-10-12,Shorts,Shorts,Denim,15,3.5,52.5
+2023-04-10,Leather Boots,Shoes,Leather,71,11.0,781.0
+2023-09-19,Running Shoes,Shoes,Synthetic,55,9.5,522.5
+2020-01-24,Leather Boots,Shoes,Leather,97,11.0,1067.0
+2020-06-26,Formal Shirt,Shirt,Cotton,15,3.9,58.5
+2022-10-23,Chino Pants,Pants,Cotton,78,4.7,366.6
+2024-03-11,Running Shoes,Shoes,Synthetic,56,9.5,532.0
+2022-02-02,Chino Pants,Pants,Cotton,7,4.7,32.9
+2020-07-28,Shorts,Shorts,Denim,66,3.5,231.0
+2022-11-19,Tracksuit Pants,Pants,Polyester,21,6.3,132.3
+2020-09-22,Leather Boots,Shoes,Leather,7,11.0,77.0
+2024-12-16,Oversized Hoodie,Sweatshirt,Cotton,28,4.2,117.6
+2020-01-07,Slim Fit Jeans,Jeans,Denim,55,6.5,357.5
+2024-02-07,Basic T-shirt,T-shirt,Cotton,9,2.1,18.9
+2020-04-22,Basic T-shirt,T-shirt,Cotton,5,2.1,10.5
+2023-01-06,Summer Dress,Dress,Linen,43,3.3,141.9
+2024-05-26,Basic T-shirt,T-shirt,Cotton,79,2.1,165.9
+2020-01-19,Zip Hoodie,Sweatshirt,Cotton,28,4.5,126.0
+2022-08-18,Printed T-shirt,T-shirt,Organic Cotton,35,1.9,66.5
+2021-08-27,Slip-On Sneakers,Shoes,Canvas,71,5.7,404.7
+2022-12-04,Running Shoes,Shoes,Synthetic,30,9.5,285.0
+2021-01-09,Printed T-shirt,T-shirt,Organic Cotton,51,1.9,96.9
+2024-12-21,Slim Fit Jeans,Jeans,Denim,31,6.5,201.5
+2023-02-11,Tank Top,T-shirt,Cotton,5,1.8,9.0
+2021-11-09,Summer Dress,Dress,Linen,53,3.3,174.9
+2020-09-02,Basic T-shirt,T-shirt,Cotton,73,2.1,153.3
+2021-01-13,Tracksuit Pants,Pants,Polyester,82,6.3,516.6
+2020-07-10,Denim Jacket,Jacket,Denim,28,7.8,218.4
+2021-04-05,Denim Jacket,Jacket,Denim,39,7.8,304.2
+2024-07-08,Light Jacket,Jacket,Polyester,8,8.9,71.2
+2024-06-15,Summer Dress,Dress,Linen,93,3.3,306.9
+2020-10-26,Oversized Hoodie,Sweatshirt,Cotton,57,4.2,239.4
+2020-11-03,Chino Pants,Pants,Cotton,6,4.7,28.2
+2024-03-11,Leather Boots,Shoes,Leather,45,11.0,495.0
+2020-04-29,Slip-On Sneakers,Shoes,Canvas,12,5.7,68.4
+2022-06-25,Printed T-shirt,T-shirt,Organic Cotton,30,1.9,57.0
+2023-09-23,Denim Jacket,Jacket,Denim,16,7.8,124.8
+2020-04-27,Printed T-shirt,T-shirt,Organic Cotton,7,1.9,13.3
+2024-03-08,Light Jacket,Jacket,Polyester,12,8.9,106.8
+2024-05-29,Chino Pants,Pants,Cotton,37,4.7,173.9
+2024-01-02,Running Shoes,Shoes,Synthetic,68,9.5,646.0
+2022-05-15,Chino Pants,Pants,Cotton,93,4.7,437.1
+2020-03-07,Running Shoes,Shoes,Synthetic,98,9.5,931.0
+2021-02-02,Summer Dress,Dress,Linen,45,3.3,148.5
+2022-01-01,Tank Top,T-shirt,Cotton,98,1.8,176.4
+2024-11-25,Shorts,Shorts,Denim,49,3.5,171.5
+2024-11-05,Knitted Sweater,Sweater,Wool,12,6.0,72.0
+2022-05-22,Chino Pants,Pants,Cotton,63,4.7,296.1
+2024-12-01,Summer Dress,Dress,Linen,23,3.3,75.9
+2023-05-23,Light Jacket,Jacket,Polyester,31,8.9,275.9
+2020-05-28,Raincoat,Jacket,Polyester,36,7.4,266.4
+2022-12-26,Leather Boots,Shoes,Leather,43,11.0,473.0
+2024-03-25,Winter Coat,Jacket,Wool,53,10.2,540.6
+2022-07-23,Winter Coat,Jacket,Wool,46,10.2,469.2
+2021-10-08,Knitted Sweater,Sweater,Wool,61,6.0,366.0
+2022-11-13,Basic T-shirt,T-shirt,Cotton,48,2.1,100.8
+2020-09-17,Leather Boots,Shoes,Leather,22,11.0,242.0
+2021-09-10,Slip-On Sneakers,Shoes,Canvas,17,5.7,96.9
+2024-11-20,Zip Hoodie,Sweatshirt,Cotton,92,4.5,414.0
+2024-01-28,Cargo Pants,Pants,Cotton,22,5.1,112.2
+2022-07-26,Cargo Pants,Pants,Cotton,18,5.1,91.8
+2020-11-25,Oversized Hoodie,Sweatshirt,Cotton,79,4.2,331.8
+2021-06-03,Chino Pants,Pants,Cotton,46,4.7,216.2
+2023-08-14,Summer Dress,Dress,Linen,22,3.3,72.6
+2021-07-21,Formal Shirt,Shirt,Cotton,40,3.9,156.0
+2020-06-07,Raincoat,Jacket,Polyester,20,7.4,148.0
+2023-01-31,Winter Coat,Jacket,Wool,58,10.2,591.6
+2020-08-08,Cargo Pants,Pants,Cotton,88,5.1,448.8
+2021-10-08,Oversized Hoodie,Sweatshirt,Cotton,88,4.2,369.6
+2021-01-17,Formal Shirt,Shirt,Cotton,69,3.9,269.1
+2020-03-12,Slim Fit Jeans,Jeans,Denim,93,6.5,604.5
+2021-01-27,Winter Coat,Jacket,Wool,95,10.2,969.0
+2022-01-19,Tracksuit Pants,Pants,Polyester,46,6.3,289.8
+2024-10-23,Tracksuit Pants,Pants,Polyester,81,6.3,510.3
+2024-07-17,Winter Coat,Jacket,Wool,44,10.2,448.8
+2023-09-01,Light Jacket,Jacket,Polyester,24,8.9,213.6
+2022-02-07,Slim Fit Jeans,Jeans,Denim,35,6.5,227.5
+2024-12-17,Shorts,Shorts,Denim,92,3.5,322.0
+2024-06-23,Printed T-shirt,T-shirt,Organic Cotton,8,1.9,15.2
+2021-05-20,Leather Boots,Shoes,Leather,42,11.0,462.0
+2023-02-27,Knitted Sweater,Sweater,Wool,32,6.0,192.0
+2022-01-06,Slim Fit Jeans,Jeans,Denim,30,6.5,195.0
+2021-08-18,Slip-On Sneakers,Shoes,Canvas,1,5.7,5.7
+2021-02-04,Light Jacket,Jacket,Polyester,18,8.9,160.2
+2021-04-01,Winter Coat,Jacket,Wool,65,10.2,663.0
+2024-12-28,Running Shoes,Shoes,Synthetic,19,9.5,180.5
+2020-11-28,Chino Pants,Pants,Cotton,10,4.7,47.0
+2021-09-29,Slip-On Sneakers,Shoes,Canvas,66,5.7,376.2
+2022-11-08,Zip Hoodie,Sweatshirt,Cotton,77,4.5,346.5
+2024-11-03,Zip Hoodie,Sweatshirt,Cotton,56,4.5,252.0
+2024-11-01,Tank Top,T-shirt,Cotton,75,1.8,135.0
+2022-11-14,Formal Shirt,Shirt,Cotton,24,3.9,93.6
+2022-11-15,Winter Coat,Jacket,Wool,26,10.2,265.2
+2022-06-05,Oversized Hoodie,Sweatshirt,Cotton,36,4.2,151.2
+2021-02-24,Chino Pants,Pants,Cotton,98,4.7,460.6
+2020-10-18,Cargo Pants,Pants,Cotton,99,5.1,504.9
+2021-03-02,Basic T-shirt,T-shirt,Cotton,21,2.1,44.1
+2022-09-21,Winter Coat,Jacket,Wool,24,10.2,244.8
+2020-04-10,Winter Coat,Jacket,Wool,11,10.2,112.2
+2023-06-02,Chino Pants,Pants,Cotton,87,4.7,408.9
+2023-11-26,Printed T-shirt,T-shirt,Organic Cotton,12,1.9,22.8
+2022-06-22,Printed T-shirt,T-shirt,Organic Cotton,78,1.9,148.2
+2021-12-02,Denim Jacket,Jacket,Denim,74,7.8,577.2
+2023-11-16,Basic T-shirt,T-shirt,Cotton,28,2.1,58.8
+2021-10-09,Formal Shirt,Shirt,Cotton,71,3.9,276.9
+2020-03-15,Slim Fit Jeans,Jeans,Denim,47,6.5,305.5
+2022-10-20,Zip Hoodie,Sweatshirt,Cotton,45,4.5,202.5
+2020-10-04,Formal Shirt,Shirt,Cotton,9,3.9,35.1
+2022-11-12,Summer Dress,Dress,Linen,86,3.3,283.8
+2024-02-27,Slip-On Sneakers,Shoes,Canvas,86,5.7,490.2
+2021-09-30,Shorts,Shorts,Denim,41,3.5,143.5
+2024-12-28,Slip-On Sneakers,Shoes,Canvas,12,5.7,68.4
+2022-09-11,Summer Dress,Dress,Linen,54,3.3,178.2
+2024-10-08,Oversized Hoodie,Sweatshirt,Cotton,34,4.2,142.8
+2020-05-08,Summer Dress,Dress,Linen,3,3.3,9.9
+2021-01-04,Summer Dress,Dress,Linen,29,3.3,95.7
+2021-10-03,Running Shoes,Shoes,Synthetic,33,9.5,313.5
+2024-11-15,Leather Boots,Shoes,Leather,63,11.0,693.0
+2022-05-01,Basic T-shirt,T-shirt,Cotton,38,2.1,79.8
+2020-11-28,Leather Boots,Shoes,Leather,7,11.0,77.0
+2020-08-25,Raincoat,Jacket,Polyester,56,7.4,414.4
+2023-06-09,Printed T-shirt,T-shirt,Organic Cotton,36,1.9,68.4
+2021-12-31,Slip-On Sneakers,Shoes,Canvas,64,5.7,364.8
+2023-03-25,Leather Boots,Shoes,Leather,78,11.0,858.0
+2021-06-08,Denim Jacket,Jacket,Denim,42,7.8,327.6
+2020-10-19,Winter Coat,Jacket,Wool,13,10.2,132.6
+2022-03-24,Winter Coat,Jacket,Wool,67,10.2,683.4
+2024-03-04,Slip-On Sneakers,Shoes,Canvas,90,5.7,513.0
+2024-11-24,Printed T-shirt,T-shirt,Organic Cotton,51,1.9,96.9
+2022-07-09,Cargo Pants,Pants,Cotton,62,5.1,316.2
+2023-11-30,Chino Pants,Pants,Cotton,5,4.7,23.5
+2024-02-04,Chino Pants,Pants,Cotton,11,4.7,51.7
+2024-02-26,Oversized Hoodie,Sweatshirt,Cotton,5,4.2,21.0
+2022-11-29,Tracksuit Pants,Pants,Polyester,61,6.3,384.3
+2023-03-13,Formal Shirt,Shirt,Cotton,90,3.9,351.0
+2021-11-01,Tracksuit Pants,Pants,Polyester,22,6.3,138.6
+2023-02-27,Formal Shirt,Shirt,Cotton,51,3.9,198.9
+2020-01-28,Knitted Sweater,Sweater,Wool,71,6.0,426.0
+2024-01-23,Zip Hoodie,Sweatshirt,Cotton,95,4.5,427.5
+2022-07-11,Denim Jacket,Jacket,Denim,76,7.8,592.8
+2023-04-20,Winter Coat,Jacket,Wool,7,10.2,71.4
+2024-09-17,Winter Coat,Jacket,Wool,46,10.2,469.2
+2022-06-15,Chino Pants,Pants,Cotton,89,4.7,418.3
+2023-08-13,Zip Hoodie,Sweatshirt,Cotton,39,4.5,175.5
+2024-10-09,Oversized Hoodie,Sweatshirt,Cotton,57,4.2,239.4
+2024-04-01,Winter Coat,Jacket,Wool,25,10.2,255.0
+2020-11-26,Cargo Pants,Pants,Cotton,57,5.1,290.7
+2024-09-01,Slim Fit Jeans,Jeans,Denim,47,6.5,305.5
+2023-03-07,Summer Dress,Dress,Linen,23,3.3,75.9
+2023-03-10,Formal Shirt,Shirt,Cotton,62,3.9,241.8
+2020-01-18,Slip-On Sneakers,Shoes,Canvas,30,5.7,171.0
+2024-12-16,Shorts,Shorts,Denim,8,3.5,28.0
+2022-06-28,Denim Jacket,Jacket,Denim,66,7.8,514.8
+2021-03-02,Knitted Sweater,Sweater,Wool,60,6.0,360.0
+2020-09-09,Summer Dress,Dress,Linen,34,3.3,112.2
+2020-10-10,Denim Jacket,Jacket,Denim,43,7.8,335.4
+2020-09-26,Denim Jacket,Jacket,Denim,95,7.8,741.0
+2023-06-18,Tracksuit Pants,Pants,Polyester,40,6.3,252.0
+2021-04-24,Zip Hoodie,Sweatshirt,Cotton,91,4.5,409.5
+2022-05-25,Tank Top,T-shirt,Cotton,59,1.8,106.2
+2022-11-11,Zip Hoodie,Sweatshirt,Cotton,40,4.5,180.0
+2020-12-13,Tracksuit Pants,Pants,Polyester,79,6.3,497.7
+2022-11-04,Leather Boots,Shoes,Leather,76,11.0,836.0
+2024-09-21,Printed T-shirt,T-shirt,Organic Cotton,37,1.9,70.3
+2023-10-11,Cargo Pants,Pants,Cotton,88,5.1,448.8
+2020-01-14,Summer Dress,Dress,Linen,16,3.3,52.8
+2022-05-21,Knitted Sweater,Sweater,Wool,92,6.0,552.0
+2023-09-02,Tracksuit Pants,Pants,Polyester,95,6.3,598.5
+2021-01-01,Shorts,Shorts,Denim,57,3.5,199.5
+2022-07-09,Zip Hoodie,Sweatshirt,Cotton,57,4.5,256.5

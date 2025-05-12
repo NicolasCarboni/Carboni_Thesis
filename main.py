@@ -12,6 +12,8 @@ from operations.roll_up_model import RollUpModel
 import asyncio
 from ezkl_workflow.generate_proof import generate_proof
 from hash_utils import verify_dataset_hash, verify_query_allowed, publish_hash
+from generators.CSVGenerator1 import generate_clothing_emissions_data_1
+from generators.CSVGenerator2 import generate_clothing_emissions_data_2
 
 
 output_dir = './output'
@@ -30,7 +32,7 @@ def apply_olap_operations(cube, tensor_data, operations):
         result_tensor = cube.execute_model(operation, result_tensor)
     return result_tensor
 
-def perform_query(file_path):
+async def perform_query(file_path):
     df = pd.read_csv(file_path)
     df = df.dropna()
     # Initialize the OLAP cube and transform the data into a tensor
@@ -69,12 +71,95 @@ def perform_query(file_path):
     with open(input_json_path, 'w') as f:
         json.dump(data, f)
 
+    await generate_proof(output_dir, model_onnx_path, input_json_path, logrows=17)
+
+def op_upload_generate_file():
+    print("\nSelect a generator to use:")
+    print("[1] Generator 1")
+    print("[2] Generator 2")
+    generator_choice = input("Enter your choice (1 or 2): ")
+
+    if generator_choice == "1":
+        generate_clothing_emissions_data_1(1000, 1, output_file="GHGe1.csv")
+        print("File generated with Generator 1.")
+    elif generator_choice == "2":
+        generate_clothing_emissions_data_2(1000, 1, output_file="GHGe2.csv")
+        print("File generated with Generator 2.")
+    else:
+        print("Invalid choice. Returning to previous menu.")
+    
+def op_publish_hash():
+    try:
+        uploaded_files_dir = os.path.join('data', 'uploaded')
+        files = os.listdir(uploaded_files_dir)
+        if not files:
+            print("No files available in the uploaded directory.")
+            return
+        print("Available files:")
+        for idx, file in enumerate(files):
+            print(f"[{idx + 1}] {file}")
+        file_index = int(input("Select a file to publish by index: ")) - 1
+        if file_index < 0 or file_index >= len(files):
+            print("Invalid index selected.")
+            return
+        file_path = os.path.join(uploaded_files_dir, files[file_index])
+        hash = publish_hash(file_path)
+
+        # Save the hash to a JSON file, to share it with the customer
+        published_hash_path = os.path.join('data', 'published_hash.json')
+        os.makedirs(os.path.dirname(published_hash_path), exist_ok=True)  # Ensure the directory exists
+        if not os.path.exists(published_hash_path):  # Create the file if it doesn't exist
+            with open(published_hash_path, 'w') as f:
+                json.dump({}, f, indent=4)
+        with open(published_hash_path, 'r') as f:
+            published_hashes = json.load(f)
+        published_hashes[files[file_index]] = hash  # Add the hash value
+        with open(published_hash_path, 'w') as f:
+            json.dump(published_hashes, f, indent=4)
+
+        print(f"Hash for {files[file_index]} published successfully.")
+    except Exception as e:
+        print(f"Failed to publish hash: {e}")
+
+def op_verify_dataset_hash():
+    try:
+        published_hash_path = os.path.join('data', 'published_hash.json')
+        if not os.path.exists(published_hash_path):
+            print("\nNo published hashes found.")
+            return
+
+        with open(published_hash_path, 'r') as f:
+            published_hashes = json.load(f)
+
+        if not published_hashes:
+            print("\nNo hashes available in the published file.")
+            return
+
+        print("\nAvailable published hashes:")
+        for idx, (file_name, hash_value) in enumerate(published_hashes.items()):
+            print(f"[{idx + 1}] File: {file_name} - Hash: {hash_value}")
+
+        file_index = int(input("Select a file to verify by index: ")) - 1
+        if file_index < 0 or file_index >= len(published_hashes):
+            print("Invalid index selected.")
+            return
+
+        selected_file = list(published_hashes.keys())[file_index]
+        selected_hash = published_hashes[selected_file]
+
+        file_path = os.path.join('data', 'uploaded', selected_file)
+
+        verify_dataset_hash(file_path)
+        print(f"Hash for {selected_file} verified successfully.")
+    except Exception as e:
+        print(f"Failed to verify hash: {e}")
 
 async def main():
 
-    file_path = "completed_sales_dataset.csv"
+    file_path = os.path.join('data', 'uploaded', 'GHGe1.csv')
+    #file_path = "completed_sales_dataset.csv"
 
-        # Load the DataFactModel contract address dynamically
+    # Load the DataFactModel contract address dynamically
     data_fact_model_address = load_contract_address("DataFactModel")
     if not data_fact_model_address:
         print("DataFactModel address not found in configuration.")
@@ -84,44 +169,37 @@ async def main():
 
     while True:
         print("\nSelect an option:")
-        print("1. Login as Data Owner")
-        print("2. Login as Customer")
-        print("3. Exit")
+        print("[1] Login as Data Owner")
+        print("[2] Login as Customer")
+        print("[3] Exit")
         choice = input("Enter your choice (1, 2, or 3): ")
 
         if choice == "1":  # --------------------------------------DATA OWNER
             print("You selected: Login as DATA OWNER")
             print("\nSelect an option:")
-            print("1. Publish Hash")
-            print("2. Verify Hash")
-            sub_choice = input("Enter your choice (1 or 2): ")
+            print("[1] Upload File")
+            print("[2] Publish Hash")
+            sub_choice = input("Enter your choice (1, 2, or 3): ")
 
-            if sub_choice == "1":  # PUBLISH HASH
-                try:
-                    publish_hash(file_path)
-                    print("Hash published successfully.")
-                except Exception as e:
-                    print(f"Failed to publish hash: {e}")
+            if sub_choice == "1":  # UPLOAD FILE
+                op_upload_generate_file()
 
-            elif sub_choice == "2":  # VERIFY HASH
-                try:
-                    verify_dataset_hash(file_path)
-                    print("Hash verified successfully.")
-                except ValueError as e:
-                    print(f"Hash verification failed: {e}")
+            elif sub_choice == "2":  # PUBLISH HASH
+                op_publish_hash()
+
             else:
                 print("Invalid choice. Returning to main menu.")
 
         elif choice == "2":  # -------------------------------------CUSTOMER
             print("You selected: Login as CUSTOMER")
             print("\nSelect an option:")
-            print("1. Verify Hash")
-            print("2. Perform Query")
+            print("[1] Verify Hash")
+            print("[2] Perform Query")
             sub_choice = input("Enter your choice (1 or 2): ")
 
             if sub_choice == "1":  # VERIFY HASH
                 try:
-                    verify_dataset_hash(file_path)
+                    op_verify_dataset_hash()
                     print("Hash verified successfully.")
                 except ValueError as e:
                     print(f"Hash verification failed: {e}")
@@ -135,8 +213,7 @@ async def main():
                         print("Query contains disallowed dimensions.")
                         continue
                     print("Query is allowed. Proceeding with query execution...")
-                    perform_query(file_path)
-                    # await generate_proof(output_dir, model_onnx_path, input_json_path, logrows=16)
+                    await perform_query(file_path)
                     print("Query executed successfully.")
                 except Exception as e:
                     print(f"Failed to perform query: {e}")

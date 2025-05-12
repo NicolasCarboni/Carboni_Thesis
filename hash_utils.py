@@ -112,6 +112,7 @@ def publish_hash(file_path):
         tx_hash = contract.functions.setHash(bytes32_hash).transact({'from': account})
         web3.eth.wait_for_transaction_receipt(tx_hash)
         logging.info(f"Hash {calculated_hash} has been published to the blockchain.")
+        return calculated_hash
     except Exception as e:
         logging.error(f"Failed to publish hash: {e}")
         raise
@@ -125,8 +126,8 @@ def verify_dataset_hash(file_path):
 
     stored_hash = get_stored_hash(web3, contract)
 
-    logging.info(f"Calculated hash: {bytes32_hash}")
-    logging.info(f"Stored hash: {stored_hash}")
+    #logging.info(f"Calculated hash: {bytes32_hash}")
+    #logging.info(f"Stored hash: {stored_hash}")
 
     if bytes32_hash == stored_hash:
         logging.info("Hash verification successful. The dataset is authentic.")

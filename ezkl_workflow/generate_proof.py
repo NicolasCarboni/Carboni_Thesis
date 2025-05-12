@@ -1,12 +1,13 @@
 import os
 import json
-import ezkl
+from ezkl import ezkl
 import asyncio
 
 async def generate_proof(output_dir, model_onnx_path, input_json_path, logrows):
     # Generazione delle impostazioni usando ezkl
     settings_filename = os.path.join(output_dir, 'settings.json')
     compiled_filename = os.path.join(output_dir, 'circuit.compiled')
+    
     res = ezkl.gen_settings(model_onnx_path, settings_filename)
     assert res == True
 
