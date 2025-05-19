@@ -5,7 +5,6 @@ import torch
 import onnx
 from ezkl import ezkl
 import time
-import psutil
 import sys
 from models.olap_cube import OLAPCube
 from operations.slicing_model import SlicingModel
