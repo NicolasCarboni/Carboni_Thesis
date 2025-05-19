@@ -1,4 +1,5 @@
 import os
+os.environ["RUST_LOG"] = "trace" # !RUST_LOG=trace
 import json
 from ezkl import ezkl
 import asyncio
@@ -10,6 +11,19 @@ async def generate_proof(output_dir, model_onnx_path, input_json_path, logrows):
     
     res = ezkl.gen_settings(model_onnx_path, settings_filename)
     assert res == True
+
+    """
+    # -----------------------------------------------
+    # Patch logrows in settings.json to match the value passed to generate_proof
+    with open(settings_filename, "r") as f:
+        settings = json.load(f)
+    settings["logrows"] = logrows
+    if "run_args" in settings:
+        settings["run_args"]["logrows"] = logrows
+    with open(settings_filename, "w") as f:
+        json.dump(settings, f, indent=4)
+    # -----------------------------------------------
+    """
 
     try:
         print(f"Attempting to get SRS with logrows={logrows}")
