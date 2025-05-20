@@ -465,8 +465,8 @@ async def op_prepare_query():
     print("Query is allowed. Proceeding with query execution...")
 
     try:
-        #await perform_query(file_path)
-        await perform_query_gen_proof(file_path)
+        await perform_query(file_path)
+        #await perform_query_gen_proof(file_path)
         #await my_perform_query(file_path)
         print("Query executed successfully.")
     except Exception as e:
