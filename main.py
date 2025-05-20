@@ -429,7 +429,8 @@ async def perform_query(file_path):
     with open(input_json_path, 'w') as f:
         json.dump(data, f)
 
-    await generate_proof(output_dir, model_onnx_path, input_json_path, logrows=17)
+    #await generate_proof(output_dir, model_onnx_path, input_json_path, logrows=17)
+    await generate_proof(output_dir, model_onnx_path, input_json_path, logrows=19)
 
 async def op_prepare_query(): 
     published_hash_path = os.path.join('data', 'published_hash.json')
