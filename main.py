@@ -197,14 +197,16 @@ async def my_perform_query(file_path):
     # ezkl.get_srs() retrieves or generates the Structured Reference String (SRS) needed for the ZKP setup phase
     # A Structured Reference String (SRS) is a set of cryptographic parameters that are precomputed and shared for use in certain zero-knowledge proof (ZKP) systems, such as zk-SNARKs and PLONK (which ezkl uses).
 
-    print(settings_filename)
+    #print(settings_filename)
 
-    srs_path = await ezkl.get_srs(settings_filename, logrows=logrows, srs_path="./SRS", commitment=ezkl.PyCommitments.KZG)
+    srs_path = await ezkl.get_srs(settings_filename, logrows=logrows)
+    #srs_path = await ezkl.get_srs(settings_filename, logrows=logrows, srs_path="./SRS", commitment=ezkl.PyCommitments.KZG)
     assert srs_path == True
 
     #srs_path = await ezkl.get_srs()
     #assert srs_path == True
-    
+    """
+
     # Calibrate settings to find optimal configurations (scaling factor, logrows, ...) for the model
     res = await ezkl.calibrate_settings(input_json_path, model_onnx_path, settings_filename, "resources")
     assert res == True
@@ -220,7 +222,6 @@ async def my_perform_query(file_path):
     assert os.path.exists(settings_filename)
     assert os.path.exists(input_json_path)
     assert os.path.exists(model_onnx_path)
-    """
 
     # Setup della prova con ezkl
     vk_path = os.path.join(output_dir, 'test.vk')
