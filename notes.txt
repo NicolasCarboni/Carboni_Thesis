@@ -2,3 +2,5 @@ In 3 different terminals:
 geth --dev --http --http.addr 127.0.0.1 --http.port 8545 --http.api eth,web3,personal,net
 truffle migrate
 python main.py
+
+pipreqs --force --ignore .venv,.history

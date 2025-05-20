@@ -41,6 +41,7 @@ def generate_clothing_emissions_data_1(num_rows, seed, output_file="GHGe1.csv"):
     for _ in range(num_rows):
         random_date = start_date + timedelta(days=random.randint(0, 1825))  # Random date within 5 years
         product = random.choice(products)
+
         quantity = random.randint(1, 100)
         unit_emission = product["unit_emission"]
         total_emission = round(unit_emission * quantity, 2)
@@ -50,8 +51,6 @@ def generate_clothing_emissions_data_1(num_rows, seed, output_file="GHGe1.csv"):
             "Product Name": product["name"],
             "Category": product["category"],
             "Material": product["material"],
-            "Quantity": quantity,
-            "GHG per Unit (kgCO₂e)": unit_emission,
             "Total Emissions (kgCO₂e)": total_emission
         }
         data.append(row)
@@ -63,8 +62,6 @@ def generate_clothing_emissions_data_1(num_rows, seed, output_file="GHGe1.csv"):
             "Product Name",
             "Category",
             "Material",
-            "Quantity",
-            "GHG per Unit (kgCO₂e)",
             "Total Emissions (kgCO₂e)"
         ])
         for row in data:
@@ -73,8 +70,6 @@ def generate_clothing_emissions_data_1(num_rows, seed, output_file="GHGe1.csv"):
                 row["Product Name"],
                 row["Category"],
                 row["Material"],
-                row["Quantity"],
-                row["GHG per Unit (kgCO₂e)"],
                 row["Total Emissions (kgCO₂e)"]
             ])
     

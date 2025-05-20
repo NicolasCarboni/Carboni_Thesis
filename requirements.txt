@@ -3,3 +3,4 @@ torch
 onnx
 ezkl
 scikit-learn
+web3
