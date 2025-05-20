@@ -3,8 +3,8 @@ from torch import nn
 from sklearn.preprocessing import LabelEncoder # to convert categorical string data into numeric labels
 
 class OLAPCube:
-    def __init__(self, df): # The constructor receives a 
-        self.df = df        #  pandas DataFrame (df) as input
+    def __init__(self, df): # The constructor receives a >
+        self.df = df        #  < pandas DataFrame (df) as input
         self.label_encoder = LabelEncoder() # Initialize an instance of LabelEncoder, which is then assigned to the attribute label_encoder
         self.category_mappings = self.encode_categorical_columns() # Call the encode_categorical_columns method defined in the class
 

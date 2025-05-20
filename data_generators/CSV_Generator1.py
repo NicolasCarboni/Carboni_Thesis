@@ -3,7 +3,7 @@ import random
 from datetime import datetime, timedelta
 import os
 
-def generate_clothing_emissions_data_1(num_rows, seed, output_file="GHGe1.csv"):
+def generate_CSV_1(num_rows, seed, output_file="GHGe1.csv"):
     # Ensure the output directory exists
     output_dir = os.path.join("data", "uploaded")
     os.makedirs(output_dir, exist_ok=True)

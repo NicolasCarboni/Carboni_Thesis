@@ -14,6 +14,8 @@ with open(CONFIG_PATH, 'r') as f:
 CONTRACT_ADDRESS = contract_addresses.get("HashStorage")
 DATA_FACT_MODEL_ADDRESS = contract_addresses.get("DataFactModel")
 
+# ABI (Application Binary Interface) is a JSON description of the contract's functions and events
+# It allows us to interact with the contract using web3.py
 CONTRACT_ABI_SET_HASH = json.loads('''
 [
     {
@@ -82,6 +84,8 @@ def setup_web3():
     return web3
 
 def get_contract(web3, address, abi):
+    # It retrieves the contract instance using the address and ABI
+    # If the contract is not deployed at the given address, it will be deployed
     return web3.eth.contract(address=address, abi=abi)
 
 def calculate_file_hash(file_path):
@@ -100,15 +104,17 @@ def get_stored_hash(web3, contract):
     return contract.functions.getHash().call()
 
 def publish_hash(file_path):
-    calculated_hash = calculate_file_hash(file_path)
+    calculated_hash = calculate_file_hash(file_path) # hash_utils.py
     bytes32_hash = Web3.to_bytes(hexstr=calculated_hash)
 
     web3 = setup_web3()
-    contract = get_contract(web3, CONTRACT_ADDRESS, CONTRACT_ABI_SET_HASH)
+    # call to get (create) the contract instance
+    contract = get_contract(web3, CONTRACT_ADDRESS, CONTRACT_ABI_SET_HASH) # hash_utils.py
 
     account = web3.eth.accounts[0]
 
     try:
+        # setHash() from HashStorage.sol Solidity contract
         tx_hash = contract.functions.setHash(bytes32_hash).transact({'from': account})
         web3.eth.wait_for_transaction_receipt(tx_hash)
         logging.info(f"Hash {calculated_hash} has been published to the blockchain.")
@@ -140,6 +146,7 @@ def verify_query_allowed(query_dimensions, contract_address):
     contract = get_contract(web3, contract_address, CONTRACT_ABI_QUERY_ALLOWED)
 
     try:
+        # .call() is used to call a function that does not modify the state of the blockchain
         is_allowed = contract.functions.isQueryAllowed(query_dimensions).call()
         logging.info(f"Query allowed: {is_allowed}")
         return is_allowed

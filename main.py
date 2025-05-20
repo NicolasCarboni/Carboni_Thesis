@@ -13,8 +13,8 @@ from operations.roll_up_model import RollUpModel
 import asyncio
 from ezkl_workflow.generate_proof import generate_proof
 from hash_utils import verify_dataset_hash, verify_query_allowed, publish_hash
-from generators.CSVGenerator1 import generate_clothing_emissions_data_1
-from generators.CSVGenerator2 import generate_clothing_emissions_data_2
+from data_generators.CSV_Generator1 import generate_CSV_1
+from data_generators.CSV_Generator2 import generate_CSV_2
 
 output_dir = './output'
 os.makedirs(output_dir, exist_ok=True)
@@ -32,54 +32,64 @@ if not data_fact_model_address:
     print("DataFactModel address not found in configuration.")
     sys.exit(1)
 
-def op_upload_generate_file():
+def op_generate_file():
     print("\nSelect a generator to use:")
     print("[1] Generator 1")
     print("[2] Generator 2")
     generator_choice = input("Enter your choice (1 or 2): ")
 
     if generator_choice == "1":
-        generate_clothing_emissions_data_1(1000, 1, output_file="GHGe1.csv")
+        generate_CSV_1(1000, 1, output_file="GHGe1.csv") # CSV_Generator1.py
         print("File generated with Generator 1.")
     elif generator_choice == "2":
-        generate_clothing_emissions_data_2(1000, 1, output_file="GHGe2.csv")
+        generate_CSV_2(1000, 1, output_file="GHGe2.csv") # CSV_Generator2.py
         print("File generated with Generator 2.")
     else:
         print("Invalid choice. Returning to previous menu.")
     
-def op_publish_hash():
-    try:
-        uploaded_files_dir = os.path.join('data', 'uploaded')
-        files = os.listdir(uploaded_files_dir)
-        if not files:
-            print("No files available in the uploaded directory.")
-            return
-        print("Available files:")
-        for idx, file in enumerate(files):
-            print(f"[{idx + 1}] {file}")
-        file_index = int(input("Select a file to publish by index: ")) - 1
-        if file_index < 0 or file_index >= len(files):
-            print("Invalid index selected.")
-            return
-        file_path = os.path.join(uploaded_files_dir, files[file_index])
-        hash = publish_hash(file_path)
 
-        # Save the hash to a JSON file, to share it with the customer
-        published_hash_path = os.path.join('data', 'published_hash.json')
-        os.makedirs(os.path.dirname(published_hash_path), exist_ok=True)  # Ensure the directory exists
-        if not os.path.exists(published_hash_path):  # Create the file if it doesn't exist
-            with open(published_hash_path, 'w') as f:
-                json.dump({}, f, indent=4)
-        with open(published_hash_path, 'r') as f:
-            published_hashes = json.load(f)
-        published_hashes[files[file_index]] = hash  # Add the hash value
+def CLI_publish_hash():
+    # Make the user select a file to publish with CLI
+    uploaded_files_dir = os.path.join('data', 'uploaded')
+    files = os.listdir(uploaded_files_dir)
+    if not files:
+        print("No files available in the uploaded directory.")
+        return
+    print("Available files:")
+    for idx, file in enumerate(files):
+        print(f"[{idx + 1}] {file}")
+    file_index = int(input("Select a file to publish by index: ")) - 1
+    if file_index < 0 or file_index >= len(files):
+        print("Invalid index selected.")
+        return
+    file_path = os.path.join(uploaded_files_dir, files[file_index])
+
+    hash = op_publish_hash(file_path) # MAIN.py
+
+    # Save the hash in "published_hash.json" to share it with the customer
+    published_hash_path = os.path.join('data', 'published_hash.json')
+    os.makedirs(os.path.dirname(published_hash_path), exist_ok=True)  # Ensure the directory exists
+
+    # Create the file if it doesn't exist
+    if not os.path.exists(published_hash_path):
         with open(published_hash_path, 'w') as f:
-            json.dump(published_hashes, f, indent=4)
+            json.dump({}, f, indent=4)
 
-        print(f"Hash for {files[file_index]} published successfully.")
-    except Exception as e:
-        print(f"Failed to publish hash: {e}")
+    # Read the existing published hashes
+    with open(published_hash_path, 'r') as f:
+        published_hashes = json.load(f)
+    # Add or update the hash for the selected file
+    published_hashes[files[file_index]] = hash
+    # Write the updated hashes back to the file
+    with open(published_hash_path, 'w') as f:
+        json.dump(published_hashes, f, indent=4)
 
+    print(f"Hash for {files[file_index]} published successfully.")
+
+def op_publish_hash(file_path):
+    return publish_hash(file_path) # HASH_UTILS.py
+
+# ??
 def op_verify_dataset_hash():
     try:
         published_hash_path = os.path.join('data', 'published_hash.json')
@@ -123,142 +133,7 @@ def apply_olap_operations(cube, tensor_data, operations):
         result_tensor = cube.execute_model(operation, result_tensor)
     return result_tensor
 
-async def my_perform_query(file_path):
-    output_dir = './output'
-    os.makedirs(output_dir, exist_ok=True)
-
-    # Prepare data and model
-    df = pd.read_csv(file_path)
-    df = df.dropna()
-
-    # Initialize the OLAP cube and transform the data into a tensor
-    cube = OLAPCube(df)
-    tensor_data = cube.to_tensor()
-
-    # Define the list of OLAP operations to apply
-    operations = [
-        SlicingModel({14: 1, 21: 12, 27: 0}),
-        DicingModel({2: 2, 21: [3, 4], 27: 4})
-    ]
-
-    # Apply the operations to the tensor data
-    final_tensor = apply_olap_operations(cube, tensor_data, operations)
-
-    # Export the model in ONNX format
-    # Selects the last operation in your OLAP pipeline. This is the model you want to export
-    final_operation = operations[-1]  
-    # ONNX export requires the model and the input tensor to be on the same device (usually CPU for interoperability), we move the model to CPU
-    final_operation.to(torch.device("cpu"))
-    # Sets the model to evaluation mode
-    final_operation.eval()
-
-    model_onnx_path = os.path.join(output_dir, 'model.onnx')
-    # Export a PyTorch model to the ONNX (Open Neural Network Exchange) format
-    torch.onnx.export(final_operation,         # model being run
-                    tensor_data,               # model input (or a tuple for multiple inputs)
-                    model_onnx_path,           # where to save the model (can be a file or file-like object)
-                    export_params=True,        # store the trained parameter weights inside the model file
-                    opset_version=11,          # the ONNX version to export the model to
-                    do_constant_folding=True,  # whether to execute constant folding for optimization
-                    input_names = ['input'],   # the model's input names
-                    output_names = ['output'])
-
-    onnx_model = onnx.load(model_onnx_path)
-    onnx.checker.check_model(onnx_model)
-    #print(onnx.helper.printable_graph(onnx_model.graph))
-                 
-    # Export ONNX model
-    #d = ((tensor_data).detach().numpy()).reshape([-1]).tolist()
-    #data = dict(input_data = [d])
-    
-    # Converts the PyTorch tensor tensor_data to a NumPy array and flattens it
-    d = ((tensor_data).detach().numpy()).reshape([-1])
-    # Creates a Python dictionary named data with three keys
-    data = dict(
-        input_shapes=[tensor_data.shape], #list of input shapes
-        input_data=[d.tolist()], # list of input data
-        output_data=[final_tensor.detach().numpy().reshape([-1]).tolist()] #list of output data
-    )
-
-    input_json_path = os.path.join(output_dir, 'input.json')
-    with open(input_json_path, 'w') as f:
-        json.dump(data, f) # writes the data dictionary to a JSON file
-
-    # >
-    logrows=17
-
-    settings_filename = os.path.join(output_dir, 'settings.json')
-
-    # Generate the settings file (setting.json) for ezkl and run calibrate settings to find the optimal settings for ezkl
-    res = ezkl.gen_settings(model_onnx_path, settings_filename)
-    assert res == True
-
-    # !!! ERR
-    # ezkl.get_srs() retrieves or generates the Structured Reference String (SRS) needed for the ZKP setup phase
-    # A Structured Reference String (SRS) is a set of cryptographic parameters that are precomputed and shared for use in certain zero-knowledge proof (ZKP) systems, such as zk-SNARKs and PLONK (which ezkl uses).
-
-    #print(settings_filename)
-
-    srs_path = await ezkl.get_srs(settings_filename, logrows=logrows)
-    #srs_path = await ezkl.get_srs(settings_filename, logrows=logrows, srs_path="./SRS", commitment=ezkl.PyCommitments.KZG)
-    assert srs_path == True
-
-    #srs_path = await ezkl.get_srs()
-    #assert srs_path == True
-    """
-
-    # Calibrate settings to find optimal configurations (scaling factor, logrows, ...) for the model
-    res = await ezkl.calibrate_settings(input_json_path, model_onnx_path, settings_filename, "resources")
-    assert res == True
-
-    compiled_filename = os.path.join(output_dir, 'circuit.compiled')
-
-    # Compile the circuit using the ONNX model and the settings file
-    # The compiled circuit is a representation of the ONNX model that is optimized for zero-knowledge proof generation
-    res = ezkl.compile_circuit(model_onnx_path, compiled_filename, settings_filename)
-
-
-    # Verifica dell'esistenza dei file necessari
-    assert os.path.exists(settings_filename)
-    assert os.path.exists(input_json_path)
-    assert os.path.exists(model_onnx_path)
-
-    # Setup della prova con ezkl
-    vk_path = os.path.join(output_dir, 'test.vk')
-    pk_path = os.path.join(output_dir, 'test.pk')
-    # !!! ERR
-    res = ezkl.setup(compiled_filename, vk_path, pk_path)
-    assert res == True
-
-    witness_path = os.path.join(output_dir, "witness.json")
-    try:
-        # Generazione del testimone
-        res = await ezkl.gen_witness(input_json_path, compiled_filename, witness_path)
-        if res:
-            print("Witness file was successfully generated")
-    except Exception as e:
-        print(f"An error occurred: {e}")
-
-    proof_path = os.path.join(output_dir, 'test.pf')
-    try:
-        # Generazione della prova
-        proof = ezkl.prove(witness_path, compiled_filename, pk_path, proof_path, "single")
-        if proof:
-            print("Proof file was successfully generated")
-    except Exception as e:
-        print(f"An error occurred: {e}")
-
-    try:
-        # Verifica della prova
-        res = ezkl.verify(proof_path, settings_filename, vk_path)
-        if res:
-            print("The proof was successfully verified")
-    except Exception as e:
-        print(f"An error occurred: {e}")
-    """    
-
-# Original code, including generate_proof.py
-async def perform_query_gen_proof(file_path):
+async def op_perform_query(file_path):
     df = pd.read_csv(file_path)
     df = df.dropna() # Drop rows with NaN values
 
@@ -268,7 +143,9 @@ async def perform_query_gen_proof(file_path):
 
     # Define the list of OLAP operations to apply
     operations = [
-        SlicingModel({14: 1, 21: 12, 27: 0}),  # Slicing operation
+        # SlicingModel and DicingModel are subclasses of OLAPOperation
+        # {14: 1, 21: 12, 27: 0} is a dictionary where the keys are column indices and the values are the values to filter by
+        SlicingModel({14: 1, 21: 12, 27: 0}),  # Slicing operation: select rows where column 14 is ==1, ...
         DicingModel({2: 2, 21: [3, 4], 27: 4})  # Dicing operation
     ]
 
@@ -297,178 +174,60 @@ async def perform_query_gen_proof(file_path):
     onnx.checker.check_model(onnx_model)
     # print(onnx.helper.printable_graph(onnx_model.graph))
 
+    # Take PyTorch tensor - detach it from any computation graph - convert it to a NumPy array - flatten it to 1D 
     d = ((tensor_data).detach().numpy()).reshape([-1])
+    # Create a dictionary "data"
     data = dict(
-        input_shapes=[tensor_data.shape],
+        input_shapes=[tensor_data.shape], # shape = how many elements along each axis
         input_data=[d.tolist()],
         output_data=[final_tensor.detach().numpy().reshape([-1]).tolist()]
     )
     input_json_path = os.path.join(output_dir, 'input.json')
     with open(input_json_path, 'w') as f:
-        json.dump(data, f)
-
-    # -------------------------
-    settings_filename = os.path.join(output_dir, 'settings.json')
-
-    # Generate the settings file (setting.json) for ezkl and run calibrate settings to find the optimal settings for ezkl
-    res = ezkl.gen_settings(model_onnx_path, settings_filename)
-    assert res == True
-    # ------------------------
-
-    # await generate_proof(output_dir, model_onnx_path, input_json_path, logrows=17)
-
-    print(dir(ezkl))
-
-    logrows=17
-
-    # Generazione delle impostazioni usando ezkl
-    settings_filename = os.path.join(output_dir, 'settings.json')
-    compiled_filename = os.path.join(output_dir, 'circuit.compiled')
-    
-    res = ezkl.gen_settings(model_onnx_path, settings_filename)
-    assert res == True
-
-    try:
-        print(f"Attempting to get SRS with logrows={logrows}")
-        srs_path = await ezkl.get_srs(settings_filename, logrows=logrows)
-        print(f"SRS path: {srs_path}")
-        assert srs_path == True
-    except Exception as e:
-        print(f"Error during SRS generation: {e}")
-        raise
-
-    res = await ezkl.calibrate_settings(input_json_path, model_onnx_path, settings_filename, "resources")
-    assert res == True
-
-    ezkl.compile_circuit(model_onnx_path, compiled_filename, settings_filename)
-
-    # Verifica dell'esistenza dei file necessari
-    assert os.path.exists(settings_filename)
-    assert os.path.exists(input_json_path)
-    assert os.path.exists(model_onnx_path)
-
-    # Setup della prova con ezkl
-    vk_path = os.path.join(output_dir, 'test.vk')
-    pk_path = os.path.join(output_dir, 'test.pk')
-    res = ezkl.setup(compiled_filename, vk_path, pk_path)
-    assert res == True
-
-    witness_path = os.path.join(output_dir, "witness.json")
-    try:
-        # Generazione del testimone
-        res = await ezkl.gen_witness(input_json_path, compiled_filename, witness_path)
-        if res:
-            print("Witness file was successfully generated")
-    except Exception as e:
-        print(f"An error occurred: {e}")
-
-    proof_path = os.path.join(output_dir, 'test.pf')
-    try:
-        # Generazione della prova
-        proof = ezkl.prove(witness_path, compiled_filename, pk_path, proof_path, "single")
-        if proof:
-            print("Proof file was successfully generated")
-    except Exception as e:
-        print(f"An error occurred: {e}")
-
-    try:
-        # Verifica della prova
-        res = ezkl.verify(proof_path, settings_filename, vk_path)
-        if res:
-            print("The proof was successfully verified")
-    except Exception as e:
-        print(f"An error occurred: {e}")
-
-# Original code
-async def perform_query(file_path):
-    df = pd.read_csv(file_path)
-    df = df.dropna() # Drop rows with NaN values
-
-    # Initialize the OLAP cube and transform the data into a tensor
-    cube = OLAPCube(df)
-    tensor_data = cube.to_tensor()
-
-    # Define the list of OLAP operations to apply
-    operations = [
-        SlicingModel({14: 1, 21: 12, 27: 0}),  # Slicing operation
-        DicingModel({2: 2, 21: [3, 4], 27: 4})  # Dicing operation
-    ]
-
-    # Apply the operations to the tensor data
-    final_tensor = apply_olap_operations(cube, tensor_data, operations)
-
-    # Export the model in ONNX format
-    # Selects the last operation in your OLAP pipeline. This is the model you want to export
-    final_operation = operations[-1]  
-    # ONNX export requires the model and the input tensor to be on the same device (usually CPU for interoperability), we move the model to CPU
-    final_operation.to(torch.device("cpu"))
-    # Sets the model to evaluation mode
-    final_operation.eval()
-
-    model_onnx_path = os.path.join(output_dir, 'model.onnx')
-    torch.onnx.export(final_operation,               # model being run
-                      tensor_data,                   # model input (or a tuple for multiple inputs)
-                      model_onnx_path,               # where to save the model (can be a file or file-like object)
-                      export_params=True,            # store the trained parameter weights inside the model file
-                      opset_version=11,              # the ONNX version to export the model to
-                      do_constant_folding=True,      # whether to execute constant folding for optimization
-                      input_names=['input'],         # the model's input names
-                      output_names=['output'])       # the model's output names
-
-    onnx_model = onnx.load(model_onnx_path)
-    onnx.checker.check_model(onnx_model)
-    # print(onnx.helper.printable_graph(onnx_model.graph))
-
-    d = ((tensor_data).detach().numpy()).reshape([-1])
-    data = dict(
-        input_shapes=[tensor_data.shape],
-        input_data=[d.tolist()],
-        output_data=[final_tensor.detach().numpy().reshape([-1]).tolist()]
-    )
-    input_json_path = os.path.join(output_dir, 'input.json')
-    with open(input_json_path, 'w') as f:
-        json.dump(data, f)
+        json.dump(data, f) # serialize the data dictionary to a JSON file
 
     #await generate_proof(output_dir, model_onnx_path, input_json_path, logrows=17)
     await generate_proof(output_dir, model_onnx_path, input_json_path, logrows=19)
 
-async def op_prepare_query(): 
+# This function makes the user select a file to query with CLI
+def CLI_perform_query():
     published_hash_path = os.path.join('data', 'published_hash.json')
+
     if not os.path.exists(published_hash_path):
         print("\nNo published hashes file found.")
         return
-
+    
     with open(published_hash_path, 'r') as f:
         published_hashes = json.load(f)
-
     if not published_hashes:
         print("\nNo hashes available in the published file.")
         return
-
+    
     print("\nAvailable published hashes:")
     for idx, (file_name, hash_value) in enumerate(published_hashes.items()):
         print(f"[{idx + 1}] File: {file_name} - Hash: {hash_value}")
-
     file_index = int(input("Select a file to query by index: ")) - 1
     if file_index < 0 or file_index >= len(published_hashes):
         print("Invalid index selected.")
         return
-
+    
     selected_file = list(published_hashes.keys())[file_index]
     file_path = os.path.join('data', 'uploaded', selected_file)
-                                           
-    # Perform query logic
+
+    op_prepare_query(file_path) # MAIN.py
+
+async def op_prepare_query(file_path): 
     query_dimensions = ["Category", "Production Cost", "City", "Product Name"]
-    is_query_allowed = verify_query_allowed(query_dimensions, data_fact_model_address)
+
+    is_query_allowed = verify_query_allowed(query_dimensions, data_fact_model_address) # HASH_UTILS.py
+
     if not is_query_allowed:
         print("Query contains disallowed dimensions.")
         return
     print("Query is allowed. Proceeding with query execution...")
 
     try:
-        await perform_query(file_path)
-        #await perform_query_gen_proof(file_path)
-        #await my_perform_query(file_path)
+        await op_perform_query(file_path)
         print("Query executed successfully.")
     except Exception as e:
         print(f"Failed to perform query: {e}")
@@ -476,43 +235,38 @@ async def op_prepare_query():
 
 async def main():
 
-    # file_path = os.path.join('data', 'uploaded', 'GHGe1.csv')
-    #file_path = "completed_sales_dataset.csv"
-
-    # _______________________________________________________________________________________
-
     while True:
         print("\nSelect an option:")
-        print("[1] Login as Data Owner")
-        print("[2] Login as Customer")
+        print("[1] Login as Organization 1")
+        print("[2] Login as Organization 2")
         print("[3] Exit")
         choice = input("Enter your choice (1, 2, or 3): ")
 
-        if choice == "1":  # --------------------------------------DATA OWNER
-            print("You selected: Login as DATA OWNER")
+        if choice == "1":  # -------------------------------------- ORG 1
+            print("You selected: Login as ORG 1")
             print("\nSelect an option:")
             print("[1] Upload File")
             print("[2] Publish Hash")
             sub_choice = input("Enter your choice (1, 2, or 3): ")
 
             if sub_choice == "1":  # UPLOAD FILE
-                op_upload_generate_file()
+                op_generate_file()
 
             elif sub_choice == "2":  # PUBLISH HASH
-                op_publish_hash()
+                CLI_publish_hash()
 
             else:
                 print("Invalid choice. Returning to main menu.")
 
-        elif choice == "2":  # -------------------------------------CUSTOMER
-            print("You selected: Login as CUSTOMER")
+        elif choice == "2":  # ------------------------------------- ORG 2
+            print("You selected: Login as ORG 2")
             print("\nSelect an option:")
             print("[1] Perform Query")
             sub_choice = input("Enter your choice (1 or 2): ")
 
             if sub_choice == "1":  # PERFORM QUERY
                 try:
-                    await op_prepare_query()
+                    CLI_perform_query()
                 except Exception as e:
                     print(f"Failed to perform query: {e}")
 
