@@ -4,3 +4,4 @@ truffle migrate
 python main.py
 
 pipreqs --force --ignore .venv,.history
+pip install -r requirements.txt
