@@ -190,7 +190,7 @@ async def op_perform_query(file_path):
     await generate_proof(output_dir, model_onnx_path, input_json_path, logrows=19)
 
 # This function makes the user select a file to query with CLI
-def CLI_perform_query():
+async def CLI_perform_query():
     published_hash_path = os.path.join('data', 'published_hash.json')
 
     if not os.path.exists(published_hash_path):
@@ -214,7 +214,7 @@ def CLI_perform_query():
     selected_file = list(published_hashes.keys())[file_index]
     file_path = os.path.join('data', 'uploaded', selected_file)
 
-    op_prepare_query(file_path) # MAIN.py
+    await op_prepare_query(file_path) # MAIN.py
 
 async def op_prepare_query(file_path): 
     query_dimensions = ["Category", "Production Cost", "City", "Product Name"]
@@ -266,7 +266,7 @@ async def main():
 
             if sub_choice == "1":  # PERFORM QUERY
                 try:
-                    CLI_perform_query()
+                    await CLI_perform_query()
                 except Exception as e:
                     print(f"Failed to perform query: {e}")
 
