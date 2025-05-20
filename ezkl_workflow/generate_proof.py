@@ -36,6 +36,7 @@ async def generate_proof(output_dir, model_onnx_path, input_json_path, logrows):
 
     res = await ezkl.calibrate_settings(input_json_path, model_onnx_path, settings_filename, "resources")
     assert res == True
+    print(f"calibrate_settings: {res}")
 
     ezkl.compile_circuit(model_onnx_path, compiled_filename, settings_filename)
 
@@ -49,6 +50,7 @@ async def generate_proof(output_dir, model_onnx_path, input_json_path, logrows):
     pk_path = os.path.join(output_dir, 'test.pk')
     res = ezkl.setup(compiled_filename, vk_path, pk_path)
     assert res == True
+    print(f"setup: {res}")
 
     witness_path = os.path.join(output_dir, "witness.json")
     try:
