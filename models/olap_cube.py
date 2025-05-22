@@ -30,8 +30,13 @@ class OLAPCube:
         return category_mappings
     
     def save_category_mappings(self, path):
+        def strip_keys(d):
+            if isinstance(d, dict):
+                return {k.strip(): strip_keys(v) for k, v in d.items()}
+            else:
+                return d
         with open(path, "w") as f:
-            json.dump(self.category_mappings, f) 
+            json.dump(strip_keys(self.category_mappings), f) 
     
     """
     def encode_categorical_columns(self): # called in the construction
@@ -60,8 +65,13 @@ class OLAPCube:
     """
 
     def load_category_mappings(path):
+        def strip_keys(d):
+            if isinstance(d, dict):
+                return {k.strip(): strip_keys(v) for k, v in d.items()}
+            else:
+                return d
         with open(path, "r") as f:
-            return json.load(f)
+            return strip_keys(json.load(f))
     
     def decode_categorical_columns(self):
         decoded_df = self.df.copy()
