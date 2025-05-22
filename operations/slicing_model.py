@@ -1,3 +1,5 @@
+# Is that filtering and not slicing?
+
 import torch
 from models.olap_operations import OLAPOperation
 from torch import nn
@@ -13,4 +15,5 @@ class SlicingModel(OLAPOperation):
         for column, value in self.slice_conditions.items():
             # x[:, column] -> select all rows of the "column"
             mask = mask & (x[:, column] == value)
-        return x * mask.unsqueeze(1) #  make zero the rows that do not match the conditions
+        #return x * mask.unsqueeze(1) #  make zero the rows that do not match the conditions
+        return x[mask] # return only the rows that match the conditions
