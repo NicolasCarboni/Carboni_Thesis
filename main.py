@@ -135,6 +135,7 @@ def apply_olap_operations(cube, tensor_data, operations):
 
 async def op_perform_query(file_path, selected_file):
     df = pd.read_csv(file_path)
+    df.columns = df.columns.str.strip() # Remove leading and trailing whitespace from column names
     df = df.dropna() # Drop rows with NaN values
 
     # Initialize the OLAP cube and transform the data into a tensor
