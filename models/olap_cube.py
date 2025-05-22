@@ -27,6 +27,16 @@ class OLAPCube:
         return category_mappings
     
     def save_category_mappings(self, path):
+        def convert(obj): # This function is used to convert the values of the DataFrame to a format that can be serialized to JSON
+            if isinstance(obj, dict):
+                return {k: convert(v) for k, v in obj.items()}
+            elif isinstance(obj, list):
+                return [convert(v) for v in obj]
+            elif hasattr(obj, "item"):
+                return int(obj)
+            else:
+                return int(obj) if isinstance(obj, float) and obj.is_integer() else obj
+        
         with open(path, "w") as f:
             json.dump(self.category_mappings, f)    
 
