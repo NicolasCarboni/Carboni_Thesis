@@ -141,7 +141,7 @@ async def op_perform_query(file_path, selected_file):
     cube = OLAPCube(df)
     tensor_data = cube.to_tensor()
 
-    print(f"DataFrame after dropping NaN values: {df}")
+    print(f"DataFrame after dropping NaN values: \n {df}")
     print(f"cube: {cube}")
 
     # Define the list of OLAP operations to apply
@@ -208,8 +208,11 @@ async def op_perform_query(file_path, selected_file):
 
     # Save the final tensor as a CSV file after the query
     final_df = pd.DataFrame(final_tensor.detach().numpy())
-
     print(f"Final DataFrame:\n{final_df}")
+
+    final_decoded_df = cube.decode_categorical_columns()
+    print(f"Final Decoded DataFrame:\n{final_decoded_df}")
+    
     mod_selected_file = "mod_" + selected_file
     csv_output_path = os.path.join('data', 'modified', mod_selected_file)
     os.makedirs(os.path.dirname(csv_output_path), exist_ok=True)
