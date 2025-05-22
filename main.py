@@ -210,6 +210,7 @@ async def op_perform_query(file_path, selected_file):
 
     # Save the final tensor as a CSV file after the query
     final_df = pd.DataFrame(final_tensor.detach().numpy())
+    final_df.columns = cube.df.columns[:final_df.shape[1]]
     print(f"Final DataFrame:\n{final_df}")
     
     cat_map = OLAPCube.load_category_mappings("cat_map.json")
