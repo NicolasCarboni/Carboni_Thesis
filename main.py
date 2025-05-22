@@ -133,7 +133,7 @@ def apply_olap_operations(cube, tensor_data, operations):
         result_tensor = cube.execute_model(operation, result_tensor)
     return result_tensor
 
-async def op_perform_query(file_path):
+async def op_perform_query(file_path, selected_file):
     df = pd.read_csv(file_path)
     df = df.dropna() # Drop rows with NaN values
 
@@ -191,7 +191,8 @@ async def op_perform_query(file_path):
 
     # Save the final tensor as a CSV file after the query
     final_df = pd.DataFrame(final_tensor.detach().numpy())
-    csv_output_path = os.path.join('data', 'modified', 'query_result.csv')
+    mod_selected_file = "mod_" + selected_file
+    csv_output_path = os.path.join('data', 'modified', mod_selected_file)
     os.makedirs(os.path.dirname(csv_output_path), exist_ok=True)
     final_df.to_csv(csv_output_path, index=False)
     print(f"Query result saved to {csv_output_path}")
@@ -221,7 +222,7 @@ async def CLI_perform_query():
     selected_file = list(published_hashes.keys())[file_index]
     file_path = os.path.join('data', 'uploaded', selected_file)
 
-    await op_prepare_query(file_path) # MAIN.py
+    await op_prepare_query(file_path, selected_file) # MAIN.py
 
 async def op_prepare_query(file_path): 
     query_dimensions = ["Category", "Production Cost", "City", "Product Name"]
