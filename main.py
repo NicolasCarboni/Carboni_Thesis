@@ -187,7 +187,7 @@ async def op_perform_query(file_path):
         json.dump(data, f) # serialize the data dictionary to a JSON file
 
     #await generate_proof(output_dir, model_onnx_path, input_json_path, logrows=17)
-    await generate_proof(output_dir, model_onnx_path, input_json_path, logrows=19)
+    await generate_proof(output_dir, model_onnx_path, input_json_path, logrows=15)
 
     # Save the final tensor as a CSV file after the query
     final_df = pd.DataFrame(final_tensor.detach().numpy())
