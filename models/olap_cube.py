@@ -38,7 +38,7 @@ class OLAPCube:
                 return int(obj) if isinstance(obj, float) and obj.is_integer() else obj
         
         with open(path, "w") as f:
-            json.dump(self.category_mappings, f)    
+            json.dump(convert(self.category_mappings), f)    
 
     def load_category_mappings(path):
         with open(path, "r") as f:
