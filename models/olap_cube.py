@@ -24,6 +24,6 @@ class OLAPCube:
 
     # This method applies a specified operation (model) to the tensor data
     def execute_model(self, model, tensor_data):
-        return model(tensor_data)
+        return model(tensor_data) # slicing/ roll_op/ dicing_model
     # In PyTorch, any class that inherits from nn.Module can be called like a function (i.e., model(tensor_data)), which internally calls its forward() method.
     # So, model(tensor_data) is equivalent to model.forward(tensor_data)

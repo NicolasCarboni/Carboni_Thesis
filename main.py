@@ -189,6 +189,13 @@ async def op_perform_query(file_path):
     #await generate_proof(output_dir, model_onnx_path, input_json_path, logrows=17)
     await generate_proof(output_dir, model_onnx_path, input_json_path, logrows=19)
 
+    # Save the final tensor as a CSV file after the query
+    final_df = pd.DataFrame(final_tensor.detach().numpy())
+    csv_output_path = os.path.join('data', 'modified', 'query_result.csv')
+    os.makedirs(os.path.dirname(csv_output_path), exist_ok=True)
+    final_df.to_csv(csv_output_path, index=False)
+    print(f"Query result saved to {csv_output_path}")
+
 # This function makes the user select a file to query with CLI
 async def CLI_perform_query():
     published_hash_path = os.path.join('data', 'published_hash.json')
@@ -227,7 +234,7 @@ async def op_prepare_query(file_path):
     print("Query is allowed. Proceeding with query execution...")
 
     try:
-        await op_perform_query(file_path)
+        await op_perform_query(file_path) # MAIN.py
         print("Query executed successfully.")
     except Exception as e:
         print(f"Failed to perform query: {e}")

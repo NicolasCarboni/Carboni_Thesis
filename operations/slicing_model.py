@@ -8,7 +8,9 @@ class SlicingModel(OLAPOperation):
         self.slice_conditions = slice_conditions
 
     def forward(self, x):
+        # create a mask of ones with the same size as the rows of x
         mask = torch.ones(x.size(0), dtype=torch.bool)
         for column, value in self.slice_conditions.items():
+            # x[:, column] -> select all rows of the "column"
             mask = mask & (x[:, column] == value)
-        return x * mask.unsqueeze(1)
+        return x * mask.unsqueeze(1) #  make zero the rows that do not match the conditions
