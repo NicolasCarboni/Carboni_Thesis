@@ -202,6 +202,9 @@ async def op_perform_query(file_path, selected_file):
     #await generate_proof(output_dir, model_onnx_path, input_json_path, logrows=17)
     await generate_proof(output_dir, model_onnx_path, input_json_path, logrows=15)
 
+    # Remove rows from final_tensor that are all zeros
+    non_zero_rows = ~torch.all(final_tensor == 0, dim=1)
+    final_tensor = final_tensor[non_zero_rows]
 
     # Save the final tensor as a CSV file after the query
     final_df = pd.DataFrame(final_tensor.detach().numpy())
