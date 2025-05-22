@@ -5,3 +5,33 @@ python main.py
 
 pipreqs --force --ignore .venv,.history
 pip install -r requirements.txt
+
+[0]  Product ID  
+[1]  SKU Code  
+[2]  Product Name  
+[3]  Supplier  
+[4]  Purchase Cost  
+[5]  Units Sold  
+[6]  Sale Date  
+[7]  Expiration Date  
+[8]  Promotional Code  
+[9]  Customer Feedback  
+[10] Returns  
+[11] Return Reason  
+[12] Tax Category  
+[13] Gender  
+[14] Age Group  
+[15] Weight (kg)  
+[16] Dimensions (cm)  
+[17] Sustainability  
+[18] Store  
+[19] City  
+[20] Province  
+[21] Region  
+[22] Category  
+[23] Unit Price  
+[24] Type of Sale  
+[25] Month of Sale  
+[26] Quarter of Sale  
+[27] Bimonth of Sale  
+[28] Year of Sale  

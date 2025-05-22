@@ -141,6 +141,9 @@ async def op_perform_query(file_path, selected_file):
     cube = OLAPCube(df)
     tensor_data = cube.to_tensor()
 
+    print(f"DataFrame after dropping NaN values: {df}")
+    print(f"cube: {cube}")
+
     # Define the list of OLAP operations to apply
     """
     operations = [
@@ -152,7 +155,7 @@ async def op_perform_query(file_path, selected_file):
     """
 
     operations = [
-        SlicingModel({0:1})
+        SlicingModel({2:0})
     ]
 
     # Apply the operations to the tensor data
@@ -205,6 +208,8 @@ async def op_perform_query(file_path, selected_file):
 
     # Save the final tensor as a CSV file after the query
     final_df = pd.DataFrame(final_tensor.detach().numpy())
+
+    print(f"Final DataFrame:\n{final_df}")
     mod_selected_file = "mod_" + selected_file
     csv_output_path = os.path.join('data', 'modified', mod_selected_file)
     os.makedirs(os.path.dirname(csv_output_path), exist_ok=True)
