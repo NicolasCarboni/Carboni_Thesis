@@ -18,14 +18,14 @@ class OLAPCube:
             category_mappings[col] = dict(zip(self.label_encoder.classes_, self.label_encoder.transform(self.label_encoder.classes_)))
         return category_mappings
     
-    """"
+    
     def decode_categorical_columns(self):
         decoded_df = self.df.copy()
         for col, mapping in self.category_mappings.items():
             inv_mapping = {v: k for k, v in mapping.items()}
             decoded_df[col] = decoded_df[col].map(inv_mapping)
         return decoded_df
-    """
+    
 
     # This method is used to convert the values of the DataFrame to a torch tensor of type float32
     def to_tensor(self):    

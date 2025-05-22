@@ -161,8 +161,8 @@ async def op_perform_query(file_path, selected_file):
     # Apply the operations to the tensor data
     final_tensor = apply_olap_operations(cube, tensor_data, operations)
 
-    print(f"Iniital tensor: {tensor_data}")
-    print(f"Final tensor: {final_tensor}")
+    print(f"Iniital tensor:\n{tensor_data}")
+    print(f"Final tensor:\n{final_tensor}")
 
 
     # Export the model in ONNX format
@@ -212,7 +212,7 @@ async def op_perform_query(file_path, selected_file):
 
     final_decoded_df = cube.decode_categorical_columns()
     print(f"Final Decoded DataFrame:\n{final_decoded_df}")
-    
+
     mod_selected_file = "mod_" + selected_file
     csv_output_path = os.path.join('data', 'modified', mod_selected_file)
     os.makedirs(os.path.dirname(csv_output_path), exist_ok=True)
