@@ -139,9 +139,7 @@ async def op_perform_query(file_path, selected_file):
 
     # Initialize the OLAP cube and transform the data into a tensor
     cube = OLAPCube(df)
-
     cube.save_category_mappings("cat_map.json") # save the mappings to a JSON file
-    
     tensor_data = cube.to_tensor()
 
     print(f"DataFrame after dropping NaN values: \n {df}")
@@ -212,12 +210,11 @@ async def op_perform_query(file_path, selected_file):
     # Save the final tensor as a CSV file after the query
     final_df = pd.DataFrame(final_tensor.detach().numpy())
     print(f"Final DataFrame:\n{final_df}")
-    """
+    
     cat_map = OLAPCube.load_category_mappings("cat_map.json")
     final_cube = OLAPCube(final_df, category_mappings=cat_map)
     final_decoded_cube = final_cube.decode_categorical_columns()
     print(f"Final Decoded Cube:\n{final_decoded_cube}")
-    """
 
     mod_selected_file = "mod_" + selected_file
     csv_output_path = os.path.join('data', 'modified', mod_selected_file)
