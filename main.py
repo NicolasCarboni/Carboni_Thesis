@@ -142,15 +142,25 @@ async def op_perform_query(file_path, selected_file):
     tensor_data = cube.to_tensor()
 
     # Define the list of OLAP operations to apply
+    """
     operations = [
         # SlicingModel and DicingModel are subclasses of OLAPOperation
         # {14: 1, 21: 12, 27: 0} is a dictionary where the keys are column indices and the values are the values to filter by
         SlicingModel({14: 1, 21: 12, 27: 0}),  # Slicing operation: select rows where column 14 is ==1, ...
         DicingModel({2: 2, 21: [3, 4], 27: 4})  # Dicing operation
     ]
+    """
+
+    operations = [
+        SlicingModel({0:1})
+    ]
 
     # Apply the operations to the tensor data
     final_tensor = apply_olap_operations(cube, tensor_data, operations)
+
+    print(f"Iniital tensor: {tensor_data}")
+    print(f"Final tensor: {final_tensor}")
+
 
     # Export the model in ONNX format
     # Selects the last operation in your OLAP pipeline. This is the model you want to export
@@ -188,6 +198,10 @@ async def op_perform_query(file_path, selected_file):
 
     #await generate_proof(output_dir, model_onnx_path, input_json_path, logrows=17)
     await generate_proof(output_dir, model_onnx_path, input_json_path, logrows=15)
+
+    """
+    decoded_df = cube.decode_categorical_columns()
+    """
 
     # Save the final tensor as a CSV file after the query
     final_df = pd.DataFrame(final_tensor.detach().numpy())
