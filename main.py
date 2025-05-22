@@ -139,9 +139,9 @@ async def op_perform_query(file_path, selected_file):
 
     # Initialize the OLAP cube and transform the data into a tensor
     cube = OLAPCube(df)
-    """
+
     cube.save_category_mappings("cat_map.json") # save the mappings to a JSON file
-    """
+    
     tensor_data = cube.to_tensor()
 
     print(f"DataFrame after dropping NaN values: \n {df}")
