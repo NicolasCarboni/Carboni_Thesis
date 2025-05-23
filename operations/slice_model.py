@@ -25,4 +25,5 @@ class SliceModel(OLAPOperation):
         
         # Concatena le parti da mantenere
         x_kept_parts = [x[:, s:e] for s, e in ranges_to_keep]
+        print(f"Kept parts: {x_kept_parts}")
         return torch.cat(x_kept_parts, dim=1)
