@@ -7,8 +7,6 @@ class SliceModel(OLAPOperation):
         super(SliceModel, self).__init__()
         self.remove_columns = sorted(remove_columns) if remove_columns is not None else []
 
-    
-
     def forward(self, x):
         if not self.remove_columns:
             return x  # Nessuna colonna da rimuovere, ritorna x inalterato

@@ -1,4 +1,4 @@
-Product ID, Product Name, City
-001, Shirts, Milan
-002, Coats, Rome
-003, Shirts, Venice
+Product Name,Category,Material,Year,Month,Day,Total Emissions (kgCO₂e)
+Slip-On Sneakers,Shoes,Canvas,2020,10,2,558.6
+Running Shoes,Shoes,Synthetic,2020,5,9,152.0
+Tank Top,T-shirt,Cotton,2022,10,11,109.8

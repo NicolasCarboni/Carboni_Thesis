@@ -10,6 +10,7 @@ from models.olap_cube import OLAPCube
 from operations.filter_model import FilteringModel
 from operations.dicing_model import DicingModel
 from operations.roll_up_model import RollUpModel
+from operations.slice_model import SliceModel
 import asyncio
 from ezkl_workflow.generate_proof import generate_proof
 from hash_utils import verify_dataset_hash, verify_query_allowed, publish_hash
@@ -133,6 +134,23 @@ def apply_olap_operations(cube, tensor_data, operations):
         result_tensor = cube.execute_model(operation, result_tensor)
     return result_tensor
 
+# This function gives the indices of the columns to be sliced based on the hierarchies name
+def get_dimension_indices(hierarchies_to_slice):
+    # open JSON file to get the hierarchy and index
+    with open("DFM/dimensions_hierarchy_GHGe1.json", "r") as f:
+        hierarchy_data = json.load(f)
+    
+    dimension_hierarchy = hierarchy_data["dimension_hierarchy"]
+
+    columns_to_remove = []
+
+    for dim in hierarchies_to_slice:
+        columns_to_remove.extend(dimension_hierarchy[dim])
+
+    indices_to_remove = [hierarchies_to_slice[col] for col in columns_to_remove]
+
+    return indices_to_remove
+
 async def op_perform_query(file_path, selected_file):
     df = pd.read_csv(file_path)
     df.columns = df.columns.str.strip() # Remove leading and trailing whitespace from column names
@@ -155,9 +173,15 @@ async def op_perform_query(file_path, selected_file):
         DicingModel({2: 2, 21: [3, 4], 27: 4})  # Dicing operation
     ]
     """
-
+    """
     operations = [
         FilteringModel({2:0})
+    ]
+    """
+    columns_to_slice = get_dimension_indices(["Clothes Type"])
+
+    operations = [
+        SliceModel(columns_to_slice),
     ]
 
     # Apply the operations to the tensor data
@@ -165,7 +189,6 @@ async def op_perform_query(file_path, selected_file):
 
     print(f"Iniital tensor:\n{tensor_data}")
     print(f"Final tensor:\n{final_tensor}")
-
 
     # Export the model in ONNX format
     # Selects the last operation in your OLAP pipeline. This is the model you want to export
