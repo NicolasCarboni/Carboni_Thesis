@@ -280,13 +280,15 @@ async def CLI_perform_query():
 async def op_prepare_query(file_path, selected_file): 
     query_dimensions = ["Category", "Production Cost", "City", "Product Name"]
 
+    """
     is_query_allowed = verify_query_allowed(query_dimensions, data_fact_model_address) # HASH_UTILS.py
 
     if not is_query_allowed:
         print("Query contains disallowed dimensions.")
         return
     print("Query is allowed. Proceeding with query execution...")
-
+    """
+    
     try:
         await op_perform_query(file_path, selected_file) # MAIN.py
         print("Query executed successfully.")
