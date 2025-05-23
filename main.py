@@ -136,19 +136,17 @@ def apply_olap_operations(cube, tensor_data, operations):
 
 # This function gives the indices of the columns to be sliced based on the hierarchies name
 def get_dimension_indices(hierarchies_to_slice):
-    # open JSON file to get the hierarchy and index
     with open("DFM/dimensions_hierarchy_GHGe1.json", "r") as f:
         hierarchy_data = json.load(f)
     
     dimension_hierarchy = hierarchy_data["dimension_hierarchy"]
+    dimension_index = hierarchy_data["dimension_index"]
 
     columns_to_remove = []
-
     for dim in hierarchies_to_slice:
         columns_to_remove.extend(dimension_hierarchy[dim])
 
-    indices_to_remove = [hierarchies_to_slice[col] for col in columns_to_remove]
-
+    indices_to_remove = [dimension_index[col] for col in columns_to_remove]
     return indices_to_remove
 
 async def op_perform_query(file_path, selected_file):
@@ -187,7 +185,7 @@ async def op_perform_query(file_path, selected_file):
     # Apply the operations to the tensor data
     final_tensor = apply_olap_operations(cube, tensor_data, operations)
 
-    print(f"Iniital tensor:\n{tensor_data}")
+    print(f"Inital tensor:\n{tensor_data}")
     print(f"Final tensor:\n{final_tensor}")
 
     # Export the model in ONNX format
