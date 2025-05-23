@@ -19,4 +19,3 @@ class DicingModel(OLAPOperation):
                 mask = mask & (x[:, column] == value)
         return x * mask.unsqueeze(1)
     
-

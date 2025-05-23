@@ -7,7 +7,7 @@ from ezkl import ezkl
 import time
 import sys
 from models.olap_cube import OLAPCube
-from operations.slicing_model import SlicingModel
+from operations.filter_model import FilteringModel
 from operations.dicing_model import DicingModel
 from operations.roll_up_model import RollUpModel
 import asyncio
@@ -157,7 +157,7 @@ async def op_perform_query(file_path, selected_file):
     """
 
     operations = [
-        SlicingModel({2:0})
+        FilteringModel({2:0})
     ]
 
     # Apply the operations to the tensor data
@@ -215,9 +215,9 @@ async def op_perform_query(file_path, selected_file):
     print(f"Final DataFrame:\n{final_df}")
     
     cat_map = OLAPCube.load_category_mappings("cat_map.json")
-    print("Category mappings loaded")
+    #print("Category mappings loaded")
     final_cube = OLAPCube(final_df, category_mappings=cat_map)
-    print("Final cube created")
+    #print("Final cube created")
     final_decoded_cube = final_cube.decode_categorical_columns()
     print(f"Final Decoded Cube:\n{final_decoded_cube}")
 

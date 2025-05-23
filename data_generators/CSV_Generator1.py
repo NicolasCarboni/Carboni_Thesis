@@ -47,10 +47,12 @@ def generate_CSV_1(num_rows, seed, output_file="GHGe1.csv"):
         total_emission = round(unit_emission * quantity, 2)
 
         row = {
-            "Date": random_date.strftime("%Y-%m-%d"),
-            "Product Name": product["name"],
             "Category": product["category"],
             "Material": product["material"],
+            "Year": random_date.year,
+            "Month": random_date.month,
+            "Day": random_date.day,
+            "Product Name": product["name"],
             "Total Emissions (kgCO₂e)": total_emission
         }
         data.append(row)
@@ -58,18 +60,22 @@ def generate_CSV_1(num_rows, seed, output_file="GHGe1.csv"):
     with open(output_file, mode="w", newline="", encoding="utf-8") as csvfile:
         writer = csv.writer(csvfile)
         writer.writerow([
-            "Date",
             "Product Name",
             "Category",
             "Material",
+            "Year",
+            "Month",
+            "Day",
             "Total Emissions (kgCO₂e)"
         ])
         for row in data:
             writer.writerow([
-                row["Date"],
                 row["Product Name"],
                 row["Category"],
                 row["Material"],
+                row["Year"],
+                row["Month"],
+                row["Day"],
                 row["Total Emissions (kgCO₂e)"]
             ])
     

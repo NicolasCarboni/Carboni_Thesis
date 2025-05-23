@@ -1,0 +1,7 @@
+{
+  "dimensions": {
+    "Clothes Type": ["Category", "Product Name"],
+    "Date": ["Year", "Month", "Day"],
+    "Material": ["Material"]
+  }
+}

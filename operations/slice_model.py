@@ -1,14 +1,13 @@
-# Is that remove columns and not roll-up?
-
 from models.olap_operations import OLAPOperation
 from torch import nn
 import torch
 
-class RollUpModel(OLAPOperation):
+class SliceModel(OLAPOperation):
     def __init__(self, remove_columns=None):
-        super(RollUpModel, self).__init__()
-        # ensure to sort the list of columns (1, 2, 3, ...) or to create an empty list
+        super(SliceModel, self).__init__()
         self.remove_columns = sorted(remove_columns) if remove_columns is not None else []
+
+    
 
     def forward(self, x):
         if not self.remove_columns:
@@ -29,4 +28,3 @@ class RollUpModel(OLAPOperation):
         # Concatena le parti da mantenere
         x_kept_parts = [x[:, s:e] for s, e in ranges_to_keep]
         return torch.cat(x_kept_parts, dim=1)
-    
