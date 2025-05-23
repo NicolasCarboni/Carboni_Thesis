@@ -147,6 +147,7 @@ def get_dimension_indices(hierarchies_to_slice):
         columns_to_remove.extend(dimension_hierarchy[dim])
 
     indices_to_remove = [dimension_index[col] for col in columns_to_remove]
+    print(f"Indices to remove: {indices_to_remove}")
     return indices_to_remove
 
 async def op_perform_query(file_path, selected_file):
