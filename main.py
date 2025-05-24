@@ -176,6 +176,8 @@ async def op_perform_query(file_path, selected_file):
     operations = [
         FilteringModel({2:0})
     ]
+
+    columns_to_slice = []
     """
     columns_to_slice = get_dimension_indices(["Clothes Type"]) # using dimensions hierarchy from "DFM/dimensions_hierarchy_GHGe1.json"
 
