@@ -174,7 +174,6 @@ def get_dimension_indices_roll_up(hierarchies_to_roll_up):
 
     print(f"Dimensions to remove for roll-up: {dim_to_remove}")
 
-
     # Convert the dimension names to their corresponding indices
     indices_to_remove = [dimension_index[dim] for dim in dim_to_remove]       
 
@@ -273,7 +272,7 @@ async def op_perform_query(file_path, selected_file):
     
     # Remove columns of the slice
     all_indices = list(range(len(cube.df.columns)))
-    kept_indices = [i for i in all_indices if i not in columns_to_slice]
+    kept_indices = [i for i in all_indices if i not in columns_to_remove]
     kept_columns = [cube.df.columns[i] for i in kept_indices]
 
     # final_df.columns = [i for i in filtered_columns if i in kept_columns]
