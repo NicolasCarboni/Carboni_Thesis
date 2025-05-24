@@ -1,5 +1,3 @@
-# Is that remove columns and not roll-up?
-
 from models.olap_operations import OLAPOperation
 from torch import nn
 import torch

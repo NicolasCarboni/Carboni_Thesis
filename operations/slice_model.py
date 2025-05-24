@@ -5,6 +5,7 @@ import torch
 class SliceModel(OLAPOperation):
     def __init__(self, remove_columns=None):
         super(SliceModel, self).__init__()
+        # ensure to sort the list of columns (1, 2, 3, ...) or to create an empty list
         self.remove_columns = sorted(remove_columns) if remove_columns is not None else []
     
     def forward(self, x):
@@ -25,5 +26,4 @@ class SliceModel(OLAPOperation):
         
         # Concatena le parti da mantenere
         x_kept_parts = [x[:, s:e] for s, e in ranges_to_keep]
-        print(f"Kept parts: {x_kept_parts}")
         return torch.cat(x_kept_parts, dim=1)

@@ -135,12 +135,12 @@ def apply_olap_operations(cube, tensor_data, operations):
     return result_tensor
 
 # This function gives the indices of the columns to be sliced based on the hierarchies name
-def get_dimension_indices(hierarchies_to_slice):
+def get_dimension_indices_slice(hierarchies_to_slice):
     with open("DFM/dimensions_hierarchy_GHGe1.json", "r") as f:
         hierarchy_data = json.load(f)
     
-    dimension_hierarchy = hierarchy_data["dimension_hierarchy"]
-    dimension_index = hierarchy_data["dimension_index"]
+    dimension_hierarchy = hierarchy_data["dim_hierarchy"]
+    dimension_index = hierarchy_data["dim_index"]
 
     columns_to_remove = []
     for dim in hierarchies_to_slice:
@@ -149,6 +149,33 @@ def get_dimension_indices(hierarchies_to_slice):
     indices_to_remove = [dimension_index[col] for col in columns_to_remove]
     print(f"Indices to remove: {indices_to_remove}")
     return indices_to_remove
+
+# This function gives the indices of the dimensions to be rolled up based on the hierarchies name
+# Example: if hierarchies_to_roll_up = [["Date", "Year"], ["Clothes Type", "Category"]], it will return the indices of "Month", "Day" and "Product Name"
+def get_dimension_indices_roll_up(hierarchies_to_roll_up):
+    with open("DFM/dim_hierarchy_GHGe1.json", "r") as f:
+        hierarchy = json.load(f)
+
+    dim_to_remove = []
+
+    for dim in hierarchies_to_roll_up:
+        hierarchy_name = dim[0] # "Date" or "Clothes Type"
+        dim_of_hierarchy = hierarchy["dim_hierarchy"][hierarchy_name] # ["Year", "Month", "Day"] or ["Category", "Product Name"]
+        # Get the index of dim[1] (dimension we want to do the rollup) in the hierarchy list
+        if dim[1] in dim_of_hierarchy:
+            idx = dim_of_hierarchy.index(dim[1])
+        else:
+            print(f"Dimension {dim[1]} not found in hierarchy {hierarchy_name}.")
+        for i in range(idx + 1, len(dim_of_hierarchy)):
+            dim_to_remove.append(dim_of_hierarchy[i]) 
+
+    # Convert the dimension names to their corresponding indices
+    with open("DFM/dim_index_GHGe1.json", "r") as f:
+        dim_index = json.load(f)
+    indices_to_remove = [dim_index[dim] for dim in dim_to_remove if dim in dim_index]       
+
+    return indices_to_remove
+
 
 async def op_perform_query(file_path, selected_file):
     df = pd.read_csv(file_path)
@@ -172,11 +199,16 @@ async def op_perform_query(file_path, selected_file):
         DicingModel({2: 2, 21: [3, 4], 27: 4})  # Dicing operation
     ]
     """
-    columns_to_slice = get_dimension_indices(["Clothes Type"]) # using dimensions hierarchy from "DFM/dimensions_hierarchy_GHGe1.json"
+    #columns_to_slice = get_dimension_indices_slice(["Clothes Type"]) # using dimensions hierarchy from "DFM/dimensions_hierarchy_GHGe1.json"
+    columns_to_slice = []
+    columns_to_roll_up = get_dimension_indices_roll_up([["Date", "Year"]]) # using dimensions hierarchy from "DFM/dimensions_hierarchy_GHGe1.json"
+
+    columns_to_remove = columns_to_slice + columns_to_roll_up # columns to remove from the tensor
 
     operations = [
-        FilteringModel({2:0}), # Material = "Canvas"
-        SliceModel(columns_to_slice)
+        #FilteringModel({2:0}), # Material = "Canvas"
+        #SliceModel(columns_to_slice)
+        SliceModel(columns_to_remove)
     ]
 
     # Apply the operations to the tensor data 
