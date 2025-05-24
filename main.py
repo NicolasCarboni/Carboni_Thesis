@@ -203,8 +203,7 @@ async def op_perform_query(file_path, selected_file):
         DicingModel({2: 2, 21: [3, 4], 27: 4})  # Dicing operation
     ]
     """
-    #columns_to_slice = get_dimension_indices_slice(["Clothes Type"]) # using dimensions hierarchy from "DFM/dimensions_hierarchy_GHGe1.json"
-    columns_to_slice = []
+    columns_to_slice = get_dimension_indices_slice(["Clothes Type"]) # using dimensions hierarchy from "DFM/dimensions_hierarchy_GHGe1.json"
     columns_to_roll_up = get_dimension_indices_roll_up([["Date", "Year"]]) # using dimensions hierarchy from "DFM/dimensions_hierarchy_GHGe1.json"
 
     columns_to_remove = list(dict.fromkeys(columns_to_slice + columns_to_roll_up)) # columns to remove from the tensor (no duplicates)
