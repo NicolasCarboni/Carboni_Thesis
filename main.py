@@ -154,13 +154,16 @@ def get_dimension_indices_slice(hierarchies_to_slice):
 # Example: if hierarchies_to_roll_up = [["Date", "Year"], ["Clothes Type", "Category"]], it will return the indices of "Month", "Day" and "Product Name"
 def get_dimension_indices_roll_up(hierarchies_to_roll_up):
     with open("DFM/dim_hierarchy_GHGe1.json", "r") as f:
-        hierarchy = json.load(f)
+        hierarchy_data = json.load(f)
+    
+    dimension_hierarchy = hierarchy_data["dim_hierarchy"]
+    dimension_index = hierarchy_data["dim_index"]
 
     dim_to_remove = []
 
     for dim in hierarchies_to_roll_up:
         hierarchy_name = dim[0] # "Date" or "Clothes Type"
-        dim_of_hierarchy = hierarchy["dim_hierarchy"][hierarchy_name] # ["Year", "Month", "Day"] or ["Category", "Product Name"]
+        dim_of_hierarchy = dimension_hierarchy[hierarchy_name] # ["Year", "Month", "Day"] or ["Category", "Product Name"]
         # Get the index of dim[1] (dimension we want to do the rollup) in the hierarchy list
         if dim[1] in dim_of_hierarchy:
             idx = dim_of_hierarchy.index(dim[1])
@@ -171,10 +174,9 @@ def get_dimension_indices_roll_up(hierarchies_to_roll_up):
 
     print(f"Dimensions to remove for roll-up: {dim_to_remove}")
 
+
     # Convert the dimension names to their corresponding indices
-    with open("DFM/dim_hierarchy_GHGe1.json", "r") as f:
-        dim_index = json.load(f)
-    indices_to_remove = [dim_index[dim] for dim in dim_to_remove if dim in dim_index]       
+    indices_to_remove = [dimension_index[dim] for dim in dim_to_remove]       
 
     print(f"Indices to remove for roll-up: {indices_to_remove}")
     return indices_to_remove
