@@ -170,7 +170,7 @@ def get_dimension_indices_roll_up(hierarchies_to_roll_up):
             dim_to_remove.append(dim_of_hierarchy[i]) 
 
     # Convert the dimension names to their corresponding indices
-    with open("DFM/dim_index_GHGe1.json", "r") as f:
+    with open("DFM/dim_hierarchy_GHGe1.json", "r") as f:
         dim_index = json.load(f)
     indices_to_remove = [dim_index[dim] for dim in dim_to_remove if dim in dim_index]       
 
