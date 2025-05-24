@@ -13,3 +13,21 @@ pip install -r requirements.txt
 [4] Month
 [5] Day
 [6] Total Emissions (kgCO₂e)
+
+cat_map.json
+{
+    "Product Name": {
+        "Running Shoes": 0,
+        "Slip-On Sneakers": 1,
+        "Tank Top": 2
+    },
+    "Category": {
+        "Shoes": 0,
+        "T-shirt": 1
+    },
+    "Material": {
+        "Canvas": 0,
+        "Cotton": 1,
+        "Synthetic": 2
+    }
+}
