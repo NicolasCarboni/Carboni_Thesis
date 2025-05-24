@@ -172,19 +172,13 @@ async def op_perform_query(file_path, selected_file):
         DicingModel({2: 2, 21: [3, 4], 27: 4})  # Dicing operation
     ]
     """
-
-    operations = [
-        FilteringModel({2:0})
-    ]
-
-    columns_to_slice = []
-    """
     columns_to_slice = get_dimension_indices(["Clothes Type"]) # using dimensions hierarchy from "DFM/dimensions_hierarchy_GHGe1.json"
 
     operations = [
-        SliceModel(columns_to_slice),
+        FilteringModel({2:0}), # Material = "Canvas"
+        SliceModel(columns_to_slice)
     ]
-    """
+
     # Apply the operations to the tensor data 
     final_tensor = apply_olap_operations(cube, tensor_data, operations)
 
