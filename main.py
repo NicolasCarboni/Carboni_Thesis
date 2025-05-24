@@ -172,7 +172,7 @@ async def op_perform_query(file_path, selected_file):
         DicingModel({2: 2, 21: [3, 4], 27: 4})  # Dicing operation
     ]
     """
-    """
+
     operations = [
         FilteringModel({2:0})
     ]
@@ -182,7 +182,7 @@ async def op_perform_query(file_path, selected_file):
     operations = [
         SliceModel(columns_to_slice),
     ]
-
+    """
     # Apply the operations to the tensor data 
     final_tensor = apply_olap_operations(cube, tensor_data, operations)
 
