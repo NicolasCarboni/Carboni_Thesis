@@ -249,7 +249,8 @@ async def op_perform_query(file_path, selected_file):
     
     cat_map = OLAPCube.load_category_mappings("cat_map.json")
         #print("Category mappings loaded")
-    final_cube = OLAPCube(final_df, category_mappings=cat_map)
+    filtered_cat_map = {col: mapping for col, mapping in cat_map.items() if col in final_df.columns}
+    final_cube = OLAPCube(final_df, category_mappings=filtered_cat_map)
         #print("Final cube created")
     final_decoded_cube = final_cube.decode_categorical_columns()
     print(f"Final Decoded Cube:\n{final_decoded_cube}")
