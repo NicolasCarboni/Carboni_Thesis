@@ -7,7 +7,6 @@ class SliceModel(OLAPOperation):
         super(SliceModel, self).__init__()
         self.remove_columns = sorted(remove_columns) if remove_columns is not None else []
 
-    """"
     def forward(self, x):
         if not self.remove_columns:
             return x  # Nessuna colonna da rimuovere, ritorna x inalterato
@@ -28,12 +27,3 @@ class SliceModel(OLAPOperation):
         x_kept_parts = [x[:, s:e] for s, e in ranges_to_keep]
         print(f"Kept parts: {x_kept_parts}")
         return torch.cat(x_kept_parts, dim=1)
-    """
-
-    def forward(self, x):
-        if not self.remove_columns:
-            return x  # Nessuna colonna da annullare, ritorna x inalterato
-
-        x = x.clone()  # Per non modificare il tensore originale
-        x[:, self.remove_columns] = 0  # Azzera le colonne specificate
-        return x
