@@ -136,7 +136,7 @@ def apply_olap_operations(cube, tensor_data, operations):
 
 # This function gives the indices of the columns to be sliced based on the hierarchies name
 def get_dimension_indices_slice(hierarchies_to_slice):
-    with open("DFM/dimensions_hierarchy_GHGe1.json", "r") as f:
+    with open("DFM/dim_hierarchy_GHGe1.json", "r") as f:
         hierarchy_data = json.load(f)
     
     dimension_hierarchy = hierarchy_data["dim_hierarchy"]
