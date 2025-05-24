@@ -157,7 +157,7 @@ async def op_perform_query(file_path, selected_file):
 
     # Initialize the OLAP cube and transform the data into a tensor
     cube = OLAPCube(df)
-    cube.save_category_mappings("cat_map.json") # save the mappings (dimension/categorical values - indexes) to a JSON file
+    cube.save_category_mappings("cat_map.json") # save the mappings (categorical values - indexes) to a JSON file
     tensor_data = cube.to_tensor()
 
     print(f"DataFrame after dropping NaN values: \n {df}") # categorical columns are already encoded as integers
@@ -177,7 +177,7 @@ async def op_perform_query(file_path, selected_file):
         FilteringModel({2:0})
     ]
     """
-    columns_to_slice = get_dimension_indices(["Clothes Type"])
+    columns_to_slice = get_dimension_indices(["Clothes Type"]) # using dimensions hierarchy from "DFM/dimensions_hierarchy_GHGe1.json"
 
     operations = [
         SliceModel(columns_to_slice),
@@ -226,24 +226,34 @@ async def op_perform_query(file_path, selected_file):
     #await generate_proof(output_dir, model_onnx_path, input_json_path, logrows=17)
     await generate_proof(output_dir, model_onnx_path, input_json_path, logrows=15)
 
+    # Print and save the final tensor after applying the OLAP operations in human-readable format
     # Remove rows from final_tensor that are all zeros
     non_zero_rows = ~torch.all(final_tensor == 0, dim=1)
-    final_tensor = final_tensor[non_zero_rows]
+    final_tensor = final_tensor[non_zero_rows] # after filtering
+
 
     # Save the final tensor as a CSV file after the query
     final_df = pd.DataFrame(final_tensor.detach().numpy())
+
     # Assign the original column names (from your input DataFrame) to the filtered DataFrame
-    final_df.columns = cube.df.columns[:final_df.shape[1]] 
+    filtered_columns = cube.df.columns[:final_df.shape[1]]
+    
+    # Remove columns of the slice
+    all_indices = list(range(len(cube.df.columns)))
+    kept_indices = [i for i in all_indices if i not in columns_to_slice]
+    kept_columns = [cube.df.columns[i] for i in kept_indices]
+
+    final_df.columns = [i for i in filtered_columns if i in kept_columns] 
     print(f"Final DataFrame:\n{final_df}")
     
     cat_map = OLAPCube.load_category_mappings("cat_map.json")
-    #print("Category mappings loaded")
+        #print("Category mappings loaded")
     final_cube = OLAPCube(final_df, category_mappings=cat_map)
-    #print("Final cube created")
+        #print("Final cube created")
     final_decoded_cube = final_cube.decode_categorical_columns()
     print(f"Final Decoded Cube:\n{final_decoded_cube}")
 
-    mod_selected_file = "mod_" + selected_file
+    mod_selected_file = "mod_" + selected_file # mod = modified
     csv_output_path = os.path.join('data', 'modified', mod_selected_file)
     os.makedirs(os.path.dirname(csv_output_path), exist_ok=True)
     final_df.to_csv(csv_output_path, index=False)
