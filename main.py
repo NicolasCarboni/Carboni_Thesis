@@ -207,7 +207,7 @@ async def op_perform_query(file_path, selected_file):
     columns_to_slice = []
     columns_to_roll_up = get_dimension_indices_roll_up([["Date", "Year"]]) # using dimensions hierarchy from "DFM/dimensions_hierarchy_GHGe1.json"
 
-    columns_to_remove = columns_to_slice + columns_to_roll_up # columns to remove from the tensor
+    columns_to_remove = list(dict.fromkeys(columns_to_slice + columns_to_roll_up)) # columns to remove from the tensor (no duplicates)
 
     operations = [
         #FilteringModel({2:0}), # Material = "Canvas"
