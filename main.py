@@ -157,14 +157,14 @@ async def op_perform_query(file_path, selected_file):
 
     # Initialize the OLAP cube and transform the data into a tensor
     cube = OLAPCube(df)
-    cube.save_category_mappings("cat_map.json") # save the mappings to a JSON file
+    cube.save_category_mappings("cat_map.json") # save the mappings (dimension/categorical values - indexes) to a JSON file
     tensor_data = cube.to_tensor()
 
-    print(f"DataFrame after dropping NaN values: \n {df}")
-    print(f"cube: {cube}")
-
-    # Define the list of OLAP operations to apply
+    print(f"DataFrame after dropping NaN values: \n {df}") # categorical columns are already encoded as integers
+    print(f"OLAP cube: {cube}")
+    
     """
+    # Define the list of OLAP operations to apply
     operations = [
         # SlicingModel and DicingModel are subclasses of OLAPOperation
         # {14: 1, 21: 12, 27: 0} is a dictionary where the keys are column indices and the values are the values to filter by
@@ -183,7 +183,7 @@ async def op_perform_query(file_path, selected_file):
         SliceModel(columns_to_slice),
     ]
 
-    # Apply the operations to the tensor data
+    # Apply the operations to the tensor data 
     final_tensor = apply_olap_operations(cube, tensor_data, operations)
 
     print(f"Inital tensor:\n{tensor_data}")
@@ -277,9 +277,9 @@ async def CLI_perform_query():
     await op_prepare_query(file_path, selected_file) # MAIN.py
 
 async def op_prepare_query(file_path, selected_file): 
+    """
     query_dimensions = ["Category", "Production Cost", "City", "Product Name"]
 
-    """
     is_query_allowed = verify_query_allowed(query_dimensions, data_fact_model_address) # HASH_UTILS.py
 
     if not is_query_allowed:
