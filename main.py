@@ -236,14 +236,15 @@ async def op_perform_query(file_path, selected_file):
     final_df = pd.DataFrame(final_tensor.detach().numpy())
 
     # Assign the original column names (from your input DataFrame) to the filtered DataFrame
-    filtered_columns = cube.df.columns[:final_df.shape[1]]
+    # filtered_columns = cube.df.columns[:final_df.shape[1]]
     
     # Remove columns of the slice
     all_indices = list(range(len(cube.df.columns)))
     kept_indices = [i for i in all_indices if i not in columns_to_slice]
     kept_columns = [cube.df.columns[i] for i in kept_indices]
 
-    final_df.columns = [i for i in filtered_columns if i in kept_columns] 
+    # final_df.columns = [i for i in filtered_columns if i in kept_columns]
+    final_df.columns = kept_columns 
     print(f"Final DataFrame:\n{final_df}")
     
     cat_map = OLAPCube.load_category_mappings("cat_map.json")
