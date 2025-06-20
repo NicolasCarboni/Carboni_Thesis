@@ -5,3 +5,4 @@ ezkl
 scikit-learn
 web3
 pymerkle
+poseidon-hash

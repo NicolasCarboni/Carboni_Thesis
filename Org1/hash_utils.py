@@ -5,7 +5,7 @@ import logging
 import pandas as pd
 import torch
 from web3 import Web3
-from poseidon_hash import poseidon_hash, poseidon_params
+from poseidon_hash.poseidon_hash import poseidon_hash, poseidon_params
 #from pymerkle import MerkleTree
 
 logging.basicConfig(level=logging.INFO)
