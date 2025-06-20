@@ -2,7 +2,10 @@ import os
 import json
 import hashlib
 import logging
+import pandas as pd
+import torch
 from web3 import Web3
+from poseidon_hash import poseidon_hash, poseidon_params
 #from pymerkle import MerkleTree
 
 logging.basicConfig(level=logging.INFO)
@@ -102,12 +105,23 @@ def calculate_file_hash(file_path):
         raise
     return hasher.hexdigest()
 
+def calculate_poseidon_hash(file_path):
+    # Read the CSV and flatten to a list of integers (matching your tensor input)
+    df = pd.read_csv(file_path)
+    tensor = torch.tensor(df.values, dtype=torch.float32)
+    flat_tensor = (tensor).detach().numpy().reshape([-1]).tolist()
+    params = poseidon_params(len(flat_tensor))
+    hash_value = poseidon_hash(flat_tensor, params)
+    # Return as hex string for compatibility with on-chain storage
+    return hex(hash_value)
+
+
 def get_stored_hash(web3, contract):
     return contract.functions.getHash().call()
 
 def publish_hash(file_path):
-    calculated_hash = calculate_file_hash(file_path) # hash_utils.py
-    bytes32_hash = Web3.to_bytes(hexstr=calculated_hash)
+    poseidon_hash = calculate_poseidon_hash(file_path) # hash_utils.py
+    bytes32_hash = Web3.to_bytes(hexstr=poseidon_hash)
 
     web3 = setup_web3()
     # call to get or create the contract instance
@@ -119,15 +133,15 @@ def publish_hash(file_path):
         # setHash() from HashStorage.sol Solidity contract
         tx_hash = contract.functions.setHash(bytes32_hash).transact({'from': account})
         web3.eth.wait_for_transaction_receipt(tx_hash)
-        logging.info(f"Hash {calculated_hash} has been published to the blockchain.")
-        return calculated_hash
+        logging.info(f"Poseidon hash {poseidon_hash} has been published to the blockchain.")
+        return poseidon_hash
     except Exception as e:
         logging.error(f"Failed to publish hash: {e}")
         raise
 
 def verify_dataset_hash(file_path):
-    calculated_hash = calculate_file_hash(file_path)
-    bytes32_hash = Web3.to_bytes(hexstr=calculated_hash)
+    poseidon_hash = calculate_poseidon_hash(file_path)
+    bytes32_hash = Web3.to_bytes(hexstr=poseidon_hash)
 
     web3 = setup_web3()
     contract = get_contract(web3, CONTRACT_ADDRESS, CONTRACT_ABI_GET_HASH)

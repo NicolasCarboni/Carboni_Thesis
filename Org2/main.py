@@ -5,9 +5,38 @@ import sys
 from ezkl import ezkl
 import torch
 import pandas as pd
+from web3 import Web3
+import logging
 
 from Org2.hash_utils import verify_query_allowed
 from Org1.main import op_perform_query
+
+# Load contract addresses from configuration file
+CONFIG_PATH = os.path.join('Blockchain', 'contract_addresses.json')
+with open(CONFIG_PATH, 'r') as f:
+    contract_addresses = json.load(f)
+
+CONTRACT_ADDRESS = contract_addresses.get("HashStorage")
+DATA_FACT_MODEL_ADDRESS = contract_addresses.get("DataFactModel")
+
+CONTRACT_ABI_GET_HASH = json.loads('''
+[
+    {
+        "constant": true,
+        "inputs": [],
+        "name": "getHash",
+        "outputs": [
+            {
+                "name": "",
+                "type": "bytes32"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+    }
+]
+''')
 
 def load_contract_address(contract_name):
     # Load the contract address from the configuration file
@@ -140,6 +169,17 @@ def op_verify_proof():
         print("Proof folder does not exist.")
         return
     
+    public_json_path = os.path.join(proof_folder, 'public.json')
+    if os.path.exists(public_json_path):
+        with open(public_json_path, 'r') as f:
+            public_data = json.load(f)
+        print("public.json content:")
+        print(json.dumps(public_data, indent=2))
+    else:
+        print("public.json file not found.")
+
+    # verify_dataset_hash(public_data['hash']) 
+    
     proof_path = os.path.join(proof_folder, 'test.pf')
     vk_path = os.path.join(proof_folder, 'test.vk')
     settings_filename = os.path.join(proof_folder, 'settings.json')
@@ -164,6 +204,39 @@ def op_verify_proof():
             print("EZKL Proof Verification successful")
     except Exception as e:
         print(f"Proof verification failed: {e}")
+
+def verify_dataset_hash(poseidon_hash):
+    bytes32_hash = Web3.to_bytes(hexstr=poseidon_hash)
+
+    web3 = setup_web3()
+    contract = get_contract(web3, CONTRACT_ADDRESS, CONTRACT_ABI_GET_HASH)
+
+    stored_hash = get_stored_hash(web3, contract)
+
+    #logging.info(f"Calculated hash: {bytes32_hash}")
+    #logging.info(f"Stored hash: {stored_hash}")
+
+    if bytes32_hash == stored_hash:
+        logging.info("Hash verification successful. The dataset is authentic.")
+    else:
+        logging.error("Hash verification failed. The dataset has been tampered with.")
+        raise ValueError("Hash verification failed. The dataset has been tampered with.")
+    
+def setup_web3():
+    # Create web3 instance that tries to connect to Ethereum node running locally on the machine
+    web3 = Web3(Web3.HTTPProvider("http://127.0.0.1:8545"))
+    if not web3.is_connected():
+        logging.error("Failed to connect to the blockchain.")
+        raise ConnectionError("Failed to connect to the blockchain.")
+    return web3
+
+# It retrieves the contract instance using the address and ABI
+# If the contract is not deployed at the given address, it will be deployed
+def get_contract(web3, address, abi):
+    return web3.eth.contract(address=address, abi=abi)
+
+def get_stored_hash(web3, contract):
+    return contract.functions.getHash().call()
 
 def show_result(final_tensor, columns_to_remove_idx):
     # Print and save the final tensor after applying the OLAP operations in human-readable format

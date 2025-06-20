@@ -72,6 +72,7 @@ async def generate_proof(output_dir, model_onnx_path, input_json_path, logrows):
         # Proof generation
         # "single" indicates that we are generating a single proof for the circuit
         res = ezkl.prove(witness_path, compiled_filename, pk_path, proof_path, "single")
+        # should also include "public.json" with the hash of the input data
         if res:
             print("EZKL Proof Generation successful")
     except Exception as e:

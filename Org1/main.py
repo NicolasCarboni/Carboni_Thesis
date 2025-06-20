@@ -5,10 +5,11 @@ import sys
 import pandas as pd
 import torch
 import onnx
+from onnx import helper, TensorProto
 
 from Org1.data_generators import CSV_Generator1
 from Org1.data_generators import CSV_Generator2
-from Org1.hash_utils import publish_hash
+from Org1.hash_utils import publish_hash, calculate_poseidon_hash
 from Org1.operations.slice_model import SliceModel
 from Org1.operations.dicing_model import DicingModel
 from Org1.operations.rollup_model import RollUpModel
@@ -122,6 +123,8 @@ async def op_perform_query(selected_file, operations, columns_to_remove_idx):
 
     file_path = os.path.join('Org1', 'data', 'uploaded', selected_file)
 
+    data_hash = calculate_poseidon_hash(file_path)
+
     # dataframe is a bidimensional data structure with rows and columns
     df = pd.read_csv(file_path)
     df.columns = df.columns.str.strip() # Remove leading and trailing whitespace from column names
@@ -130,7 +133,7 @@ async def op_perform_query(selected_file, operations, columns_to_remove_idx):
     print(f"Initial DataFrame: \n {df}")
 
     # Initialize the OLAP cube and transform the data into a tensor
-    cube = OLAPCube(df)
+    cube = OLAPCube(df, data_hash)
     # save the mappings (categorical values - indexes) to a JSON file in Shared folder
     cube.save_category_mappings(os.path.join("Shared", "cat_map.json")) 
     tensor_data = cube.to_tensor()
@@ -166,9 +169,42 @@ async def op_perform_query(selected_file, operations, columns_to_remove_idx):
 
     # load the ONNX model from the file to the python object onnx_model
     onnx_model = onnx.load(model_onnx_path)
+    graph = onnx_model.graph
+    
     # Run a validation check to ensure the model is well-formed and valid according to the ONNX specification
     onnx.checker.check_model(onnx_model)
     # print(onnx.helper.printable_graph(onnx_model.graph))
+    
+    # Create a Flatten node to flatten the input tensor to 1D
+    flatten_node = helper.make_node(
+        'Flatten',
+        inputs=['input'],
+        outputs=['input_flat'],
+        name='FlattenInput'
+    )
+    graph.node.append(flatten_node)
+
+    # Add the Poseidon node
+    poseidon_node = helper.make_node(
+        'Poseidon',
+        inputs=['input_flat'],
+        outputs=['poseidon_hash'],
+        name='PoseidonHash'
+    )
+    graph.node.append(poseidon_node)
+
+    # Add the hash as a model output
+    poseidon_output = helper.make_tensor_value_info(
+        'poseidon_hash',
+        TensorProto.FLOAT,  # or INT64 ? (to do)
+        [1]
+    )
+    graph.output.append(poseidon_output)
+
+    # Save the modified model
+    onnx.save(onnx_model, model_onnx_path)
+
+    onnx.checker.check_model(onnx_model)
 
     # Prepare the input (input shape, input data, output data) for the proof generation in a dictionary format
     data = dict(
