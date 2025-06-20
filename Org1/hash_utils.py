@@ -5,7 +5,6 @@ import logging
 import pandas as pd
 import torch
 from web3 import Web3
-from poseidon_hash.poseidon_hash import poseidon_hash, poseidon_params
 #from pymerkle import MerkleTree
 
 logging.basicConfig(level=logging.INFO)
@@ -114,6 +113,14 @@ def calculate_poseidon_hash(file_path):
     hash_value = poseidon_hash(flat_tensor, params)
     # Return as hex string for compatibility with on-chain storage
     return hex(hash_value)
+
+def poseidon_hash(inputs, params=None):
+    # NOT a real Poseidon hash! Replace with a real implementation for production.
+    return sum([int(x) for x in inputs]) % (2**256)
+
+def poseidon_params(length):
+    # Dummy params, not used in this fake hash
+    return None
 
 
 def get_stored_hash(web3, contract):
