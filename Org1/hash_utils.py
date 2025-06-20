@@ -6,6 +6,7 @@ import pandas as pd
 import torch
 from web3 import Web3
 #from pymerkle import MerkleTree
+from sklearn.preprocessing import LabelEncoder
 
 logging.basicConfig(level=logging.INFO)
 
@@ -107,6 +108,13 @@ def calculate_file_hash(file_path):
 def calculate_poseidon_hash(file_path):
     # Read the CSV and flatten to a list of integers (matching your tensor input)
     df = pd.read_csv(file_path)
+
+    # Encode categorical columns (object type) to integers
+    categorical_columns = df.select_dtypes(include=['object']).columns
+    for col in categorical_columns:
+        le = LabelEncoder()
+        df[col] = le.fit_transform(df[col].astype(str))
+
     tensor = torch.tensor(df.values, dtype=torch.float32)
     flat_tensor = (tensor).detach().numpy().reshape([-1]).tolist()
     params = poseidon_params(len(flat_tensor))
