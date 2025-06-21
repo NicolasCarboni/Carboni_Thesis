@@ -118,12 +118,12 @@ def calculate_poseidon_hash(file_path):
     tensor = torch.tensor(df.values, dtype=torch.float32)
     flat_tensor = (tensor).detach().numpy().reshape([-1]).tolist()
     params = poseidon_params(len(flat_tensor))
-    hash_value = poseidon_hash(flat_tensor, params)
-    # Return as hex string for compatibility with on-chain storage
-    return hex(hash_value)
+    hash_bytes = poseidon_hash(flat_tensor, params)
+    # Return as bytes for on-chain storage
+    return hash_bytes
 
+# NOT a real Poseidon hash! Replace with a real implementation for production.
 def poseidon_hash(inputs, params=None):
-    # NOT a real Poseidon hash! Replace with a real implementation for production.
     # Compute a fake hash and return as a 32-byte value (fits in 256 bits)
     hash_int = sum([int(x) for x in inputs]) % (2**256)
     # Convert to exactly 32 bytes
