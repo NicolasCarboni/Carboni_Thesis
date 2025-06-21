@@ -145,6 +145,8 @@ async def op_perform_query(selected_file, operations, columns_to_remove_idx):
     # Apply the operations to the tensor data 
     final_tensor = apply_olap_operations(cube, tensor_data, decoded_operations)
 
+    print("test 0")
+
     #print(f"Inital tensor:\n{tensor_data}")
     #print(f"Final tensor:\n{final_tensor}")
 
