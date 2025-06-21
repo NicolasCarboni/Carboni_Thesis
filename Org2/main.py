@@ -84,7 +84,7 @@ async def CLI_query():
 # - verifies if the hash of the dataset do perform the query is the same as the one published on the blockchain
 # - prepares the query by defining the OLAP operations to apply and checking if the query is allowed
 async def op_prepare_query(selected_file): 
-    # TO BE DONE
+    # TO BE DONE verification the operations are done on THAT dataset
     #                   verify_dataset_hash(file_path) # HASH_UTILS.py
 
     # Define the OLAP operations to apply

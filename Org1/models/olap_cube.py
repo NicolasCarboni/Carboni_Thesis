@@ -4,10 +4,9 @@ from sklearn.preprocessing import LabelEncoder # to convert categorical string d
 import json
 
 class OLAPCube:
-    def __init__(self, df, data_hash, category_mappings=None): # The constructor receives as input a >..
+    def __init__(self, df, category_mappings=None): # The constructor receives as input a >..
         self.df = df                                #  ..< pandas DataFrame (df) 
         self.label_encoder = LabelEncoder() # Initialize an instance of LabelEncoder, which is then assigned to the attribute label_encoder
-        self.data_hash = data_hash
         if category_mappings is not None: # If category_mappings is provided, it will be used to encode the categorical columns
             self.category_mappings = category_mappings
             # Encode columns using the provided mapping

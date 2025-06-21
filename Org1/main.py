@@ -97,6 +97,7 @@ def CLI_publish_hash():
 def op_publish_hash(file_path):
     return publish_hash(file_path) # HASH_UTILS.py
 
+# This function decodes the operations from the JSON format into a list of OLAP operation models
 def decode_operations(operations, columns_to_remove_idx):
     decoded_ops = []
     if "Dicing" in operations:
@@ -133,7 +134,7 @@ async def op_perform_query(selected_file, operations, columns_to_remove_idx):
     print(f"Initial DataFrame: \n {df}")
 
     # Initialize the OLAP cube and transform the data into a tensor
-    cube = OLAPCube(df, data_hash)
+    cube = OLAPCube(df)
     # save the mappings (categorical values - indexes) to a JSON file in Shared folder
     cube.save_category_mappings(os.path.join("Shared", "cat_map.json")) 
     tensor_data = cube.to_tensor()
@@ -174,6 +175,7 @@ async def op_perform_query(selected_file, operations, columns_to_remove_idx):
     # Run a validation check to ensure the model is well-formed and valid according to the ONNX specification
     onnx.checker.check_model(onnx_model)
     # print(onnx.helper.printable_graph(onnx_model.graph))
+
     
     # Create a Flatten node to flatten the input tensor to 1D
     flatten_node = helper.make_node(
@@ -182,7 +184,7 @@ async def op_perform_query(selected_file, operations, columns_to_remove_idx):
         outputs=['input_flat'],
         name='FlattenInput'
     )
-    graph.node.append(flatten_node)
+    graph.node.append(flatten_node)    
 
     # Add the Poseidon node
     poseidon_node = helper.make_node(
@@ -210,7 +212,7 @@ async def op_perform_query(selected_file, operations, columns_to_remove_idx):
     data = dict(
         input_shapes=[tensor_data.shape], # shape = how many elements along each axis
         # Take PyTorch tensor - detach it from any computation graph - convert it to a NumPy array - flatten it to 1D - list
-        input_data=[(tensor_data).detach().numpy().reshape([-1]).tolist()],
+        input_data=[(tensor_data).detach().numpy().tolist()],
         output_data=[final_tensor.detach().numpy().reshape([-1]).tolist()]
     )
     input_json_path = os.path.join(output_dir, 'input.json')
