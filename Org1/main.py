@@ -157,6 +157,8 @@ async def op_perform_query(selected_file, operations, columns_to_remove_idx):
     # Sets the model to evaluation mode (alternative to train mode) to disable dropout and batch normalization layers
     final_operation.eval()
 
+    print("test 10")
+
     model_onnx_path = os.path.join(output_dir, 'model.onnx')
     # to export the model torch.nn.Module to ONNX format
     torch.onnx.export(final_operation,               # model to be exported, nn.Module subclass
@@ -168,13 +170,19 @@ async def op_perform_query(selected_file, operations, columns_to_remove_idx):
                       input_names=['input'],         # the model's input names
                       output_names=['output'])       # the model's output names
 
+    print("test 20")
+
     # load the ONNX model from the file to the python object onnx_model
     onnx_model = onnx.load(model_onnx_path)
     graph = onnx_model.graph
+
+    print("test 30")
     
     # Run a validation check to ensure the model is well-formed and valid according to the ONNX specification
     onnx.checker.check_model(onnx_model)
     # print(onnx.helper.printable_graph(onnx_model.graph))
+
+    print("test 40")
     
     # Create a Flatten node to flatten the input tensor to 1D
     flatten_node = helper.make_node(
@@ -185,6 +193,9 @@ async def op_perform_query(selected_file, operations, columns_to_remove_idx):
     )
     graph.node.append(flatten_node)    
 
+    print("test 50")
+
+
     # Add the Poseidon node
     poseidon_node = helper.make_node(
         'Poseidon',
@@ -194,6 +205,8 @@ async def op_perform_query(selected_file, operations, columns_to_remove_idx):
     )
     graph.node.append(poseidon_node)
 
+    print("test 60")
+
     # Add the hash as a model output
     poseidon_output = helper.make_tensor_value_info(
         'poseidon_hash',
@@ -202,10 +215,14 @@ async def op_perform_query(selected_file, operations, columns_to_remove_idx):
     )
     graph.output.append(poseidon_output)
 
+    print("test 70")
+
     # Save the modified model
     onnx.save(onnx_model, model_onnx_path)
 
     onnx.checker.check_model(onnx_model)
+
+    print("test 80")
 
     # Prepare the input (input shape, input data, output data) for the proof generation in a dictionary format
     data = dict(
