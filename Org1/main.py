@@ -240,7 +240,7 @@ async def op_perform_query(selected_file, operations, columns_to_remove_idx):
         json.dump(data, f) # serialize the data dictionary to a JSON file
 
     #await generate_proof(output_dir, model_onnx_path, input_json_path, logrows=17)
-    #await generate_proof(output_dir, model_onnx_path, input_json_path, logrows=18)
+    await generate_proof(output_dir, model_onnx_path, input_json_path, logrows=18)
 
     return final_tensor, columns_to_remove_idx
 
