@@ -188,7 +188,7 @@ async def op_perform_query(selected_file, operations, columns_to_remove_idx):
     print("test1")
     onnx.checker.check_model(onnx_model) 
     print("test2")
-
+    """
     # Add the Poseidon node
     poseidon_node = helper.make_node(
         'Poseidon',
@@ -201,7 +201,7 @@ async def op_perform_query(selected_file, operations, columns_to_remove_idx):
     print("test3")
     onnx.checker.check_model(onnx_model) 
     print("test4")
-
+    """
     # Add the hash as a model output
     poseidon_output = helper.make_tensor_value_info(
         'poseidon_hash',
