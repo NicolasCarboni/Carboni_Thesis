@@ -222,6 +222,8 @@ async def op_perform_query(selected_file, operations, columns_to_remove_idx):
     # Save the modified model
     onnx.save(onnx_model, model_onnx_path)
 
+    print("test 75")
+
     onnx.checker.check_model(onnx_model)
 
     print("test 80")
