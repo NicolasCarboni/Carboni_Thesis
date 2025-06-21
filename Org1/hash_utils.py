@@ -124,19 +124,22 @@ def calculate_poseidon_hash(file_path):
 
 def poseidon_hash(inputs, params=None):
     # NOT a real Poseidon hash! Replace with a real implementation for production.
-    return sum([int(x) for x in inputs]) % (2**256)
+    # Compute a fake hash and return as a 32-byte integer (fits in 256 bits)
+    hash_int = sum([int(x) for x in inputs]) % (2**256)
+    # Ensure the result is exactly 32 bytes (padded with zeros if needed)
+    return int.from_bytes(hash_int.to_bytes(32, byteorder='big'), byteorder='big')
 
 def poseidon_params(length):
     # Dummy params, not used in this fake hash
     return None
-
 
 def get_stored_hash(web3, contract):
     return contract.functions.getHash().call()
 
 def publish_hash(file_path):
     poseidon_hash = calculate_poseidon_hash(file_path) # hash_utils.py
-    bytes32_hash = Web3.to_bytes(hexstr=poseidon_hash)
+    #bytes32_hash = Web3.to_bytes(hexstr=poseidon_hash)
+    bytes32_hash = poseidon_hash
 
     web3 = setup_web3()
     # call to get or create the contract instance
