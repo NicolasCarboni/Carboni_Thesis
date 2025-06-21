@@ -124,10 +124,10 @@ def calculate_poseidon_hash(file_path):
 
 def poseidon_hash(inputs, params=None):
     # NOT a real Poseidon hash! Replace with a real implementation for production.
-    # Compute a fake hash and return as a 32-byte integer (fits in 256 bits)
+    # Compute a fake hash and return as a 32-byte value (fits in 256 bits)
     hash_int = sum([int(x) for x in inputs]) % (2**256)
-    # Ensure the result is exactly 32 bytes (padded with zeros if needed)
-    return int.from_bytes(hash_int.to_bytes(32, byteorder='big'), byteorder='big')
+    # Convert to exactly 32 bytes
+    return hash_int.to_bytes(32, byteorder='big')
 
 def poseidon_params(length):
     # Dummy params, not used in this fake hash
