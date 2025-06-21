@@ -175,7 +175,6 @@ async def op_perform_query(selected_file, operations, columns_to_remove_idx):
     # Run a validation check to ensure the model is well-formed and valid according to the ONNX specification
     onnx.checker.check_model(onnx_model)
     # print(onnx.helper.printable_graph(onnx_model.graph))
-
     
     # Create a Flatten node to flatten the input tensor to 1D
     flatten_node = helper.make_node(
@@ -198,7 +197,7 @@ async def op_perform_query(selected_file, operations, columns_to_remove_idx):
     # Add the hash as a model output
     poseidon_output = helper.make_tensor_value_info(
         'poseidon_hash',
-        TensorProto.FLOAT,  # or INT64 ? (to do)
+        TensorProto.INT64,  # or .FLOAT ? (to do)
         [1]
     )
     graph.output.append(poseidon_output)
