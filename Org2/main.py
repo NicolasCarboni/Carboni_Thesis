@@ -2,7 +2,6 @@ import asyncio
 import json
 import os
 import sys
-from ezkl import ezkl
 import torch
 import pandas as pd
 from web3 import Web3
@@ -10,6 +9,9 @@ import logging
 
 from Org2.hash_utils import verify_query_allowed
 from Org1.main import op_perform_query
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../ezkl')))
+import ezkl
 
 # Load contract addresses from configuration file
 CONFIG_PATH = os.path.join('Blockchain', 'contract_addresses.json')
