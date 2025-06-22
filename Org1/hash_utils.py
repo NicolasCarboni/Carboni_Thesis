@@ -153,7 +153,7 @@ def publish_hash(file_path):
         tx_hash = contract.functions.setHash(bytes32_hash).transact({'from': account})
         web3.eth.wait_for_transaction_receipt(tx_hash)
         logging.info("The hash has been published to the blockchain.")
-        return poseidon_hash
+        return calculated_hash
     except Exception as e:
         logging.error(f"Failed to publish hash: {e}")
         raise
