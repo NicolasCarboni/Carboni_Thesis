@@ -152,7 +152,7 @@ def publish_hash(file_path):
         # setHash() from HashStorage.sol Solidity contract
         tx_hash = contract.functions.setHash(bytes32_hash).transact({'from': account})
         web3.eth.wait_for_transaction_receipt(tx_hash)
-        logging.info(f"Poseidon hash {poseidon_hash} has been published to the blockchain.")
+        logging.info("The hash has been published to the blockchain.")
         return poseidon_hash
     except Exception as e:
         logging.error(f"Failed to publish hash: {e}")
