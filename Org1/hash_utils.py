@@ -136,9 +136,11 @@ def get_stored_hash(web3, contract):
     return contract.functions.getHash().call()
 
 def publish_hash(file_path):
-    poseidon_hash = calculate_poseidon_hash(file_path) # hash_utils.py
-    #bytes32_hash = Web3.to_bytes(hexstr=poseidon_hash)
-    bytes32_hash = bytes.fromhex(poseidon_hash)
+    #poseidon_hash = calculate_poseidon_hash(file_path) # hash_utils.py
+    #bytes32_hash = bytes.fromhex(poseidon_hash)
+
+    calculated_hash = calculate_file_hash(file_path)
+    bytes32_hash = Web3.to_bytes(hexstr=calculated_hash)
 
     web3 = setup_web3()
     # call to get or create the contract instance
@@ -157,8 +159,11 @@ def publish_hash(file_path):
         raise
 
 def verify_dataset_hash(file_path):
-    poseidon_hash = calculate_poseidon_hash(file_path)
-    bytes32_hash = Web3.to_bytes(hexstr=poseidon_hash)
+    #poseidon_hash = calculate_poseidon_hash(file_path) # hash_utils.py
+    #bytes32_hash = bytes.fromhex(poseidon_hash)
+
+    calculated_hash = calculate_file_hash(file_path)
+    bytes32_hash = Web3.to_bytes(hexstr=calculated_hash)
 
     web3 = setup_web3()
     contract = get_contract(web3, CONTRACT_ADDRESS, CONTRACT_ABI_GET_HASH)
