@@ -902,12 +902,12 @@
     "1337": {
       "events": {},
       "links": {},
-      "address": "0xD2A77FF8Bf794b09e9F4a2F453c83087376fF123",
-      "transactionHash": "0x3ceab4de6dfaa8d80732a49d094c8684b40cd02df39d9a2e222f86743339a91b"
+      "address": "0x5E4Db64539Cf68Efcc3790B4661D059e58939281",
+      "transactionHash": "0xb561449f1487e91182fb5ebf520bc0faae3c0bee0af901bff9b505e6024bae87"
     }
   },
   "schemaVersion": "3.4.16",
-  "updatedAt": "2025-09-19T12:47:55.977Z",
+  "updatedAt": "2025-09-19T14:48:22.112Z",
   "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",
