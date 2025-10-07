@@ -1,21 +1,29 @@
 {
     "START_DATE": "2020-01-01",
     "END_DATE": "2024-12-31",
-
-    "dimensions_Id": ["Product_Id", "Material_Id", "Date_Id"],
-
-    "dimensions": ["Product Name", "Category", "Material", "Year", "Month", "Day"],
-    "attributes": ["Total Emissions (kgCO2e)"],
-
-    
+    "dimensions_Id": [
+        "Product_Id",
+        "Material_Id",
+        "Date_Id"
+    ],
+    "dimensions": [
+        "Product Name",
+        "Category",
+        "Material",
+        "Year",
+        "Month",
+        "Day"
+    ],
+    "attributes": [
+        "Total Emissions (kgCO2e)"
+    ],
     "Material": {
         "Cotton": 1,
         "Leather": 2,
         "Polyester": 3,
         "Denim": 4
     },
-
-    "Product Name":{
+    "Product Name": {
         "Running Shoes": 1,
         "Leather Boots": 2,
         "Slip-On Sneakers": 3,
@@ -27,28 +35,50 @@
         "Classic T-Shirt": 9,
         "Formal Shirt": 10,
         "Polo Shirt": 11,
-        "Tank Top": 12
+        "Tank Top": 12,
+        "Baseball Cap": 13,
+        "Beanie": 14,
+        "Cowboy Hat": 15,
+        "Bucket Hat": 16
     },
-
     "Category": {
         "Shoes": 1,
         "Pants": 2,
-        "Shirts": 3
+        "Shirts": 3,
+        "Hat": 4
     },
-
     "Category_range": {
-        "Shoes": [1, 4],
-        "Pants": [5, 8],
-        "Shirts": [9, 12]
+        "Shoes": [
+            1,
+            4
+        ],
+        "Pants": [
+            5,
+            8
+        ],
+        "Shirts": [
+            9,
+            12
+        ],
+        "Hat": [
+            13,
+            16
+        ]
     },
-
-
     "dim_hierarchy": {
-        "Clothes Type": ["Category", "Product Name"],
-        "Date": ["Year", "Month", "Day"],
-        "Material": ["Material"]
+        "Clothes Type": [
+            "Category",
+            "Product Name"
+        ],
+        "Date": [
+            "Year",
+            "Month",
+            "Day"
+        ],
+        "Material": [
+            "Material"
+        ]
     },
-    
     "col_indexes": {
         "Product Name": 0,
         "Category": 1,
@@ -58,7 +88,6 @@
         "Day": 5,
         "Total Emissions (kgCO2e)": 6
     },
-
     "dim_indexes": {
         "Product Name": 0,
         "Category": 1,
@@ -67,5 +96,4 @@
         "Month": 4,
         "Day": 5
     }
-
 }

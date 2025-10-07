@@ -11,12 +11,17 @@
     "Classic T-Shirt": 9,
     "Formal Shirt": 10,
     "Polo Shirt": 11,
-    "Tank Top": 12
+    "Tank Top": 12,
+    "Baseball Cap": 13,
+    "Beanie": 14,
+    "Cowboy Hat": 15,
+    "Bucket Hat": 16
   },
   "Category": {
     "Shoes": 1,
     "Pants": 2,
-    "Shirts": 3
+    "Shirts": 3,
+    "Hat": 4
   },
   "Material": {
     "Cotton": 1,
